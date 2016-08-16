@@ -1,0 +1,20 @@
+//Weapons
+
+
+//Pistol
+weapons/PSfire          Sound/Weapons/DSPistol2
+weapons/pistolclipin    Sound/Weapons/dscin
+weapons/pistolclipout   Sound/Weapons/dscout
+
+//Shotgun
+weapons/SGLOAD   Sound/Weapons/DSSHLOD1
+weapons/SGFIRE    Sound/Weapons/DSSHOTGN2
+weapons/SSGFIRE  Sound/Weapons/DSDSHTGN2
+
+//PlasmaRifle
+$random weapons/PRFire { weapons/plasma1 weapons/plasma2 }
+weapons/plasma1			Sound/Weapons/dsplas1
+weapons/plasma2			Sound/Weapons/dsplas2
+
+weapons/PRin    Sound/Weapons/DSPLIN
+weapons/PROut   Sound/Weapons/DSPLREL

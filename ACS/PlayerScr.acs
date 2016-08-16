@@ -1,0 +1,78 @@
+#library "PlayerScript"
+#include "zcommon.acs"
+#define PLAYER_TID_START 1000
+#define PLAYER_MAX_HEALTH_ADD 4
+#define atkbase 0.05
+#define defbase 1
+#define STRbase 1
+#define DAMAGE_COUNTPERCENT 0.02
+
+script 90 ENTER
+{
+  Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
+}
+
+script 91 RESPAWN
+{
+  Thing_ChangeTID(PLAYER_TID_START+PlayerNumber(),0);
+  Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
+  delay(1);
+  ACS_NamedExecuteAlways("UpdateHealth",0);
+  ACS_NamedExecuteAlways("MaxAmmoScript",0);
+}
+
+Script "UpdateHealth" (void)
+{
+  int StartHealth = CheckInventory("StatDEF") * 20;
+  int Player_Max_Health_in = CheckInventory("StatDEF") * CheckInventory("PlayerLevel");
+  int Player_Max_Health_Out = (PLAYER_MAX_HEALTH_in + StartHealth);
+  SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
+  if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
+     {
+	 SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH, Player_Max_Health_out);
+     }
+}
+
+script "playerstart" (void)
+{
+	int myatk = atkbase * CheckInventory("PlayerLevel");
+	int mydef = defbase * CheckInventory("PlayerLevel");
+	int mySTR = STRbase * CheckInventory("PlayerLevel");
+}
+
+script "MaxAmmoScript" (void)
+{
+    int mySTR = CheckInventory("StatSTR") * CheckInventory("PlayerLevel");
+	
+	int ClipAdd = (mySTR * 4);
+	int ShellAdd = (mySTR * 2);
+	int RocketAdd = (mySTR * 2);
+	int CellAdd = (mySTR * 6);
+	
+	SetAmmoCapacity("Clip", 200 + ClipAdd);
+    SetAmmoCapacity("Shell", 50 + ShellAdd);
+    SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
+    SetAmmoCapacity("Cell", 300 + CellAdd);
+}
+
+script "DAMAGESCR" (int indamage)
+{
+	int levelchecker = CheckInventory("StatATK") * CheckInventory("Playerlevel");
+	int counter = DAMAGE_COUNTPERCENT * levelchecker;
+    int outdamage = indamage * (1.0 + counter);
+	setresultvalue(outdamage >> 16);
+	//print(f: outdamage);
+	
+}
+
+script "PROJDAMAGESCR" (int indamage)
+{
+	SetActivatorToTarget(0);
+	int atkchecker = CheckInventory("StatATK");
+	int levelchecker = atkchecker * CheckInventory("Playerlevel");
+	int counter = DAMAGE_COUNTPERCENT * levelchecker;
+    int outdamage = indamage * (1.0 + counter);
+	setresultvalue(outdamage >> 16);
+	//print(f: outdamage);
+	
+}

@@ -1,0 +1,215 @@
+Actor Expereince : Inventory
+{          
+  Inventory.PickupMessage "Absorbed Essence"
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ESES A -1 
+    loop
+  }
+}
+
+Actor MaxhealthGiver : Maxhealth
+{
+  Inventory.amount 1
+  Inventory.MaxAmount 999
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  States
+  {
+  Spawn:
+    BON1 ABCDCB 6
+    Loop
+  }
+}
+
+Actor PlayerLevel : Inventory
+{          
+  Inventory.PickupMessage "Gained Level!!!"
+  Inventory.Amount 1
+  Inventory.MaxAmount 60
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ESES A -1 
+    loop
+	Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("UpdateHealth")
+	stop
+  }
+}
+
+Actor EssenceGiver : Custominventory
+{
+  Inventory.PickupMessage "Gained 1 EXP"
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  +COUNTITEM
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0
+	stop
+  }
+}
+
+Actor EssenceGiverZom : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,3)
+	stop
+  }
+}
+
+Actor EssenceGiverImp : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,5)
+	stop
+  }
+}
+
+Actor EssenceGiverDemon : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,10)
+	stop
+  }
+}
+
+Actor EssenceGiverCaco : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,20)
+	stop
+  }
+}
+
+Actor EssenceGiverBaron : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,40)
+	stop
+  }
+}
+
+Actor EssenceGiverKnight : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,30)
+	stop
+  }
+}
+
+Actor EssenceGiverSoul : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,5)
+	stop
+  }
+}
+
+Actor EssenceGiverBoss : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,300)
+	stop
+  }
+}
+
+Actor EssenceGiverArch : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,60)
+	stop
+  }
+}
+
+Actor EssenceGivermancubus : EssenceGiver 
+{
+  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+    AWI3 A -1
+    stop
+  Pickup:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,45)
+	stop
+  }
+}

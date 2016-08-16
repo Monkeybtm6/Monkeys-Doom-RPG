@@ -1,0 +1,95 @@
+//pistol
+
+ACTOR PistolWS : Pistol replaces Pistol
+{
+  Weapon.SelectionOrder 1900
+  Weapon.SlotNumber 2
+  Weapon.AmmoUse 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoGive 20
+  Weapon.AmmoType "Pistmag"
+  Weapon.AmmoType2 "Clip"
+  Obituary "$OB_MPPISTOL"
+  //+WEAPON.WIMPY_WEAPON
+  +Weapon.Ammo_Optional
+  Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
+  Tag "$TAG_PISTOL"
+  States
+  {
+  Ready:
+    PKPI A 1 A_WeaponReady(wrf_allowreload)
+    Loop
+  Deselect:
+    PKPI A 1 A_Lower
+    Loop
+  Select:
+    PKPI A 1 A_Raise
+    Loop
+  Fire:
+    PISG A 0 A_JumpIfNoAmmo("Reload")
+    PKPI A 3
+    PKPI A 0 //ACS_NamedExecuteAlways("CheckmonHealth")
+	PKPI A 0 A_FireBullets (5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
+    PKPI A 0 A_PlaySound("weapons/PSfire", CHAN_WEAPON)
+    PKPF A 2 A_GunFlash
+    PKPI BCDEF 1
+    PKPI A 0 A_ReFire
+    Goto Ready
+
+   Reload:
+    PKPI A 0 A_JumpIfInventory ("pistmag", 12, 2)
+    PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
+    PKPI A 0
+    goto ready
+   Reloadstep:
+    PKPR A 2 A_playSound("weapons/pistolclipout")
+	PKPR BCDE 2
+    PKPR F 3
+   ReloadLoop:
+    TNT1 A 0 A_TakeInventory("Clip", 1)
+    TNT1 A 0 A_GiveInventory("pistmag", 1)
+    TNT1 A 0 A_JumpIfInventory("pistmag", 12, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
+    Goto ReloadDone
+   ReloadDone:
+    PKPR G 2 A_playSound("weapons/pistolclipin")
+    PKPR HIJKLMNOPQ 2
+    goto ready
+  
+  Flash:
+    PISF A 0
+    PISF A 0 Bright A_Light1
+    Goto LightDone
+
+  Spawn:
+    PIST A -1
+    Stop
+  }
+}
+
+ACTOR PistPuff
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.5
+  VSpeed 1
+  Mass 5
+  States
+  {
+  Spawn:
+    PUFF A 4 Bright
+    PUFF B 4
+  Melee:
+    PUFF CD 4
+    Stop
+  }
+}
+
+actor "Pistmag" : Ammo
+{
+  Inventory.MaxAmount 12
+  +IGNORESKILL
+}

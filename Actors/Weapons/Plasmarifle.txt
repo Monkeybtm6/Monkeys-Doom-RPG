@@ -1,0 +1,104 @@
+ACTOR PlasmaRifleWS : PlasmaRifle Replaces PlasmaRifle
+{
+  Weapon.SelectionOrder 100
+  Weapon.SlotNumber 6
+  Weapon.AmmoUse 1
+  Weapon.AmmoGive2 40
+  Weapon.AmmoType "Plasmag"
+  Weapon.AmmoType2 "Cell"
+  Weapon.KickBack 60
+  +WEAPON.AMMO_OPTIONAL
+  Inventory.PickupMessage "$GOTPLASMA"
+  Tag "$TAG_PLASMARIFLE"
+  States
+  {
+  Ready:
+    PKPL A 1 A_WeaponReady(wrf_allowreload)
+    Loop
+  Deselect:
+    PKPL A 1 A_Lower
+    Loop
+  Select:
+    PKPL A 1 A_Raise
+    Loop
+  Fire:
+    TNT1 A 0 A_JumpIfnoammo("Reload")
+	TNT1 A 0 A_AlertMonsters
+	PLSF B 1 A_FireCustomMissile("PlasmaBallplus",0,1,0,0,0)
+	PLSF B 0 A_PlayWeaponsound("weapons/PRFire")
+	PLSF B 2
+	TNT1 A 0 Radius_Quake(1,2,0,1,0)
+	TNT1 A 0 A_GunFlash
+    TNT1 A 0 A_JumpIfInventory("Plasmag",1,1)
+    Goto Recoil
+	TNT1 A 3 A_ReFire
+  Recoil:
+	PKPL DEF 1
+	PKPL G 10
+	PKPL FEDCBA 1
+    Goto Ready	
+	
+Reload:
+    PKPL A 0 A_JumpIfInventory ("Plasmag", 60, 2)
+    PKPL A 0 A_JumpIfInventory("Cell", 1, "ReloadStep")
+    PKPL A 0
+    goto ready
+   Reloadstep:
+	PLZR B 0 
+	PLZR ML 2
+	PLZR K 1 A_playSound("weapons/PROut")
+	PLZR K 1
+	PLZR J 2
+	PLZR I 4
+	PLZR HGFE 2
+	PLZR E 5
+   ReloadLoop:
+	TNT1 A 0 A_TakeInventory("Cell", 1)
+    TNT1 A 0 A_GiveInventory("Plasmag", 1)
+    TNT1 A 0 A_JumpIfInventory("Plasmag", 60, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("Cell", 1, "ReloadLoop")
+    Goto ReloadDone
+   ReloadDone:
+	PLZR EFGHIJKLM 2
+	goto ready
+  
+  Flash:
+	TNT1 A 2 Bright A_Light1
+	PLSF A 2 Bright A_Light2
+	Goto LightDone
+  Spawn:
+    PLAS A -1
+    Stop
+  }
+}
+
+ACTOR PlasmaBallplus 
+{
+  Radius 8
+  Height 8
+  Scale 0.4
+  Speed 40
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",12,0,0,0))
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.5
+  //SeeSound "weapons/PRFire"
+  //DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLST ABCDEF 3 Bright
+    Loop
+  Death:
+    PLSE ABCDE 4 Bright 
+    Stop
+  }
+}
+
+Actor Plasmag : Ammo
+{
+ Inventory.MaxAmount 60
+ +IGNORESKILL
+}

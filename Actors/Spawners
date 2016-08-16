@@ -1,0 +1,17 @@
+Actor WSimpspawner : RandomSpawner Replaces Doomimp
+{
+  Dropitem "WSImp"
+  Dropitem "WSImp"
+  Dropitem "WSImp"
+  Dropitem "WSImp"
+  Dropitem "WSDarkImp"
+}
+
+Actor WSZombiespawner : RandomSpawner replaces ZombieMan
+{
+  Dropitem "WSZombieMan"
+  Dropitem "WSZombieMan"
+  Dropitem "WSZombieMan"
+  Dropitem "WSZombieMan"
+  Dropitem "WSPlasmaZombie"
+}

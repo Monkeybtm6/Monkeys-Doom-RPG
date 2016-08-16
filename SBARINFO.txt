@@ -1,0 +1,136 @@
+height 0;
+Resolution 640,400;
+
+statusbar fullscreen, forcescaled, fullscreenoffsets
+{
+    //Hud Boxes
+	drawimage "HUDBOX2", 2, -33;
+	drawimage "HUDBOX2", 68, -33;
+	drawimage "HUDBOX2", -69, -33;
+	drawimage "HUDLONG", 2, -49;
+	
+	//health
+    drawimage "HUDH", 13, -8, centerbottom;
+    drawnumber 3, BIGFONT, untranslated, health, drawshadow, 57, -24;
+
+    //armor
+    drawimage "HUDA", 81, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 125, -24;
+
+    //ammo
+    //drawimage ammoicon1, -12, -8, centerbottom;
+    drawimage ammoicon2, -16, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
+
+    usesammo
+    {
+        //secondary ammo and inventory
+        usessecondaryammo
+        {
+            //drawimage "HUDLONG", -70, -1, centerbottom;
+            drawimage "HUDMAXAM", -45, -49;
+			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -39, -26, -56, untranslated;
+            }
+        }
+        //no secondary ammo
+        usessecondaryammo not
+        {
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -21, -26, -38, untranslated;
+            }
+        }
+    }
+    
+    // no ammo but inventory
+    usesammo not
+    {
+        inventorybarnotvisible
+        {
+            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -3, -26, -20, untranslated;
+        }
+    }
+
+    //Essence
+    DrawNumber 4, SMALLFNT, GREEN,"Expereince", 64, -45;
+	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
+    
+    gamemode deathmatch
+    {
+        drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;
+    }
+    gamemode singleplayer, cooperative, teamgame
+    {
+        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+    }
+}
+
+statusbar normal, forcescaled, fullscreenoffsets
+{
+    //Hud Boxes
+	drawimage "HUDBOX2", 2, -33;
+	drawimage "HUDBOX2", 68, -33;
+	drawimage "HUDBOX2", -69, -33;
+	drawimage "HUDLONG", 2, -49;
+	
+	//health
+    drawimage "HUDH", 13, -8, centerbottom;
+    drawnumber 3, BIGFONT, untranslated, health, drawshadow, 57, -24;
+
+    //armor
+    drawimage "HUDA", 81, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 125, -24;
+
+    //ammo
+    //drawimage ammoicon1, -12, -8, centerbottom;
+    drawimage ammoicon2, -18, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
+
+    usesammo
+    {
+        //secondary ammo and inventory
+        usessecondaryammo
+        {
+            //drawimage "HUDLONG", -70, -1, centerbottom;
+            drawimage "HUDMAXAM", -45, -49;
+			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -39, -26, -56, untranslated;
+            }
+        }
+        //no secondary ammo
+        usessecondaryammo not
+        {
+            inventorybarnotvisible
+            {
+                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -21, -26, -38, untranslated;
+            }
+        }
+    }
+    
+    // no ammo but inventory
+    usesammo not
+    {
+        inventorybarnotvisible
+        {
+            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -3, -26, -20, untranslated;
+        }
+    }
+
+    //Essence
+    DrawNumber 4, SMALLFNT, GREEN,"Expereince", 64, -45;
+	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
+    
+    gamemode deathmatch
+    {
+        drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;
+    }
+    gamemode singleplayer, cooperative, teamgame
+    {
+        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+    }
+}

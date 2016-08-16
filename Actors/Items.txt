@@ -1,0 +1,50 @@
+ACTOR WSHealthBonus : HealthBonus replaces HealthBonus
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 999
+  Inventory.PickupMessage "$GOTHTHBONUS" // "Picked up a health bonus."
+  States
+  {
+  Spawn:
+    BON1 ABCDCB 6
+    Loop
+  }
+}
+
+ACTOR WSSoulsphere : Soulsphere Replaces Soulsphere
+{
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  +INVENTORY.FANCYPICKUPSOUND
+  Inventory.Amount 100
+  Inventory.MaxAmount 999
+  Inventory.PickupMessage "$GOTSUPER" // "Supercharge!"
+  Inventory.PickupSound "misc/p_pkup"
+  States
+  {
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+  }
+}
+
+ACTOR Backpackdum : Soulsphere Replaces Backpack
+{
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  +INVENTORY.FANCYPICKUPSOUND
+  Inventory.Amount 100
+  Inventory.MaxAmount 999
+  Inventory.PickupMessage "$GOTSUPER" // "Supercharge!"
+  Inventory.PickupSound "misc/p_pkup"
+  States
+  {
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+  }
+}
