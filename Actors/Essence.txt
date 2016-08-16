@@ -14,7 +14,7 @@ Actor Expereince : Inventory
   }
 }
 
-Actor MaxhealthGiver : Maxhealth
+/*Actor MaxhealthGiver : Maxhealth
 {
   Inventory.amount 1
   Inventory.MaxAmount 999
@@ -26,7 +26,7 @@ Actor MaxhealthGiver : Maxhealth
     BON1 ABCDCB 6
     Loop
   }
-}
+} */
 
 Actor PlayerLevel : Inventory
 {          
@@ -44,6 +44,22 @@ Actor PlayerLevel : Inventory
 	Pickup:
     TNT1 A 0 ACS_NamedExecuteAlways("UpdateHealth")
 	stop
+  }
+}
+
+Actor MonsterLevel : CustomInventory
+{          
+  Inventory.PickupMessage "Gained Level!!!"
+  Inventory.Amount 1
+  Inventory.MaxAmount 99
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Pickup:
+    TNT1 A 0 A_Giveinventory("PlayerLevel")
+    Stop
   }
 }
 

@@ -50,12 +50,12 @@ ACTOR ShotgunWS : Shotgun replaces Shotgun
 	PKPR BCDE 0
     PKPR F 0
    ReloadLoop:
-    SHTR AAAABCDE 1
+    SHTR AAAABBCDE 1
     SHTR F 1 A_playsound("weapons/SGLOAD")
     TNT1 A 0 A_TakeInventory("shell", 1)
 	TNT1 A 0 A_GiveInventory("SGMAG", 1)
 	TNT1 A 0 A_JumpIfInventory("SGMAG", 8, "ReloadDone")
-	SHTR EDCCCDE 1
+	SHTR EDDCCCDDE 1
 	SHTR H 1 A_playsound("weapons/SGLOAD")
 	TNT1 A 0 A_TakeInventory("shell", 1)
 	TNT1 A 0 A_GiveInventory("SGMAG", 1)

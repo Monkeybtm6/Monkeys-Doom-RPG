@@ -17,7 +17,9 @@ ACTOR WSZombieMan : ZombieMan
   States
   {
   Spawn:
-    TNT1 A 0 ACS_NamedExecuteAlways("MonsterStatsint",0,10,10,0)
+    TNT1 A 0 A_Giveinventory("MonStatATK",10)
+	TNT1 A 0 A_Giveinventory("MonStatDEF",10)
+	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     POSS AB 10 A_Look
 	Loop

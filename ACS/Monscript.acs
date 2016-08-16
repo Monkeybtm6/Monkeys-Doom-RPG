@@ -21,23 +21,25 @@ Script "CheckmonHealth" (void)
     }
 }
 
-Script "MonsterStatsint" (Int MyDef, Int MyAtk)
+Script "MonsterStatsInt" (Void)
 {
- int MonsterTid = UniqueTID();
- Thing_ChangeTID(0, MonsterTid);
- int Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
- MyHealth = getactorproperty(MonsterTid, APROP_Health),
- MyLevel = + Thismap;
- SetUserVariable(MonsterTid, "User_Attack", MyAtk);
- /*If (MyLevel <= 0)
-   {MyLevel = 1;}*/
- SetUserVariable(MonsterTid, "User_Level", MyLevel);
- SetActorProperty(MonsterTid, APROP_Health, MyHealth + (MyDef * Mylevel));
+ int MonsterTid = UniqueTID(),
+ Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
+ MyHealth = getactorproperty(0, APROP_Health),
+ MyDef = CheckInventory("StatDef"),
+ MyATK = CheckInventory("StatATK"),
+ MyLevel = Random(-3,3) + Thismap;
+ If (MyLevel <= 0)
+   {MyLevel = 1;}
+ 
+ GiveInventory("Monsterlevel",MyLevel);
+ SetActorProperty(0, APROP_Health, MyHealth + (MyDef * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)
 {
-	int levelchecker = GetUserVariable(0,"User_attack") * GetUserVariable(0,"User_Level");
+	SetActivatorToTarget(0);
+	int levelchecker = CheckInventory("StatATK") * CheckInventory("Playerlevel");
 	int counter = DAMAGE_COUNTPERCENT * levelchecker;
     int outdamage = indamage * (1.0 + counter);
 	setresultvalue(outdamage >> 16);
