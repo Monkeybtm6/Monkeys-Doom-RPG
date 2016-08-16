@@ -1,25 +1,9 @@
 #Library "Monsterscript"
 #include "zcommon.acs"
 #define MONSTER_TID 2000
-#define DAMAGE_COUNTPERCENT 0.2
+#define DAMAGE_COUNTPERCENT 0.05
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
-
-Script "CheckmonHealth" (void)
-{
-  int playertarg = (activatortid());
-  if (setActivator(0,AAPTR_PLAYER_GETTARGET))
-    {
-    int dudeMhp = (getactorproperty(0,APROP_SpawnHealth));
-    int dudehp = (getactorproperty(0,APROP_Health));
-   int dudeXP = (dudeMhp / 20);
-    }
-   if (dudehp <= 0 )
-    {
-         SetActivator(playertarg);   
-        giveinventory("Expereince",dudexp);
-    }
-}
 
 Script "MonsterStatsInt" (Void)
 {
@@ -33,7 +17,7 @@ Script "MonsterStatsInt" (Void)
    {MyLevel = 1;}
  
  GiveInventory("Monsterlevel",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + (MyDef * Mylevel));
+ SetActorProperty(0, APROP_Health, MyHealth + ((MyDef * 2) * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)

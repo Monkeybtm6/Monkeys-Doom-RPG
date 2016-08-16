@@ -10,7 +10,7 @@
 
 #include "Actors/T1Monsters.txt"
 #include "Actors/T2Monsters.txt"
-#include "Actors/Spawners"
+#include "Actors/Spawners.txt"
 #include "Actors/Player.txt"
 #include "Actors/items.txt"
 #include "Actors/Stats.dec"

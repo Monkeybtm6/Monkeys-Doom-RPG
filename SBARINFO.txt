@@ -4,18 +4,18 @@ Resolution 640,400;
 statusbar fullscreen, forcescaled, fullscreenoffsets
 {
     //Hud Boxes
-	drawimage "HUDBOX2", 2, -33;
-	drawimage "HUDBOX2", 68, -33;
+	drawimage "HUDBOX", 2, -33;
+	drawimage "HUDBOX2", 79, -33;
 	drawimage "HUDBOX2", -69, -33;
 	drawimage "HUDLONG", 2, -49;
 	
 	//health
     drawimage "HUDH", 13, -8, centerbottom;
-    drawnumber 3, BIGFONT, untranslated, health, drawshadow, 57, -24;
+    drawnumber 4, BIGFONT, untranslated, health, drawshadow, 68, -24;
 
     //armor
-    drawimage "HUDA", 81, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 125, -24;
+    drawimage "HUDA", 90, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 136, -24;
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;

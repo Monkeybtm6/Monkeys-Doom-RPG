@@ -16,8 +16,7 @@ int Lvl = CheckInventory("Playerlevel");
    {
       GiveInventory("Playerlevel", 1);
       TakeInventory("Expereince",(100 * lvl));
-      ACS_NamedExecuteAlways("UpdateHealth",0);
-	  ACS_NamedExecuteAlways("MaxAmmoScript",0);
+      ACS_NamedExecuteAlways("UpdateStats",0);
    }
 
 }
