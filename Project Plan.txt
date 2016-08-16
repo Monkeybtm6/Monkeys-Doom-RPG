@@ -1,0 +1,15 @@
+-Create an entire custom armor system if possible.
+
+-Redo the RPG ruleset.
+
+-Add luck stat that governs ammo pickups.
+
+-Add Armor stat if custom armor system isnt possible.
+
+-Custom Random spawner that swaps out enemies based on map number and difficulty.
+
+-Add lots of new enemies.
+
+-Add lots of new varying rarities of weapons and armors, Gotta have diablo style loot in a multiplayer focused RPG.
+
+-Add ability to save character data outside of the game. (and take advantage of zandronums database features.)
