@@ -1,6 +1,6 @@
 ACTOR WSDoomMarine : DoomPlayer
 {
-  Speed 1
+  Speed 1.0
   Health 100
   Radius 16
   Height 56
@@ -17,6 +17,7 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "StatATK", 5
   Player.StartItem "StatDEF", 5
   Player.StartItem "StatSTR", 5
+  Player.StartItem "StatAGI", 5
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
@@ -89,7 +90,7 @@ ACTOR WSDoomMarine : DoomPlayer
 
 ACTOR WSDoomTank : DoomPlayer
 {
-  Speed 1
+  Speed 1.0
   Health 100
   Radius 16
   Height 56
@@ -103,9 +104,10 @@ ACTOR WSDoomTank : DoomPlayer
   Player.StartItem "Pistmag", 12
   Player.StartItem "Playerlevel", 1
   
-  Player.StartItem "StatATK", 2
+  Player.StartItem "StatATK", 5
   Player.StartItem "StatDEF", 7
-  Player.StartItem "StatSTR", 6
+  Player.StartItem "StatSTR", 4
+  Player.StartItem "StatAGI", 3
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
@@ -178,7 +180,7 @@ ACTOR WSDoomTank : DoomPlayer
 
 ACTOR WSDoomSupport : DoomPlayer
 {
-  Speed 1
+  Speed 1.0
   Health 100
   Radius 16
   Height 56
@@ -192,9 +194,10 @@ ACTOR WSDoomSupport : DoomPlayer
   Player.StartItem "Pistmag", 12
   Player.StartItem "Playerlevel", 1
   
-  Player.StartItem "StatATK", 5
+  Player.StartItem "StatATK", 3
   Player.StartItem "StatDEF", 3
   Player.StartItem "StatSTR", 7
+  Player.StartItem "StatAGI", 7
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"

@@ -15,3 +15,5 @@
 -Add lots of new varying rarities of weapons and armors, Gotta have diablo style loot in a multiplayer focused RPG.
 
 -Add ability to save character data outside of the game. (and take advantage of zandronums database features.)
+
+-Change enemies to make them more fun to fight

@@ -5,11 +5,15 @@
 #define atkbase 0.05
 #define defbase 1
 #define STRbase 1
+#define AGIbase 0.2
 #define DAMAGE_COUNTPERCENT 0.05
+#define MaxLevel 60
+int LevelNext[MaxLevel];
 
 script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
+  ACS_NamedExecuteAlways("UpdateStats",0);
 }
 
 script 91 RESPAWN
@@ -18,6 +22,22 @@ script 91 RESPAWN
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
   delay(1);
   ACS_NamedExecuteAlways("UpdateStats",0);
+}
+
+Script "Levelupcheck" (int EXPA)
+{
+GiveInventory("Expereince", EXPA);
+
+int EXP = CheckInventory("Expereince");
+int Lvl = CheckInventory("Playerlevel");
+   
+   if(EXP >= (100 * Lvl))
+   {
+      GiveInventory("Playerlevel", 1);
+      TakeInventory("Expereince",(100 * lvl));
+      ACS_NamedExecuteAlways("UpdateStats",0);
+   }
+
 }
 
 Script "UpdateStats" (void)
@@ -40,6 +60,11 @@ Script "UpdateStats" (void)
   SetAmmoCapacity("Shell", 50 + ShellAdd);
   SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
   SetAmmoCapacity("Cell", 300 + CellAdd);
+  SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
+  
+  
+  Log(s:"Stats Refreshed for ");
+  Log(f: PlayerNumber());
 
 }
 

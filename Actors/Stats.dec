@@ -32,7 +32,39 @@ Actor StatDEF : Inventory
 
 Actor StatSTR : Inventory
 {          
+  Inventory.PickupMessage "Strength Increased"
+  Inventory.Amount 1
+  Inventory.MaxAmount 10
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ESES A -1 
+    loop
+  }
+}
+
+Actor StatAgi : Inventory
+{          
   Inventory.PickupMessage "Speed Increased"
+  Inventory.Amount 1
+  Inventory.MaxAmount 10
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ESES A -1 
+    loop
+  }
+}
+
+Actor StatLCL : Inventory
+{          
+  Inventory.PickupMessage "Luck Increased"
   Inventory.Amount 1
   Inventory.MaxAmount 10
   +COUNTITEM
