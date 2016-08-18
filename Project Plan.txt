@@ -17,3 +17,7 @@
 -Add ability to save character data outside of the game. (and take advantage of zandronums database features.)
 
 -Change enemies to make them more fun to fight
+
+-Improve the weapons (they kinda suck right now)
+
+-Make Custom main menu

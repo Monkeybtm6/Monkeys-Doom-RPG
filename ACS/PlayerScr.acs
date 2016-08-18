@@ -42,8 +42,8 @@ int Lvl = CheckInventory("Playerlevel");
 
 Script "UpdateStats" (void)
 {
-  int StartHealth = CheckInventory("StatDEF") * 20;
-  int Player_Max_Health_in = CheckInventory("StatDEF") * CheckInventory("PlayerLevel");
+  int StartHealth = CheckInventory("StatVIT") * 20;
+  int Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel");
   int Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth);
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
   if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
@@ -95,4 +95,14 @@ script "PROJDAMAGESCR" (int indamage)
 	setresultvalue(outdamage >> 16);
 	//print(f: outdamage);
 	
+}
+
+script "ArmorSCR" (int Gainedarmor)
+{
+    int maxarmor = (Checkinventory("StatDEF") * Checkinventory("Playerlevel"));
+	if (Checkinventory("armor") <= Maxarmor + 100)
+	{
+	    GiveInventory("armor", Gainedarmor);
+	}
+
 }

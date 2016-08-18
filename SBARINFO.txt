@@ -15,7 +15,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 
     //armor
     drawimage "HUDA", 90, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 136, -24;
+    drawnumber 3, BIGFONT, untranslated, armor, drawshadow, whennotzero, 136, -24;
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
@@ -59,10 +59,11 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Red, "StatATK",12,-56;
-	DrawNumber 1, SMALLFNT, Green, "StatDef",20,-56;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",28,-56;
-	DrawNumber 1, SMALLFNT, Blue, "StatAGI",36,-56;
+	DrawNumber 1, SMALLFNT, Green, "StatVit",12,-56;
+	DrawNumber 1, SMALLFNT, Red, "StatATK",20,-56;
+	DrawNumber 1, SMALLFNT, Cyan, "StatDef",28,-56;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",36,-56;
+	DrawNumber 1, SMALLFNT, Blue, "StatAGI",44,-56;
     
     gamemode deathmatch
     {

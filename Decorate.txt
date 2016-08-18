@@ -7,6 +7,7 @@
 #include "Actors/Weapons/RocketLauncher.txt"
 //#include "Actors/Weapons/BFG9000.txt"
 #include "Actors/Weapons/SuperShotgun.txt"
+#include "Actors/Weapons/MachinePistol.txt"
 
 #include "Actors/T1Monsters.txt"
 #include "Actors/T2Monsters.txt"

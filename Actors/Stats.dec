@@ -1,3 +1,19 @@
+Actor StatVit : Inventory
+{          
+  Inventory.PickupMessage "Vitality Increased"
+  Inventory.Amount 1
+  Inventory.MaxAmount 10
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
+  States
+  {
+  Spawn:
+    ESES A -1 
+    loop
+  }
+}
+
 Actor StatATK : Inventory
 {          
   Inventory.PickupMessage "Striength Increased"
