@@ -104,5 +104,9 @@ script "ArmorSCR" (int Gainedarmor)
 	{
 	    GiveInventory("armor", Gainedarmor);
 	}
+	Else
+	{
+	Terminate;
+	}
 
 }

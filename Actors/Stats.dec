@@ -96,10 +96,6 @@ Actor StatLCL : Inventory
 
 Actor MonStatATK : CustomInventory
 {          
-  Inventory.PickupMessage "Striength Increased"
-  Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -110,28 +106,20 @@ Actor MonStatATK : CustomInventory
   }
 }
 
-Actor MonStatDEF : CustomInventory
+Actor MonStatVit : CustomInventory
 {          
-  Inventory.PickupMessage "Defense Increased"
-  Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
   {
   Pickup:
-    TNT1 A 0 A_Giveinventory("StatDef")
+    TNT1 A 0 A_Giveinventory("StatVit")
     Stop
   }
 }
 
 Actor MonStatSTR : CustomInventory
 {          
-  Inventory.PickupMessage "Speed Increased"
-  Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States

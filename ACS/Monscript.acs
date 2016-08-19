@@ -10,14 +10,14 @@ Script "MonsterStatsInt" (Void)
  int MonsterTid = UniqueTID(),
  Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
  MyHealth = getactorproperty(0, APROP_Health),
- MyDef = CheckInventory("StatDef"),
+ MyVit = CheckInventory("StatVit"),
  MyATK = CheckInventory("StatATK"),
  MyLevel = Random(-3,3) + Thismap;
  If (MyLevel <= 0)
    {MyLevel = 1;}
  
  GiveInventory("Monsterlevel",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + ((MyDef * 2) * Mylevel));
+ SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 2) * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)
