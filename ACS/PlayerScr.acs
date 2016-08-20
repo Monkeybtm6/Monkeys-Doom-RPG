@@ -1,4 +1,4 @@
-#library "PlayerScript"
+#library "PlayerScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define PLAYER_MAX_HEALTH_ADD 4
@@ -13,7 +13,7 @@ int LevelNext[MaxLevel];
 script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
-  ACS_NamedExecuteAlways("UpdateStats",0);
+
 }
 
 script 91 RESPAWN
@@ -22,6 +22,12 @@ script 91 RESPAWN
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
   delay(1);
   ACS_NamedExecuteAlways("UpdateStats",0);
+}
+
+Script 93 Return
+{
+  GiveInventory("SaveCharActivator",1);
+  GiveInventory("LoadCharActivator",1);
 }
 
 Script "Levelupcheck" (int EXPA)

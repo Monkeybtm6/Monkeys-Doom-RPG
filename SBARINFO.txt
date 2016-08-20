@@ -55,7 +55,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
     }
 
     //Essence
-    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 75, -45;
+    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -45;
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats

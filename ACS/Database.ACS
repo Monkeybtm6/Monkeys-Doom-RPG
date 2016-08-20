@@ -1,0 +1,48 @@
+#library "DatabaseScr"
+#include "zcommon.acs"
+#define PLAYER_TID_START 1000
+#define SaveItems 7
+int MyInventory[SaveItems] =
+{
+    "Expereince",
+    "PlayerLevel",
+	"StatVIT",
+	"StatATK",
+	"StatSTR",
+	"StatDEF",
+	"StatAGI"
+};
+Script "LoadCharScr" (void)
+{
+	int MyTid = PLAYER_TID_START + PlayerNumber();
+	str MySavedName = (GetUserCVarString(PlayerNumber(),"Name"));
+	str MySavedID = (GetUserCVarString(PlayerNumber(),"MRPG_MyID"));
+	str namespace = strparam(s:MySavedName, s:MySavedID, s:"_inventory");
+
+    for (int E = 0; E < SaveItems; E++) {
+        TakeActorInventory(MyTid, MyInventory[E], 9999);
+    }
+	print(s:"Restoring your inventory...", s:namespace);
+    for (int i = 0; i < SaveItems; i++) {
+        GiveActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
+    }
+	print(s:"Inventory restored!");
+}
+
+script "SaveCharScr" (void)
+{
+	int MyTid = PLAYER_TID_START + PlayerNumber();
+
+	str MySavedName = (GetUserCVarString(PlayerNumber(),"Name"));
+	str MySavedID = (GetUserCVarString(PlayerNumber(),"MRPG_MyID"));
+	str namespace = strparam(s:MySavedName, s:MySavedID, s:"_inventory");
+	
+	print(s:"Saving your inventory...");
+	BeginDBTransaction();
+    for (int i = 0; i < SaveItems; i++) {
+        SetDBEntry(namespace, MyInventory[i], CheckActorInventory(MyTid, MyInventory[i]));
+    }
+	EndDBTransaction();
+	print(s:"Inventory saved!");
+	ActivatorSound("switches/normbutn", 127);
+}
