@@ -2,11 +2,11 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define PLAYER_MAX_HEALTH_ADD 4
-#define atkbase 0.05
+#define atkbase 0.04
 #define defbase 1
 #define STRbase 1
 #define AGIbase 0.2
-#define DAMAGE_COUNTPERCENT 0.05
+#define DAMAGE_COUNTPERCENT 0.02
 #define MaxLevel 60
 int LevelNext[MaxLevel];
 

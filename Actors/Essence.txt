@@ -2,7 +2,7 @@ Actor Expereince : Inventory
 {          
   Inventory.PickupMessage "Absorbed Essence"
   Inventory.Amount 1
-  Inventory.MaxAmount 9999
+  Inventory.MaxAmount 99999
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
@@ -47,20 +47,28 @@ Actor PlayerLevel : Inventory
   }
 }
 
-Actor MonsterLevel : CustomInventory
+Actor MonsterLevelGiver : CustomInventory
 {          
-  Inventory.PickupMessage "Gained Level!!!"
-  Inventory.Amount 1
-  Inventory.MaxAmount 99
+  Inventory.PickupMessage "I dont think you should have this."
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
   {
   Pickup:
-    TNT1 A 0 A_Giveinventory("PlayerLevel")
+    TNT1 A 0 A_Giveinventory("MonsterLevel")
     Stop
   }
+}
+
+Actor MonsterLevel  : Inventory
+{          
+  Inventory.PickupMessage "Silly doom guy, you arent a monster. OR ARE YOU?!"
+  Inventory.Amount 1
+  Inventory.MaxAmount 99
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  +NOGRAVITY
 }
 
 Actor EssenceGiver : Custominventory

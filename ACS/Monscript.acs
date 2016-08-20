@@ -1,7 +1,7 @@
 #Library "Monsterscript"
 #include "zcommon.acs"
 #define MONSTER_TID 2000
-#define DAMAGE_COUNTPERCENT 0.05
+#define DAMAGE_COUNTPERCENT 0.02
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 
@@ -12,18 +12,17 @@ Script "MonsterStatsInt" (Void)
  MyHealth = getactorproperty(0, APROP_Health),
  MyVit = CheckInventory("StatVit"),
  MyATK = CheckInventory("StatATK"),
- MyLevel = Random(-3,3) + Thismap;
+ MyLevel = Random(-2,2) + Thismap;
  If (MyLevel <= 0)
    {MyLevel = 1;}
  
- GiveInventory("Monsterlevel",MyLevel);
+ GiveInventory("MonsterlevelGiver",MyLevel);
  SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 2) * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)
 {
-	SetActivatorToTarget(0);
-	int levelchecker = CheckInventory("StatATK") * CheckInventory("Playerlevel");
+	int levelchecker = CheckInventory("StatATK") * CheckInventory("Monsterlevel");
 	int counter = DAMAGE_COUNTPERCENT * levelchecker;
     int outdamage = indamage * (1.0 + counter);
 	setresultvalue(outdamage >> 16);

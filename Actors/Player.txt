@@ -22,8 +22,8 @@ ACTOR WSDoomMarine : DoomPlayer
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
-  Player.StartItem "PlasmaRifleWS"
-  Player.StartItem "Cell" 300
+  //Player.StartItem "PlasmaRifleWS"
+  //Player.StartItem "Cell" 300
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
@@ -113,8 +113,8 @@ ACTOR WSDoomTank : DoomPlayer
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
-  Player.StartItem "PlasmaRifleWS"
-  Player.StartItem "Cell" 300
+  //Player.StartItem "PlasmaRifleWS"
+  //Player.StartItem "Cell" 300
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
@@ -204,8 +204,8 @@ ACTOR WSDoomSupport : DoomPlayer
   
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
-  Player.StartItem "PlasmaRifleWS"
-  Player.StartItem "Cell" 300
+  //Player.StartItem "PlasmaRifleWS"
+  //Player.StartItem "Cell" 300
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial

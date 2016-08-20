@@ -7,7 +7,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	drawimage "HUDBOX", 2, -33;
 	drawimage "HUDBOX2", 79, -33;
 	drawimage "HUDBOX2", -69, -33;
-	drawimage "HUDLONG", 2, -49;
+	drawimage "HUDLONG3", 2, -49;
 	
 	//health
     drawimage "HUDH", 13, -8, centerbottom;
@@ -55,7 +55,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
     }
 
     //Essence
-    DrawNumber 4, SMALLFNT, GREEN,"Expereince", 64, -45;
+    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 75, -45;
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats
