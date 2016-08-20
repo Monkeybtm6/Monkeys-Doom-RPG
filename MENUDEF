@@ -2,3 +2,38 @@ DEFAULTLISTMENU
 {
 	Font "DBigFont", "Untranslated"
 }
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Monkey's RPG Options",     "MRPGOpt"
+	Submenu "Multiplayer Options",		"ZA_MultiplayerOptions" // [TP]
+	StaticText " " // [TP]
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+}
+
+OptionMenu "MRPGOpt"
+{
+	Title "Monkey's RPG Options"
+	StaticText " "
+	StaticText "Dont Tell anyone your iD"
+	StaticText "Its how the database identifies you along with your name."
+	StaticText " "
+	Slider "My Custom ID", "MRPG_MyID", 000, 999, 1, 3
+}

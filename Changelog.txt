@@ -6,6 +6,7 @@ Various unimportant code changes.
 
 
 0.26
+Added database character saving!!!(be careful with this online since at the moment you can trigger the database transaction with a button.)
 Improved stat balance (monsters and the player should do a lot less damage than they were)
 BFG has been added to the RPG weapons, been heavilly tweaked and a lot funner to use.
 Added Hud icons to indicate stats.
