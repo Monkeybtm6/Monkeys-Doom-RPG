@@ -5,7 +5,7 @@
 #include "Actors/Weapons/Chaingun.txt"
 #include "Actors/Weapons/PlasmaRifle.txt"
 #include "Actors/Weapons/RocketLauncher.txt"
-//#include "Actors/Weapons/BFG9000.txt"
+#include "Actors/Weapons/BFG9000.txt"
 #include "Actors/Weapons/SuperShotgun.txt"
 #include "Actors/Weapons/MachinePistol.txt"
 

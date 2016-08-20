@@ -59,12 +59,17 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Green, "StatVit",12,-56;
-	DrawNumber 1, SMALLFNT, Red, "StatATK",20,-56;
-	DrawNumber 1, SMALLFNT, Cyan, "StatDef",28,-56;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",36,-56;
-	DrawNumber 1, SMALLFNT, Blue, "StatAGI",44,-56;
-    
+	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-97;
+	drawimage "HUDVit", 4, -100;
+	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-87;
+	drawimage "HUDatk", 4, -90;
+	DrawNumber 1, SMALLFNT, Cyan, "StatDef",22,-77;
+	drawimage "HUDDef", 4, -80;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-67;
+	drawimage "HUDSTR", 4, -70;
+	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-57;
+    drawimage "HUDAGI", 4, -60;
+	
     gamemode deathmatch
     {
         drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;

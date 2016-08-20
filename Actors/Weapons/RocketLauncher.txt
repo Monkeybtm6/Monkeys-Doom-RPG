@@ -1,7 +1,7 @@
 ACTOR RocketLauncherWS : RocketLauncher Replaces RocketLauncher
 {
   Weapon.SelectionOrder 2500
-  Weapon.SlotNumber 5
+  Weapon.SlotNumber 4
   Weapon.AmmoUse 1
   Weapon.AmmoUse2 1
   Weapon.AmmoGive 2

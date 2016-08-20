@@ -40,7 +40,7 @@ ACTOR WSFist : Fist Replaces Fist
 ACTOR WSChainsaw : Chainsaw Replaces Chainsaw
 {
   Weapon.Kickback 0
-  Weapon.SlotNumber 2
+  Weapon.SlotNumber 1
   Weapon.SelectionOrder 2200
   Weapon.UpSound "weapons/sawup"
   Weapon.ReadySound "weapons/sawidle"

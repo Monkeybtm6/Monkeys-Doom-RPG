@@ -18,3 +18,7 @@ weapons/plasma2			Sound/Weapons/dsplas2
 
 weapons/PRin    Sound/Weapons/DSPLIN
 weapons/PROut   Sound/Weapons/DSPLREL
+
+//BFG9000
+Weapons/BFGF2  Sound/Weapons/DSBFGF2
+Weapons/BFGX2  Sound/Weapons/DSBFGX2

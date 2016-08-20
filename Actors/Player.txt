@@ -12,6 +12,7 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
+  Player.StartItem "SGmag", 8
   Player.StartItem "Playerlevel", 1
   
   Player.StartItem "StatVit", 5
@@ -103,6 +104,9 @@ ACTOR WSDoomTank : DoomPlayer
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
+  Player.StartItem "SGmag", 8
+  Player.StartItem "Shell", 8
+  Player.StartItem "ShotgunWS"
   Player.StartItem "Playerlevel", 1
   
   Player.StartItem "StatVit", 7
@@ -194,6 +198,7 @@ ACTOR WSDoomSupport : DoomPlayer
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 100
   Player.StartItem "MPistmag", 20
+  Player.StartItem "SGmag", 8
   Player.StartItem "Playerlevel", 1
   
   Player.StartItem "StatVit", 4
