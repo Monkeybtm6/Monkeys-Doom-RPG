@@ -321,3 +321,35 @@ ACTOR WSDoomSupport : DoomPlayer
     Stop
   }
 }
+
+Actor WepSlot1 : Inventory
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 3
+}
+
+Actor WepSlot2 : Inventory
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 3
+}
+
+Actor WepSlot3 : Inventory
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 3
+}
+
+Actor WepSlot4 : Inventory
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 3
+}

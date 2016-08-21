@@ -22,3 +22,6 @@ weapons/PROut   Sound/Weapons/DSPLREL
 //BFG9000
 Weapons/BFGF2  Sound/Weapons/DSBFGF2
 Weapons/BFGX2  Sound/Weapons/DSBFGX2
+
+//AdvPlasmaRifle
+Weapons/Plasma3  Sound/Weapons/DSPlasma2

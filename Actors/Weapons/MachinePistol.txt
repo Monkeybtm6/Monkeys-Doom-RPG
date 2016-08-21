@@ -46,7 +46,7 @@ ACTOR MachinePistolWS : Weapon
     MPIR A 2
 	MPIR BCD 2
     MPIR D 3
-	MPIR D 1 A_playSound("weapons/pistolclipout")
+	MPIR D 1 A_playSound("weapons/pistolclipout", CHAN_WEAPON)
 	MPIR D 16
    ReloadLoop:
     TNT1 A 0 A_TakeInventory("Clip", 1)
@@ -55,7 +55,7 @@ ACTOR MachinePistolWS : Weapon
     TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
-    MPIR D 1 A_playSound("weapons/pistolclipin")
+    MPIR D 1 A_playSound("weapons/pistolclipin", CHAN_WEAPON)
     MPIR D 3
 	MPIR DCBA 2
     goto ready
@@ -66,7 +66,7 @@ ACTOR MachinePistolWS : Weapon
     Goto LightDone
 
   Spawn:
-    PIST A -1
+    MPIS F -1
     Stop
   }
 }

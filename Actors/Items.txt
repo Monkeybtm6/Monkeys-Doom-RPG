@@ -48,3 +48,11 @@ ACTOR Backpackdum : Soulsphere Replaces Backpack
     Loop
   }
 }
+
+Actor ArmorMaxUpgrade : BasicArmorBonus
+{
+  armor.maxbonus 1
+  armor.maxbonusmax 899
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+}

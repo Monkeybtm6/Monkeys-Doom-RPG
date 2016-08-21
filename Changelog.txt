@@ -10,3 +10,8 @@ Added database character saving!!!(be careful with this online since at the mome
 Improved stat balance (monsters and the player should do a lot less damage than they were)
 BFG has been added to the RPG weapons, been heavilly tweaked and a lot funner to use.
 Added Hud icons to indicate stats.
+
+
+0.27
+Added a new weapon, the Advanced plasma rifle.
+Database Functions should now be automatic.

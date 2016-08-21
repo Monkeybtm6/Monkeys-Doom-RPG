@@ -10,10 +10,13 @@ ACTOR ShotgunWS : Shotgun replaces Shotgun
   Weapon.SlotNumber 3
   Weapon.KickBack 60
   Weapon.SelectionOrder 1300
+  Radius 35
+  Height 35
   Inventory.PickupMessage "$GOTSHOTGUN"
   Obituary "$OB_MPSHOTGUN"
   DamageType "pierce"
   +Weapon.Ammo_Optional
+  +INVENTORY.ALWAYSPICKUP
   Tag "$TAG_SHOTGUN"
   States
   {
@@ -51,12 +54,12 @@ ACTOR ShotgunWS : Shotgun replaces Shotgun
     PKPR F 0
    ReloadLoop:
     SHTR AAABBBCCDEF 1
-    SHTR F 1 A_playsound("weapons/SGLOAD")
+    SHTR F 1 A_playsound("weapons/SGLOAD", CHAN_WEAPON)
     TNT1 A 0 A_TakeInventory("shell", 1)
 	TNT1 A 0 A_GiveInventory("SGMAG", 1)
 	TNT1 A 0 A_JumpIfInventory("SGMAG", 8, "ReloadLoop2")
 	SHTR DEF 1
-	SHTR F 1 A_playsound("weapons/SGLOAD")
+	SHTR F 1 A_playsound("weapons/SGLOAD", CHAN_WEAPON)
 	TNT1 A 0 A_TakeInventory("shell", 1)
 	TNT1 A 0 A_GiveInventory("SGMAG", 1)
 	SHTR GHI 1

@@ -3,9 +3,11 @@ ADDPLAYERCLASS WSDoomMarine
 ADDPLAYERCLASS WSDoomTank
 ADDPLAYERCLASS WSDoomSupport
 
-addkeysection "Monkey's RPG" MonkeysRPG
+/*  addkeysection "Monkey's RPG" MonkeysRPG
 
 addmenukey "Load Character(once per map)" RPG_LoadChar
 alias RPG_LoadChar "Use LoadCharActivator"
 addmenukey "Save Character(once per map)" RPG_SaveChar
 alias RPG_SaveChar "use SaveCharActivator"
+
+*/

@@ -13,7 +13,7 @@ int LevelNext[MaxLevel];
 script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
-
+  ACS_NamedExecuteAlways("LoadCharScr",0);
 }
 
 script 91 RESPAWN
@@ -68,9 +68,12 @@ Script "UpdateStats" (void)
   SetAmmoCapacity("Cell", 300 + CellAdd);
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
   
+  int AddDef = CheckInventory("StatDEF") * CheckInventory("PlayerLevel");
+  TakeActorInventory(PLAYER_TID_START+PlayerNumber(),"ArmorMaxUpgrade",AddDef);
+  GiveActorInventory(PLAYER_TID_START+PlayerNumber(),"ArmorMaxUpgrade",AddDef);
   
-  Log(s:"Stats Refreshed for ");
-  Log(f: PlayerNumber());
+  
+  Log(s:"Stats Refreshed for Player",f:PlayerNumber());
 
 }
 

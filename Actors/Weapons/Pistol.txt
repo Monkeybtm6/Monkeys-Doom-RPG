@@ -42,7 +42,7 @@ ACTOR PistolWS : Pistol replaces Pistol
     PKPI A 0
     goto ready
    Reloadstep:
-    PKPR A 2 A_playSound("weapons/pistolclipout")
+    PKPR A 2 A_playSound("weapons/pistolclipout", CHAN_WEAPON)
 	PKPR BCDE 2
     PKPR F 3
    ReloadLoop:
@@ -52,7 +52,7 @@ ACTOR PistolWS : Pistol replaces Pistol
     TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
-    PKPR G 2 A_playSound("weapons/pistolclipin")
+    PKPR G 2 A_playSound("weapons/pistolclipin", CHAN_WEAPON)
     PKPR HIJKLMNOPQ 2
     goto ready
   
