@@ -13,7 +13,9 @@ int LevelNext[MaxLevel];
 script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
-  ACS_NamedExecuteAlways("LoadCharScr",0);
+
+  if(Playerclass(PlayerNumber()) != 1)
+    {ACS_NamedExecuteAlways("LoadCharScr",0);}
 }
 
 script 91 RESPAWN
@@ -24,23 +26,18 @@ script 91 RESPAWN
   ACS_NamedExecuteAlways("UpdateStats",0);
 }
 
-Script 93 Return
-{
-  GiveInventory("SaveCharActivator",1);
-  GiveInventory("LoadCharActivator",1);
-}
-
 Script "Levelupcheck" (int EXPA)
 {
 GiveInventory("Expereince", EXPA);
 
 int EXP = CheckInventory("Expereince");
 int Lvl = CheckInventory("Playerlevel");
+int EXPMULT = GetCvar("MRPG_EXPMULT");
    
-   if(EXP >= (100 * Lvl))
+   if(EXP >= (EXPMULT * Lvl))
    {
       GiveInventory("Playerlevel", 1);
-      TakeInventory("Expereince",(100 * lvl));
+      TakeInventory("Expereince",(EXPMULT * lvl));
       ACS_NamedExecuteAlways("UpdateStats",0);
    }
 
@@ -66,22 +63,18 @@ Script "UpdateStats" (void)
   SetAmmoCapacity("Shell", 50 + ShellAdd);
   SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
   SetAmmoCapacity("Cell", 300 + CellAdd);
+  
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
   
-  int AddDef = CheckInventory("StatDEF") * CheckInventory("PlayerLevel");
-  TakeActorInventory(PLAYER_TID_START+PlayerNumber(),"ArmorMaxUpgrade",AddDef);
-  GiveActorInventory(PLAYER_TID_START+PlayerNumber(),"ArmorMaxUpgrade",AddDef);
+  
+  int MyDef = CheckInventory("StatDEF");
+  int AddDef = MyDef * CheckInventory("PlayerLevel");
+  TakeInventory("ArmorMaxUpgrade",AddDef);
+  GiveInventory("ArmorMaxUpgrade",AddDef);
   
   
-  Log(s:"Stats Refreshed for Player",f:PlayerNumber());
+  Log(s:"Stats Refreshed for Player ",f:PlayerNumber());
 
-}
-
-script "playerstart" (void)
-{
-	int myatk = atkbase * CheckInventory("PlayerLevel");
-	int mydef = defbase * CheckInventory("PlayerLevel");
-	int mySTR = STRbase * CheckInventory("PlayerLevel");
 }
 
 script "DAMAGESCR" (int indamage)
@@ -106,16 +99,10 @@ script "PROJDAMAGESCR" (int indamage)
 	
 }
 
-script "ArmorSCR" (int Gainedarmor)
+script "WeaponDrop" (void)
 {
-    int maxarmor = (Checkinventory("StatDEF") * Checkinventory("Playerlevel"));
-	if (Checkinventory("armor") <= Maxarmor + 100)
-	{
-	    GiveInventory("armor", Gainedarmor);
-	}
-	Else
-	{
-	Terminate;
-	}
-
+	str Currentwep = Checkweapon("");
+	
+	Takeinventory(Currentwep,1);
+	
 }

@@ -4,8 +4,6 @@
 
 -Add some sort of weapon limit, making it slot specific.
 
--Add luck stat that governs ammo pickups.
-
 -Add Armor stat if custom armor system isnt possible.
 
 -Custom Random spawner that swaps out enemies based on map number and difficulty.
@@ -21,3 +19,7 @@
 -Improve the weapons (they kinda suck right now)
 
 -Make Custom main menu
+
+-Replace classes with character startup menu
+
+-Character startup menu handle character loading or starting anew.

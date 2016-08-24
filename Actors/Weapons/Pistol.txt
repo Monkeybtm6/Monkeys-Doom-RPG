@@ -6,7 +6,7 @@ ACTOR PistolWS : Pistol replaces Pistol
   Weapon.SlotNumber 2
   Weapon.AmmoUse 1
   Weapon.AmmoUse2 1
-  Weapon.AmmoGive 20
+  Weapon.AmmoGive2 20
   Weapon.AmmoType "Pistmag"
   Weapon.AmmoType2 "Clip"
   Obituary "$OB_MPPISTOL"

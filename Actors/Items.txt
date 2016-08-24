@@ -53,6 +53,56 @@ Actor ArmorMaxUpgrade : BasicArmorBonus
 {
   armor.maxbonus 1
   armor.maxbonusmax 899
-  +COUNTITEM
-  +INVENTORY.ALWAYSPICKUP
+
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+}
+
+ACTOR WSGreenArmor : BasicArmorPickup Replaces GreenArmor
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTARMOR" // "Picked up the armor."
+  Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 100
+  States
+  {
+  Spawn:
+    ARM1 A 6
+    ARM1 B 7 Bright
+    Loop
+  }
+}
+
+ACTOR WSBlueArmor : BasicArmorPickup Replaces BlueArmor
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTMEGA" // "Picked up the MegaArmor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 50
+  Armor.SaveAmount 200
+  States
+  {
+  Spawn:
+    ARM2 A 6
+    ARM2 B 6 Bright
+    Loop
+  }
+}
+
+ACTOR WSStimpack : HealthPickup Replaces Stimpack
+{
+  health 10
+  inventory.maxamount 20
+  Inventory.InterHubAmount 20
+  inventory.icon STIM_I
+  Inventory.PickupMessage "$GOTSTIM" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    STIM A -1
+    Stop
+  }
 }

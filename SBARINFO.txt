@@ -30,45 +30,28 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
             //drawimage "HUDLONG", -70, -1, centerbottom;
             drawimage "HUDMAXAM", -45, -49;
 			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
-            inventorybarnotvisible
-            {
-                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -39, -26, -56, untranslated;
-            }
+
         }
-        //no secondary ammo
-        usessecondaryammo not
-        {
-            inventorybarnotvisible
-            {
-                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -21, -26, -38, untranslated;
-            }
-        }
-    }
-    
-    // no ammo but inventory
-    usesammo not
-    {
-        inventorybarnotvisible
-        {
-            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -3, -26, -20, untranslated;
-        }
-    }
+	}
+
+    //inventory
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -94, -3, -106, -20, untranslated;
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -45;
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-97;
-	drawimage "HUDVit", 4, -100;
-	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-87;
-	drawimage "HUDatk", 4, -90;
-	DrawNumber 1, SMALLFNT, Cyan, "StatDef",22,-77;
-	drawimage "HUDDef", 4, -80;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-67;
-	drawimage "HUDSTR", 4, -70;
-	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-57;
-    drawimage "HUDAGI", 4, -60;
+	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-99;
+	drawimage "HUDVit", 4, -102;
+	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-89;
+	drawimage "HUDatk", 4, -92;
+	DrawNumber 1, SMALLFNT, Cyan, "StatDef",22,-79;
+	drawimage "HUDDef", 4, -82;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-69;
+	drawimage "HUDSTR", 4, -72;
+	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-59;
+    drawimage "HUDAGI", 4, -62;
 	
     gamemode deathmatch
     {

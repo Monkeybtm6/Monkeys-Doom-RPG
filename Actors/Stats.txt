@@ -78,22 +78,6 @@ Actor StatAgi : Inventory
   }
 }
 
-Actor StatLCL : Inventory
-{          
-  Inventory.PickupMessage "Luck Increased"
-  Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
-  +INVENTORY.ALWAYSPICKUP
-  +NOGRAVITY
-  States
-  {
-  Spawn:
-    ESES A -1 
-    loop
-  }
-}
-
 Actor MonStatATK : CustomInventory
 {          
   +INVENTORY.ALWAYSPICKUP

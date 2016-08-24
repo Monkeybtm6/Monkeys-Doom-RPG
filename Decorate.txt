@@ -15,4 +15,4 @@
 #include "Actors/Spawners.txt"
 #include "Actors/Player.txt"
 #include "Actors/items.txt"
-#include "Actors/Stats.dec"
+#include "Actors/Stats.txt"

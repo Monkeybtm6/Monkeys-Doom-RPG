@@ -29,3 +29,8 @@ script "MonDAMAGESCR" (int indamage)
 	//print(f: outdamage);
 	
 }
+
+Script "MonsterSpawner" (void)
+{
+	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM));
+}

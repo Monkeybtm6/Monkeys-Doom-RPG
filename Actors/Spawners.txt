@@ -1,17 +1,47 @@
-Actor WSimpspawner : RandomSpawner Replaces Doomimp
+Actor WSimpspawner Replaces Doomimp
 {
-  Dropitem "WSImp"
-  Dropitem "WSImp"
-  Dropitem "WSImp"
-  Dropitem "WSImp"
-  Dropitem "WSDarkImp"
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  Deciding:
+   TNT1 A 0
+   loop
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MonsterSpawner") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MonsterSpawner") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_SpawnItemEx("WSImp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("WSDarkImp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+	  }
 }
 
-Actor WSZombiespawner : RandomSpawner replaces ZombieMan
+Actor WSZombiespawner replaces ZombieMan
 {
-  Dropitem "WSZombieMan"
-  Dropitem "WSZombieMan"
-  Dropitem "WSZombieMan"
-  Dropitem "WSZombieMan"
-  Dropitem "WSPlasmaZombie"
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  Deciding:
+   TNT1 A 0
+   loop
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MonsterSpawner") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MonsterSpawner") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSZombieMan",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("WSPlasmaZombie",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+	  }
 }

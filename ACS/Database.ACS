@@ -4,12 +4,9 @@
 #define SaveItems 7
 int MyInventory[SaveItems] =
 {
-    "Expereince",
-    "PlayerLevel",
-	"StatVIT",
-	"StatATK",
-	"StatSTR",
-	"StatDEF",
+    "Expereince",  "PlayerLevel",
+	"StatVIT",     "StatATK",
+	"StatSTR",     "StatDEF",
 	"StatAGI"
 };
 Script "LoadCharScr" (void)
@@ -25,7 +22,7 @@ Script "LoadCharScr" (void)
 		GiveActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
     }
 	ACS_NamedExecuteAlways("UpdateStats",0);
-	print(s:"Inventory restored!");
+	print(s:"Character Restored.");
 }
 
 script "SaveCharScr" (void)
@@ -63,4 +60,5 @@ Script "SaveAllCharScr" UNLOADING
     }
 		}
     EndDBTransaction();
+	Log(s:"Character Data Saved");
 }

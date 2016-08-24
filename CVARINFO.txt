@@ -1,0 +1,3 @@
+user String MRPG_MyId = 0;
+
+Server Int MRPG_EXPMult = 100;
