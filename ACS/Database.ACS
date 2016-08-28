@@ -6,7 +6,7 @@ int MyInventory[SaveItems] =
 {
     "Expereince",  "PlayerLevel",
 	"StatVIT",     "StatATK",
-	"StatSTR",     "StatDEF",
+	"StatSTR",     "StatINT",
 	"StatAGI"
 };
 Script "LoadCharScr" (void)

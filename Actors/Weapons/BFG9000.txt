@@ -6,6 +6,7 @@ ACTOR BFG9000WS : BFG9000 Replaces BFG9000
   Weapon.AmmoUse 20
   Weapon.AmmoGive 40
   Weapon.AmmoType "Cell"
+  Weapon.AmmoType2 "Cell"
   +WEAPON.NOAUTOFIRE
   Inventory.PickupMessage "$GOTBFG9000"
   Tag "$TAG_BFG9000"

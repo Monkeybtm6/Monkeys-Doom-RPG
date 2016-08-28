@@ -30,7 +30,7 @@ Actor StatATK : Inventory
   }
 }
 
-Actor StatDEF : Inventory
+Actor StatINT : Inventory
 {          
   Inventory.PickupMessage "Defense Increased"
   Inventory.Amount 1

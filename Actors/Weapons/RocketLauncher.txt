@@ -8,6 +8,7 @@ ACTOR RocketLauncherWS : RocketLauncher Replaces RocketLauncher
   Weapon.AmmoType "RocketAmmo"
   Weapon.AmmoType2 "RocketAmmo"
   +WEAPON.NOAUTOFIRE
+  decal Scorch
   Inventory.PickupMessage "$GOTLAUNCHER"
   Tag "$TAG_ROCKETLAUNCHER"
   States

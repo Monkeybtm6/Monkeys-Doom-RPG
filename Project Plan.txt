@@ -1,12 +1,16 @@
--Create an entire custom armor system if possible.
+-Create an entire custom armor system if possible. CANT
 
 -Redo the RPG ruleset.
 
--Add some sort of weapon limit, making it slot specific.
+-Add some sort of weapon limit, making it slot specific. DONE
 
--Add Armor stat if custom armor system isnt possible.
+-Add Armor stat if custom armor system isnt possible. CANT
 
--Custom Random spawner that swaps out enemies based on map number and difficulty.
+-Change Defense stat into intelligence stat DONE
+
+-Create magic artifact system.
+
+-Custom Random spawner that swaps out enemies based on map number and difficulty. DONE
 
 -Add lots of new enemies.
 
@@ -20,6 +24,8 @@
 
 -Make Custom main menu
 
--Replace classes with character startup menu
-
 -Character startup menu handle character loading or starting anew.
+
+-Bars for health armor and magic. DONE
+
+-Enemy health bar.

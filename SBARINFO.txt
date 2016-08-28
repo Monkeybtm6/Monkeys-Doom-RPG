@@ -4,6 +4,75 @@ Resolution 640,400;
 statusbar fullscreen, forcescaled, fullscreenoffsets
 {
     //Hud Boxes
+	//drawimage "HUDBOX", 2, -33;
+	//drawimage "HUDBOX2", 101, -33;
+	drawimage "HUDBOX2", -69, -33;
+	drawimage "HUDLONG3", 2, -67;
+	
+	//health
+    drawimage "HUDH", 2, -49;
+    DrawBar "HUDBARHP", "HUDBAR",health,horizontal,20,-49;
+	drawnumber 4, SMALLFNT, White, health, drawshadow,alignment(left) , 22, -45;
+
+    //Mana
+    drawimage "HUDM", 2, -33;
+    DrawBar "HUDBARMP", "HUDBAR",ammo("Mana"),horizontal,20,-33;
+	drawnumber 3, SMALLFNT, White,ammo("Mana"), drawshadow,alignment(left) , 22, -29;
+	
+	//armor
+    drawimage "HUDA", 2, -17;
+    DrawBar "HUDBARAP", "HUDBAR",armor,horizontal,20,-17;
+	drawnumber 3, SMALLFNT, White, armor, drawshadow,alignment(left) , 22, -13;
+
+    //ammo
+    //drawimage ammoicon1, -12, -8, centerbottom;
+    drawimage ammoicon2, -16, -8, centerbottom;
+    drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
+
+    usesammo
+    {
+        //secondary ammo
+        usessecondaryammo
+        {
+            //drawimage "HUDLONG", -70, -1, centerbottom;
+            drawimage "HUDMAXAM", -45, -51;
+			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -46;
+
+        }
+	}
+
+    //inventory
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -94, -3, -106, -20, untranslated;
+
+    //Essence
+    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
+	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -63;
+	
+	//Stats
+	DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
+	drawimage "HUDVit", 4, -124;
+	DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
+	drawimage "HUDatk", 4, -113;
+	DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
+	drawimage "HUDInt", 4, -102;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
+	drawimage "HUDSTR", 4, -91;
+	DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
+    drawimage "HUDAGI", 4, -80;
+	
+    gamemode deathmatch
+    {
+        drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;
+    }
+    gamemode singleplayer, cooperative, teamgame
+    {
+        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+    }
+}
+
+statusbar normal, forcescaled, fullscreenoffsets
+{
+    //Hud Boxes
 	drawimage "HUDBOX", 2, -33;
 	drawimage "HUDBOX2", 79, -33;
 	drawimage "HUDBOX2", -69, -33;
@@ -42,84 +111,17 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-99;
-	drawimage "HUDVit", 4, -102;
-	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-89;
-	drawimage "HUDatk", 4, -92;
-	DrawNumber 1, SMALLFNT, Cyan, "StatDef",22,-79;
-	drawimage "HUDDef", 4, -82;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-69;
-	drawimage "HUDSTR", 4, -72;
-	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-59;
-    drawimage "HUDAGI", 4, -62;
+	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-100;
+	drawimage "HUDVit", 4, -103;
+	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-90;
+	drawimage "HUDatk", 4, -93;
+	DrawNumber 1, SMALLFNT, Cyan, "StatINT",22,-80;
+	drawimage "HUDDef", 4, -83;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-70;
+	drawimage "HUDSTR", 4, -73;
+	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-60;
+    drawimage "HUDAGI", 4, -63;
 	
-    gamemode deathmatch
-    {
-        drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;
-    }
-    gamemode singleplayer, cooperative, teamgame
-    {
-        drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
-    }
-}
-
-statusbar normal, forcescaled, fullscreenoffsets
-{
-    //Hud Boxes
-	drawimage "HUDBOX", 2, -33;
-	drawimage "HUDBOX2", 79, -33;
-	drawimage "HUDBOX2", -69, -33;
-	drawimage "HUDLONG", 2, -49;
-	
-	//health
-    drawimage "HUDH", 13, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, health, drawshadow, 68, -24;
-
-    //armor
-    drawimage "HUDA", 90, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, armor, drawshadow, whennotzero, 136, -24;
-
-    //ammo
-    //drawimage ammoicon1, -12, -8, centerbottom;
-    drawimage ammoicon2, -16, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
-
-    usesammo
-    {
-        //secondary ammo and inventory
-        usessecondaryammo
-        {
-            //drawimage "HUDLONG", -70, -1, centerbottom;
-            drawimage "HUDMAXAM", -45, -49;
-			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
-            inventorybarnotvisible
-            {
-                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -39, -26, -56, untranslated;
-            }
-        }
-        //no secondary ammo
-        usessecondaryammo not
-        {
-            inventorybarnotvisible
-            {
-                drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -21, -26, -38, untranslated;
-            }
-        }
-    }
-    
-    // no ammo but inventory
-    usesammo not
-    {
-        inventorybarnotvisible
-        {
-            drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -14, -3, -26, -20, untranslated;
-        }
-    }
-
-    //Essence
-    DrawNumber 4, SMALLFNT, GREEN,"Expereince", 64, -45;
-	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
-    
     gamemode deathmatch
     {
         drawnumber 2, CONFONT, untranslated, frags, drawshadow, -3, 1;

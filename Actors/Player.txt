@@ -6,9 +6,10 @@ ACTOR WSDoomMarine : DoomPlayer
   Height 56
   Mass 100
   PainChance 255
-  Player.DisplayName "Load Character"
+  Player.DisplayName "Marine"
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
+  Player.StartItem "wepslot1"
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
@@ -17,7 +18,7 @@ ACTOR WSDoomMarine : DoomPlayer
   
   Player.StartItem "StatVit", 5
   Player.StartItem "StatATK", 5
-  Player.StartItem "StatDEF", 5
+  Player.StartItem "StatINT", 5
   Player.StartItem "StatSTR", 5
   Player.StartItem "StatAGI", 5
   
@@ -25,8 +26,6 @@ ACTOR WSDoomMarine : DoomPlayer
   //Player.StartItem "RocketLauncherWS"
   //Player.StartItem "PlasmaRifleWS"
   //Player.StartItem "Cell" 300
-  Player.StartItem "SaveCharActivator", 1
-  Player.StartItem "LoadCharActivator", 1
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
@@ -103,6 +102,7 @@ ACTOR WSDoomTank : DoomPlayer
   Player.DisplayName "Tank"
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
+  Player.StartItem "wepslot1"
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
@@ -113,7 +113,7 @@ ACTOR WSDoomTank : DoomPlayer
   
   Player.StartItem "StatVit", 7
   Player.StartItem "StatATK", 5
-  Player.StartItem "StatDEF", 6
+  Player.StartItem "StatINT", 6
   Player.StartItem "StatSTR", 4
   Player.StartItem "StatAGI", 3
   
@@ -197,6 +197,7 @@ ACTOR WSDoomSupport : DoomPlayer
   Player.DisplayName "Scout"
   Player.CrouchSprite "PLYC"
   Player.StartItem "MachinePistolWS"
+  Player.StartItem "wepslot1"
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 100
   Player.StartItem "MPistmag", 20
@@ -205,7 +206,7 @@ ACTOR WSDoomSupport : DoomPlayer
   
   Player.StartItem "StatVit", 4
   Player.StartItem "StatATK", 4
-  Player.StartItem "StatDEF", 3
+  Player.StartItem "StatINT", 3
   Player.StartItem "StatSTR", 6
   Player.StartItem "StatAGI", 7
   
@@ -278,7 +279,7 @@ ACTOR WSDoomSupport : DoomPlayer
   }
 }
 
-ACTOR WSNewDoomMarine : DoomPlayer
+ACTOR WSLoadDoomMarine : DoomPlayer
 {
   Speed 1.0
   Health 100
@@ -286,21 +287,14 @@ ACTOR WSNewDoomMarine : DoomPlayer
   Height 56
   Mass 100
   PainChance 255
-  Player.DisplayName "New Character"
+  Player.DisplayName "Load Character"
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
+  Player.StartItem "wepslot1"
   Player.StartItem "WSFist"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
   Player.StartItem "SGmag", 8
-  Player.StartItem "Playerlevel", 1
-  
-  Player.StartItem "StatVit", 5
-  Player.StartItem "StatATK", 5
-  Player.StartItem "StatDEF", 5
-  Player.StartItem "StatSTR", 5
-  Player.StartItem "StatAGI", 5
-  
   //Player.StartItem "RocketAmmo", 50
   //Player.StartItem "RocketLauncherWS"
   //Player.StartItem "PlasmaRifleWS"
@@ -375,7 +369,7 @@ Actor WepSlot1 : Inventory
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
-  Inventory.MaxAmount 3
+  Inventory.MaxAmount 1
 }
 
 Actor WepSlot2 : Inventory
@@ -391,7 +385,7 @@ Actor WepSlot3 : Inventory
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
-  Inventory.MaxAmount 3
+  Inventory.MaxAmount 2
 }
 
 Actor WepSlot4 : Inventory
@@ -399,5 +393,11 @@ Actor WepSlot4 : Inventory
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
-  Inventory.MaxAmount 3
+  Inventory.MaxAmount 1
+}
+
+Actor Mana : Ammo
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 50
 }

@@ -14,7 +14,7 @@ ACTOR WSZombieMan : ZombieMan
   ActiveSound "grunt/active"
   Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
   DropItem "Clip"
-  DropItem "machinepistolWS", 10
+  DropItem "machinepistolPickup", 10
   States
   {
   Spawn:
@@ -59,7 +59,7 @@ ACTOR WSZombieMan : ZombieMan
     Goto See
   }
 }
-ACTOR WSShotgunGuy : ShotgunGuy replaces ShotgunGuy
+ACTOR WSShotgunGuy : ShotgunGuy
 {
   Health 30
   Radius 20
@@ -75,7 +75,8 @@ ACTOR WSShotgunGuy : ShotgunGuy replaces ShotgunGuy
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
-  DropItem "Shotgun"
+  DropItem "Shell"
+  DropItem "Shell"
   States
   {
   Spawn:
@@ -243,7 +244,7 @@ ACTOR WSImp : DoomImp //replaces DoomImp
   }
 }
 
-ACTOR WSDemon : Demon replaces Demon
+ACTOR WSDemon : Demon 
 {
   Health 150
   PainChance 180

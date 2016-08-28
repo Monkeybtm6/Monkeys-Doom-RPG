@@ -8,6 +8,7 @@ ShotGun: Taken from Complex Doom.
 Plasma Rifle: Taken from Complex Doom.
 Machine Pistol: Mike12
 Advanced Plasma Rifle: Eriance
+Tech Shotgun: Eriance
 
 (See complex dooms credits and readme, 
 readme does state sprites are free to use with proper credit, hence this.)

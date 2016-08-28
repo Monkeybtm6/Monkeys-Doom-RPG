@@ -17,3 +17,7 @@ Added a new weapon, the Advanced plasma rifle.
 Database Functions should now be automatic.
 Added Cvar "MRPG_EXPMULT" to scale the ammount of EXP to gain a level, per level.
 Foundation for the Dynamic spawner in place, only for imps and zombiemen for the moment.
+Added a new weapon, The Tech Shotgun.
+Reimplemented the Backpack.
+Added Mana system.
+Changed the Hud.

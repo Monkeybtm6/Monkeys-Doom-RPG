@@ -2,9 +2,7 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define PLAYER_MAX_HEALTH_ADD 4
-#define atkbase 0.04
-#define defbase 1
-#define STRbase 1
+#define atkbase 0.03
 #define AGIbase 0.2
 #define DAMAGE_COUNTPERCENT 0.02
 #define MaxLevel 60
@@ -14,8 +12,18 @@ script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
 
-  if(Playerclass(PlayerNumber()) != 1)
+  if(Playerclass(PlayerNumber()) == 0)
     {ACS_NamedExecuteAlways("LoadCharScr",0);}
+	Delay(1);
+  if(CheckInventory("Playerlevel") <= 0)
+    {
+	GiveInventory("Playerlevel",1);
+	GiveInventory("StatVIT",5);
+	GiveInventory("StatATK",5);
+	GiveInventory("StatINT",5);
+	GiveInventory("StatSTR",5);
+	GiveInventory("StatAGI",5);
+	}
 }
 
 script 91 RESPAWN
@@ -47,7 +55,7 @@ Script "UpdateStats" (void)
 {
   int StartHealth = CheckInventory("StatVIT") * 20;
   int Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel");
-  int Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth);
+  int Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 4) + StartHealth);
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
   if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
      {
@@ -59,19 +67,26 @@ Script "UpdateStats" (void)
   int RocketAdd = (mySTR * 2);
   int CellAdd = (mySTR * 6);
 	
-  SetAmmoCapacity("Clip", 200 + ClipAdd);
-  SetAmmoCapacity("Shell", 50 + ShellAdd);
-  SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
-  SetAmmoCapacity("Cell", 300 + CellAdd);
+  if( CheckInventory("Backpack") == 1)
+    {
+	   SetAmmoCapacity("Clip", 400 + ClipAdd);
+       SetAmmoCapacity("Shell", 100 + ShellAdd);
+       SetAmmoCapacity("RocketAmmo", 100 + RocketAdd);
+       SetAmmoCapacity("Cell", 600 + CellAdd);
+    }
+  else
+    {
+       SetAmmoCapacity("Clip", 200 + ClipAdd);
+       SetAmmoCapacity("Shell", 50 + ShellAdd);
+       SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
+       SetAmmoCapacity("Cell", 300 + CellAdd);
+	}
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
   
-  
-  int MyDef = CheckInventory("StatDEF");
-  int AddDef = MyDef * CheckInventory("PlayerLevel");
-  TakeInventory("ArmorMaxUpgrade",AddDef);
-  GiveInventory("ArmorMaxUpgrade",AddDef);
-  
+  int MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel");
+  int ManaAdd = (MyInt * 1);
+  SetAmmoCapacity("Mana", 50 + ManaAdd);
   
   Log(s:"Stats Refreshed for Player ",f:PlayerNumber());
 

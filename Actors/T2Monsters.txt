@@ -24,8 +24,8 @@ ACTOR WSCacolantern
    States 
    { 
   Spawn:
-    TNT1 A 0 A_Giveinventory("MonStatATK",2)
-	TNT1 A 0 A_Giveinventory("MonStatVit",2)
+    TNT1 A 0 A_Giveinventory("MonStatATK",4)
+	TNT1 A 0 A_Giveinventory("MonStatVit",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
       HED2 A 10 bright A_Look 
@@ -99,13 +99,13 @@ ACTOR WSPlasmaZombie
     ActiveSound "grunt/active"
     Obituary "%o got burned by a plasma zombie."
     DropItem Cell
-    DropItem "AdvPlasmaRifle", 10
-	MissileType PlasmaBall
+    DropItem "AdvPlasmaRifleWS", 10
+	MissileType MonPlasmaBall
     States
     {
   Spawn:
     TNT1 A 0 A_Giveinventory("MonStatATK",2)
-	TNT1 A 0 A_Giveinventory("MonStatVit",2)
+	TNT1 A 0 A_Giveinventory("MonStatVit",4)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
         ZMAY AB 10 A_Look
@@ -115,15 +115,11 @@ ACTOR WSPlasmaZombie
         Loop
     Missile:
         ZMAY E 10 A_FaceTarget
-        ZMAY F 5 A_MissileAttack
-        ZMAY E 5 A_FaceTarget
-        ZMAY F 5 A_MissileAttack
-        ZMAY E 5 A_FaceTarget
-        ZMAY F 5 A_MissileAttack
-        ZMAY E 5 A_FaceTarget
-        ZMAY F 5 A_MissileAttack
-        ZMAY E 5 A_FaceTarget
-        ZMAY F 5 A_MissileAttack
+        ZMAY F 3 A_MissileAttack
+        ZMAY E 3 A_FaceTarget
+        ZMAY F 3 A_MissileAttack
+        ZMAY E 3 A_FaceTarget
+        ZMAY F 3 A_MissileAttack
         Goto See
     Pain:
         ZMAY G 3
@@ -151,19 +147,42 @@ ACTOR WSPlasmaZombie
     }
 }
 
+ACTOR MonPlasmaBall
+{
+  Radius 8
+  Height 8
+  Scale 0.3
+  Speed 70
+  Damage (ACS_NamedExecuteWithResult("MonDAMAGESCR",12,0,0,0))
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 0.7
+  SeeSound "weapons/Plasma3"
+  DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLST ABCDEF 3 Bright
+    Loop
+  Death:
+    PLSE ABCDE 4 Bright 
+    Stop
+  }
+}
+
 actor WSDarkImp : DoomImp  // [RT] Inherits from the DoomImp for convenience
 {
   obituary "$OB_DARKIMP"
   hitobituary "$OB_DARKIMP_MELEE"
   health 120
-  missiletype DarkImpBall
-  meleedamage 3
   meleesound "imp/melee"
   states
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("MonStatATK",2)
-	TNT1 A 0 A_Giveinventory("MonStatVit",2)
+    TNT1 A 0 A_Giveinventory("MonStatATK",3)
+	TNT1 A 0 A_Giveinventory("MonStatVit",5)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     DIMP AB 10 A_Look
@@ -174,7 +193,7 @@ actor WSDarkImp : DoomImp  // [RT] Inherits from the DoomImp for convenience
   Melee:
   Missile:
     DIMP EF 8 A_FaceTarget
-    DIMP G 6 A_ComboAttack  // See DarkImpBall
+    DIMP G 6 A_CustomComboAttack("DarkImpBall", 32,(ACS_NamedExecuteWithResult("MonDAMAGESCR",4,0,0) * random(1,8)), "imp/melee")
     goto See
   Pain:
     DIMP H 2
@@ -226,8 +245,8 @@ ACTOR WSBloodDemon : Demon
 	States
 	{
   Spawn:
-    TNT1 A 0 A_Giveinventory("MonStatATK",2)
-	TNT1 A 0 A_Giveinventory("MonStatVit",2)
+    TNT1 A 0 A_Giveinventory("MonStatATK",4)
+	TNT1 A 0 A_Giveinventory("MonStatVit",5)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
 		SRG2 AB 10 A_Look
@@ -270,16 +289,18 @@ ACTOR WSSuperShotgunGuy
    PainSound "chainguy/pain"
    DeathSound "chainguy/death"
    ActiveSound "chainguy/active"
-   AttackSound "ssgguy/attack"
+   AttackSound "weapons/SSGFIRE"
    MONSTER
    +FLOORCLIP
    Obituary "$OB_SSGGUY"
-   DropItem "SuperShotgun"
+   DropItem "shell"
+   DropItem "shell"
+   DropItem "shell"
    States
    {
   Spawn:
     TNT1 A 0 A_Giveinventory("MonStatATK",2)
-	TNT1 A 0 A_Giveinventory("MonStatVit",2)
+	TNT1 A 0 A_Giveinventory("MonStatVit",3)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
          GPOS AB 10 A_Look

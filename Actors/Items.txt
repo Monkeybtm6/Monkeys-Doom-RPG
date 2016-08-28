@@ -31,35 +31,48 @@ ACTOR WSSoulsphere : Soulsphere Replaces Soulsphere
   }
 }
 
-ACTOR Backpackdum : Soulsphere Replaces Backpack
+ACTOR BackpackReplacer : CustomInventory Replaces Backpack
 {
   +COUNTITEM
   +INVENTORY.AUTOACTIVATE
   +INVENTORY.ALWAYSPICKUP
   +INVENTORY.FANCYPICKUPSOUND
-  Inventory.Amount 100
-  Inventory.MaxAmount 999
-  Inventory.PickupMessage "$GOTSUPER" // "Supercharge!"
+  Inventory.Amount 1
+  Inventory.MaxAmount 1
+  Inventory.PickupMessage "$GOTBACKPACK"
   Inventory.PickupSound "misc/p_pkup"
   States
   {
   Spawn:
-    SOUL ABCDCB 6 Bright
-    Loop
+    BPAK A -1
+    Stop
+  Pickup:
+    TNT1 A 0 A_GiveInventory("Backpack")
+	TNT1 A 0 ACS_NAMEDEXECUTEALWAYS("UpdateStats")
+	stop
+  
   }
 }
 
 Actor ArmorMaxUpgrade : BasicArmorBonus
 {
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 899
   armor.maxbonus 1
   armor.maxbonusmax 899
-
-	+COUNTITEM
-	+INVENTORY.ALWAYSPICKUP
+  States
+  {
+  Spawn:
+    BON1 ABCDCB 6
+    Loop
+  }
 }
 
 ACTOR WSGreenArmor : BasicArmorPickup Replaces GreenArmor
 {
+  +INVENTORY.KEEPDEPLETED
   Radius 20
   Height 16
   Inventory.PickupMessage "$GOTARMOR" // "Picked up the armor."
@@ -77,6 +90,7 @@ ACTOR WSGreenArmor : BasicArmorPickup Replaces GreenArmor
 
 ACTOR WSBlueArmor : BasicArmorPickup Replaces BlueArmor
 {
+  +INVENTORY.KEEPDEPLETED
   Radius 20
   Height 16
   Inventory.PickupMessage "$GOTMEGA" // "Picked up the MegaArmor!"
@@ -92,17 +106,60 @@ ACTOR WSBlueArmor : BasicArmorPickup Replaces BlueArmor
   }
 }
 
-ACTOR WSStimpack : HealthPickup Replaces Stimpack
+ACTOR WSStimpack : HealthPickup
 {
   health 10
-  inventory.maxamount 20
-  Inventory.InterHubAmount 20
+  inventory.maxamount 5
+  Inventory.InterHubAmount 5
   inventory.icon STIM_I
   Inventory.PickupMessage "$GOTSTIM" // "Picked up a stimpack."
+  HealthPickup.AutoUse 3
   States
   {
   Spawn:
     STIM A -1
     Stop
   }
+}
+
+ACTOR WSAdvStimpack : HealthPickup
+{
+  health 20
+  inventory.maxamount 5
+  Inventory.InterHubAmount 5
+  inventory.icon STMA_I
+  Inventory.PickupMessage "Picked up an Advanced stimpack."
+  HealthPickup.AutoUse 3
+  States
+  {
+  Spawn:
+    STMA A -1
+    Stop
+  }
+}
+
+ACTOR WSDemonStimpack : HealthPickup
+{
+  health 30
+  inventory.maxamount 5
+  Inventory.InterHubAmount 5
+  inventory.icon STMD_I
+  Inventory.PickupMessage "Picked up a Demonic stimpack."
+  HealthPickup.AutoUse 3
+  States
+  {
+  Spawn:
+    STMD A -1
+    Stop
+  }
+}
+
+actor StimSpawner : RandomSpawner Replaces Stimpack
+{
+    DropItem "WSStimpack"
+    DropItem "WSStimpack"
+    DropItem "WSStimpack"
+    DropItem "WSAdvStimpack"
+	DropItem "WSAdvStimpack"
+	DropItem "WSDemonStimpack"
 }
