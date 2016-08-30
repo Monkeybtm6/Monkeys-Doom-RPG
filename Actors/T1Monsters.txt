@@ -76,7 +76,6 @@ ACTOR WSShotgunGuy : ShotgunGuy
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
   DropItem "Shell"
-  DropItem "Shell"
   States
   {
   Spawn:

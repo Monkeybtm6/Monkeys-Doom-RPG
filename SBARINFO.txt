@@ -26,7 +26,8 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
-    drawimage ammoicon2, -16, -8, centerbottom;
+    DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
+	drawimage ammoicon2, -16, -8, centerbottom;
     drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
 
     usesammo
@@ -42,7 +43,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	}
 
     //inventory
-    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -94, -3, -106, -20, untranslated;
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 134, -6, 156, -25, untranslated;
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
@@ -88,7 +89,8 @@ statusbar normal, forcescaled, fullscreenoffsets
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
-    drawimage ammoicon2, -16, -8, centerbottom;
+    DrawString SMALLFNT, untranslated, Weapontag, -45, -64;
+	drawimage ammoicon2, -16, -8, centerbottom;
     drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
 
     usesammo
@@ -97,7 +99,7 @@ statusbar normal, forcescaled, fullscreenoffsets
         usessecondaryammo
         {
             //drawimage "HUDLONG", -70, -1, centerbottom;
-            drawimage "HUDMAXAM", -45, -49;
+			drawimage "HUDMAXAM", -45, -49;
 			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
 
         }

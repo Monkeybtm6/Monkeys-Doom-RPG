@@ -10,7 +10,7 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
   Player.StartItem "wepslot1"
-  Player.StartItem "WSFist"
+  Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
   Player.StartItem "SGmag", 8
@@ -37,6 +37,9 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.ColorSet 6, "Light Red",     0xB0, 0xBF,  0xB2
   Player.ColorSet 7, "Light Blue",    0xC0, 0xCF,  0xC2
 
+  var int User_weapon;
+  var int User_Spell;
+  
   States
   {
   Spawn:
@@ -91,7 +94,7 @@ ACTOR WSDoomMarine : DoomPlayer
   }
 }
 
-ACTOR WSDoomTank : DoomPlayer
+ACTOR WSDoomTank : WSDoomMarine
 {
   Speed 1.0
   Health 100
@@ -103,7 +106,7 @@ ACTOR WSDoomTank : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
   Player.StartItem "wepslot1"
-  Player.StartItem "WSFist"
+  Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
   Player.StartItem "SGmag", 8
@@ -186,7 +189,7 @@ ACTOR WSDoomTank : DoomPlayer
   }
 }
 
-ACTOR WSDoomSupport : DoomPlayer
+ACTOR WSDoomSupport : WSDoomMarine
 {
   Speed 1.0
   Health 100
@@ -198,7 +201,7 @@ ACTOR WSDoomSupport : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "MachinePistolWS"
   Player.StartItem "wepslot1"
-  Player.StartItem "WSFist"
+  Player.StartItem "FistWS"
   Player.StartItem "Clip", 100
   Player.StartItem "MPistmag", 20
   Player.StartItem "SGmag", 8
@@ -279,7 +282,7 @@ ACTOR WSDoomSupport : DoomPlayer
   }
 }
 
-ACTOR WSLoadDoomMarine : DoomPlayer
+ACTOR WSLoadDoomMarine : WSDoomMarine
 {
   Speed 1.0
   Health 100
@@ -291,7 +294,7 @@ ACTOR WSLoadDoomMarine : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "PistolWS"
   Player.StartItem "wepslot1"
-  Player.StartItem "WSFist"
+  Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
   Player.StartItem "Pistmag", 12
   Player.StartItem "SGmag", 8
@@ -309,7 +312,7 @@ ACTOR WSLoadDoomMarine : DoomPlayer
   Player.ColorSet 5, "Light Brown",   0x38, 0x47,  0x3A
   Player.ColorSet 6, "Light Red",     0xB0, 0xBF,  0xB2
   Player.ColorSet 7, "Light Blue",    0xC0, 0xCF,  0xC2
-
+  
   States
   {
   Spawn:
@@ -377,7 +380,7 @@ Actor WepSlot2 : Inventory
   +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
-  Inventory.MaxAmount 3
+  Inventory.MaxAmount 4
 }
 
 Actor WepSlot3 : Inventory
@@ -400,4 +403,25 @@ Actor Mana : Ammo
 {
   Inventory.Amount 1
   Inventory.MaxAmount 50
+}
+
+Actor "Selected spell" : Inventory
+{
+  +INVENTORY.Untossable
+  Inventory.Amount 1
+  Inventory.MaxAmount 99
+}
+
+Actor "Spellout" : Inventory
+{
+  +INVENTORY.Untossable
+  Inventory.Amount 1
+  Inventory.MaxAmount 1
+}
+
+Actor "Selected Weapon" : Inventory
+{
+  +INVENTORY.Untossable
+  Inventory.Amount 1
+  Inventory.MaxAmount 999
 }

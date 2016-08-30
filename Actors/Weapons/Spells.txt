@@ -1,0 +1,148 @@
+ACTOR SPBaseSpell : Weapon
+{
+  tag "How?"
+  WEAPON.NOALERT
+  WEAPON.NO_AUTO_SWITCH
+  WEAPON.CHEATNOTWEAPON
+  States
+  {
+  Ready:
+    HSPI AABCCBAA 3 A_WeaponReady
+    Loop
+  Deselect:
+    HSPI A 1 A_Lower
+    Loop
+  Select:
+    HSPF CBA 1 A_Raise
+    Loop
+  Fire:
+    HSPI ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	Goto Ready
+  ConfirmFire:
+    HSPF ABC 3
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	HSPF CBA 3
+	Goto Ready
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+	
+  }
+}
+
+ACTOR SPHeal : SPBaseSpell Replaces Soulsphere
+{
+  tag "Heal"
+  WEAPON.NOALERT
+  WEAPON.NO_AUTO_SWITCH
+  WEAPON.CHEATNOTWEAPON
+  States
+  {
+  Ready:
+    HSPI AABCCBAA 3 A_WeaponReady
+    Loop
+  Deselect:
+    HSPI A 1 A_Lower
+    Loop
+  Select:
+    HSPF CBA 1 A_Raise
+    Loop
+  Fire:
+    HSPI ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	Goto Ready
+  ConfirmFire:
+    HSPF ABC 3
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	HSPF CBA 3
+	Goto Ready
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+	
+  }
+}
+
+ACTOR SPHealEffect : Health
+{
+  Inventory.Amount 10
+  States
+  {
+  Spawn:
+    MEDI A -1
+    Stop
+  }
+}
+
+ACTOR SPTest : SPBaseSpell
+{
+  tag "Test"
+  States
+  {
+  Ready:
+    HAPI AABCCBAA 3 A_WeaponReady
+    Loop
+  Deselect:
+    HAPI A 1 A_Lower
+    Loop
+  Select:
+    HAPF CBA 1 A_Raise
+    Loop
+  Fire:
+    HAPI ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	Goto Ready
+  ConfirmFire:
+    HAPF ABC 3
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	HSPF CBA 3
+	Goto Ready
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+	
+  }
+}
+
+ACTOR SPTest2 : SPBaseSpell
+{
+  tag "Test2"
+  States
+  {
+  Ready:
+    HAPI AABCCBAA 3 A_WeaponReady
+    Loop
+  Deselect:
+    HAPI A 1 A_Lower
+    Loop
+  Select:
+    HAPF CBA 1 A_Raise
+    Loop
+  Fire:
+    HAPI ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	Goto Ready
+  ConfirmFire:
+    HAPF ABC 3
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	HSPF CBA 3
+	Goto Ready
+  Spawn:
+    SOUL ABCDCB 6 Bright
+    Loop
+	
+  }
+}

@@ -24,6 +24,7 @@ script 90 ENTER
 	GiveInventory("StatSTR",5);
 	GiveInventory("StatAGI",5);
 	}
+	ACS_NamedExecuteAlways("Manaregen",0);
 }
 
 script 91 RESPAWN
@@ -53,19 +54,23 @@ int EXPMULT = GetCvar("MRPG_EXPMULT");
 
 Script "UpdateStats" (void)
 {
-  int StartHealth = CheckInventory("StatVIT") * 20;
-  int Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel");
-  int Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 4) + StartHealth);
+  int StartHealth = CheckInventory("StatVIT") * 20,
+  Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
+  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 4) + StartHealth),
+  MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
+  ManaStart = CheckInventory("StatINT") * 10,
+  ManaAdd = (MyInt * 1),
+  mySTR = CheckInventory("StatSTR") * CheckInventory("PlayerLevel"),
+  ClipAdd = (mySTR * 4),
+  ShellAdd = (mySTR * 2),
+  RocketAdd = (mySTR * 2),
+  CellAdd = (mySTR * 6);
+  
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
   if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
      {
 	 SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH, Player_Max_Health_out);
      }
-  int mySTR = CheckInventory("StatSTR") * CheckInventory("PlayerLevel");
-  int ClipAdd = (mySTR * 4);
-  int ShellAdd = (mySTR * 2);
-  int RocketAdd = (mySTR * 2);
-  int CellAdd = (mySTR * 6);
 	
   if( CheckInventory("Backpack") == 1)
     {
@@ -83,13 +88,17 @@ Script "UpdateStats" (void)
 	}
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
-  
-  int MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel");
-  int ManaAdd = (MyInt * 1);
-  SetAmmoCapacity("Mana", 50 + ManaAdd);
+  SetAmmoCapacity("Mana", ManaStart + ManaAdd);
   
   Log(s:"Stats Refreshed for Player ",f:PlayerNumber());
 
+}
+
+Script "ManaRegen" (void)
+{
+Giveinventory("Mana",1);
+Delay(35);
+Restart;
 }
 
 script "DAMAGESCR" (int indamage)

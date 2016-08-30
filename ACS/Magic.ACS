@@ -1,0 +1,44 @@
+#library "Spells"
+#include "zcommon.acs"
+#Define SpellsList 4
+int Magicspells[SpellsList] = 
+{
+  0,
+  "SPTest",
+  "SPHeal",
+  "SPTest2"
+};
+
+
+Script "SelectedSpell" (void)
+{
+  int i = CheckInventory("Selected spell");
+  if (CheckInventory("Spellout") == 0 )
+	{
+	SetUserVariable(0,"User_Weapon",GetWeapon());
+	SetWeapon(Magicspells[i]);
+	GiveInventory("Spellout",1);
+	}
+	Else if (CheckInventory("Spellout") > 0 )
+	{
+	SetWeapon(GetUserVariable(0,"User_Weapon"));
+	TakeInventory("Spellout",1);
+	}
+  
+}
+
+Script "SpellSelector" (Void)
+{
+  int i = SpellsList,
+      e = CheckInventory("Selected spell");
+  GiveInventory("Selected spell",1);
+  if (CheckInventory("Selected spell") > i)
+    {
+	TakeInventory("Selected spell",i);
+	GiveInventory("Selected spell",1);
+	}
+  if (CheckInventory("Spellout") > 0 )
+	{
+	SetWeapon(Magicspells[CheckInventory("Selected spell")]);
+	}
+}

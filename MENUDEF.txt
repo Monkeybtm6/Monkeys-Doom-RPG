@@ -33,6 +33,8 @@ OptionMenu "MRPGOpt"
 	StaticText "Its how the database identifies you along with your name."
 	StaticText " "
 	Slider "My Custom ID", "MRPG_MyID", 000, 999, 1, 3
+	StaticText " "
+	Option "Use Database (Zandronum)", "MRPG_UseDB", "OnOff"
 }
 
 OptionMenu "CustomizeControls"

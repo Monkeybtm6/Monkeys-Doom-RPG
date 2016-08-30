@@ -2,3 +2,4 @@
 PlayerScr
 database
 Monscript
+magic

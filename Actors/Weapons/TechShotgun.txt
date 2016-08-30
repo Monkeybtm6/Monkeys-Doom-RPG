@@ -16,7 +16,7 @@ ACTOR TechShotgunWS : Shotgun
   DamageType "pierce"
   +Weapon.Ammo_Optional
   +INVENTORY.ALWAYSPICKUP
-  Tag "$TAG_SHOTGUN"
+  Tag "Tech Shotgun"
   States
   {
   Ready:

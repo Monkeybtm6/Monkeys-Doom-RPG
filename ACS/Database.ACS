@@ -11,6 +11,11 @@ int MyInventory[SaveItems] =
 };
 Script "LoadCharScr" (void)
 {
+	If (getcvar("MRPG_UseDB")==false)
+	    {
+		Terminate;
+		}
+	
 	int MyTid = PLAYER_TID_START + PlayerNumber();
 	str MySavedName = (GetUserCVarString(PlayerNumber(),"Name"));
 	str MySavedID = (GetUserCVarString(PlayerNumber(),"MRPG_MyID"));
@@ -45,6 +50,11 @@ script "SaveCharScr" (void)
 
 Script "SaveAllCharScr" UNLOADING   
 {
+	If (getcvar("MRPG_UseDB")==false)
+	    {
+		Terminate;
+		}
+	
 	BeginDBTransaction();
         for(int i = 0; i < PlayerCount(); i++)   
         {

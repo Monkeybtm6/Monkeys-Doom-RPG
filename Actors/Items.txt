@@ -13,7 +13,7 @@ ACTOR WSHealthBonus : HealthBonus replaces HealthBonus
   }
 }
 
-ACTOR WSSoulsphere : Soulsphere Replaces Soulsphere
+ACTOR WSSoulsphere : Soulsphere 
 {
   +COUNTITEM
   +INVENTORY.AUTOACTIVATE

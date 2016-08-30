@@ -99,7 +99,7 @@ ACTOR WSPlasmaZombie
     ActiveSound "grunt/active"
     Obituary "%o got burned by a plasma zombie."
     DropItem Cell
-    DropItem "AdvPlasmaRifleWS", 10
+    DropItem "AdvPlasmaRiflePickup", 10
 	MissileType MonPlasmaBall
     States
     {
