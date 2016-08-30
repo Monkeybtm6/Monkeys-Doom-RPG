@@ -1,9 +1,9 @@
 ACTOR SPBaseSpell : Weapon
 {
   tag "How?"
-  WEAPON.NOALERT
-  WEAPON.NO_AUTO_SWITCH
-  WEAPON.CHEATNOTWEAPON
+  +WEAPON.NOALERT
+  +WEAPON.NO_AUTO_SWITCH
+  +WEAPON.CHEATNOTWEAPON
   States
   {
   Ready:
@@ -37,9 +37,6 @@ ACTOR SPBaseSpell : Weapon
 ACTOR SPHeal : SPBaseSpell Replaces Soulsphere
 {
   tag "Heal"
-  WEAPON.NOALERT
-  WEAPON.NO_AUTO_SWITCH
-  WEAPON.CHEATNOTWEAPON
   States
   {
   Ready:
