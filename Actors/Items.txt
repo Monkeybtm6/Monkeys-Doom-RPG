@@ -13,7 +13,7 @@ ACTOR WSHealthBonus : HealthBonus replaces HealthBonus
   }
 }
 
-ACTOR WSSoulsphere : Soulsphere 
+ACTOR WSSoulsphere : Soulsphere replaces Soulsphere
 {
   +COUNTITEM
   +INVENTORY.AUTOACTIVATE
@@ -143,6 +143,23 @@ ACTOR WSDemonStimpack : HealthPickup
   health 30
   inventory.maxamount 5
   Inventory.InterHubAmount 5
+  inventory.icon STMD_I
+  Inventory.PickupMessage "Picked up a Demonic stimpack."
+  HealthPickup.AutoUse 3
+  States
+  {
+  Spawn:
+    STMD A -1
+    Stop
+  }
+}
+
+ACTOR WSCheatStimpack : HealthPickup
+{
+  health 30
+  inventory.amount 0x7FFFFFFF
+  inventory.maxamount 0x7FFFFFFF
+  Inventory.InterHubAmount 0x7FFFFFFF
   inventory.icon STMD_I
   Inventory.PickupMessage "Picked up a Demonic stimpack."
   HealthPickup.AutoUse 3

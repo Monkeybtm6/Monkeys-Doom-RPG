@@ -2,7 +2,7 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define SaveItems 7
-int MyInventory[SaveItems] =
+str MyInventory[SaveItems] =
 {
     "Expereince",  "PlayerLevel",
 	"StatVIT",     "StatATK",

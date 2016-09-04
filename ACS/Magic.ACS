@@ -1,11 +1,11 @@
 #library "Spells"
 #include "zcommon.acs"
 #Define SpellsList 4
-int Magicspells[SpellsList] = 
+str Magicspells[SpellsList] = 
 {
-  0,
-  "SPTest",
   "SPHeal",
+  "SPHeal",
+  "SPAmmoSynth",
   "SPTest2"
 };
 
@@ -32,11 +32,15 @@ Script "SpellSelector" (Void)
   int i = SpellsList,
       e = CheckInventory("Selected spell");
   GiveInventory("Selected spell",1);
-  if (CheckInventory("Selected spell") > i)
-    {
-	TakeInventory("Selected spell",i);
-	GiveInventory("Selected spell",1);
-	}
+until(CheckInventory(Magicspells[CheckInventory("Selected spell")]) == 1)
+     {
+	  GiveInventory("Selected spell",1);
+	   if (CheckInventory("Selected spell") > i)
+          {
+	      TakeInventory("Selected spell",i);
+	      }
+	 }
+  
   if (CheckInventory("Spellout") > 0 )
 	{
 	SetWeapon(Magicspells[CheckInventory("Selected spell")]);

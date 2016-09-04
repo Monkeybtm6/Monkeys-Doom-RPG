@@ -50,16 +50,16 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -63;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
-	drawimage "HUDVit", 4, -124;
-	DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
-	drawimage "HUDatk", 4, -113;
-	DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
-	drawimage "HUDInt", 4, -102;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
-	drawimage "HUDSTR", 4, -91;
-	DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
-    drawimage "HUDAGI", 4, -80;
+	//DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
+	//drawimage "HUDVit", 4, -124;
+	//DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
+	//drawimage "HUDatk", 4, -113;
+	//DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
+	//drawimage "HUDInt", 4, -102;
+	//DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
+	//drawimage "HUDSTR", 4, -91;
+	//DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
+    //drawimage "HUDAGI", 4, -80;
 	
     gamemode deathmatch
     {
@@ -74,55 +74,62 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 statusbar normal, forcescaled, fullscreenoffsets
 {
     //Hud Boxes
-	drawimage "HUDBOX", 2, -33;
-	drawimage "HUDBOX2", 79, -33;
+	//drawimage "HUDBOX", 2, -33;
+	//drawimage "HUDBOX2", 101, -33;
 	drawimage "HUDBOX2", -69, -33;
-	drawimage "HUDLONG3", 2, -49;
+	drawimage "HUDLONG3", 2, -67;
 	
 	//health
-    drawimage "HUDH", 13, -8, centerbottom;
-    drawnumber 4, BIGFONT, untranslated, health, drawshadow, 68, -24;
+    drawimage "HUDH", 2, -49;
+    DrawBar "HUDBARHP", "HUDBAR",health,horizontal,20,-49;
+	drawnumber 4, SMALLFNT, White, health, drawshadow,alignment(left) , 22, -45;
 
-    //armor
-    drawimage "HUDA", 90, -8, centerbottom;
-    drawnumber 3, BIGFONT, untranslated, armor, drawshadow, whennotzero, 136, -24;
+    //Mana
+    drawimage "HUDM", 2, -33;
+    DrawBar "HUDBARMP", "HUDBAR",ammo("Mana"),horizontal,20,-33;
+	drawnumber 3, SMALLFNT, White,ammo("Mana"), drawshadow,alignment(left) , 22, -29;
+	
+	//armor
+    drawimage "HUDA", 2, -17;
+    DrawBar "HUDBARAP", "HUDBAR",armor,horizontal,20,-17;
+	drawnumber 3, SMALLFNT, White, armor, drawshadow,alignment(left) , 22, -13;
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
-    DrawString SMALLFNT, untranslated, Weapontag, -45, -64;
+    DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
 	drawimage ammoicon2, -16, -8, centerbottom;
     drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
 
     usesammo
     {
-        //secondary ammo and inventory
+        //secondary ammo
         usessecondaryammo
         {
             //drawimage "HUDLONG", -70, -1, centerbottom;
-			drawimage "HUDMAXAM", -45, -49;
-			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -44;
+            drawimage "HUDMAXAM", -45, -51;
+			drawnumber 4, SMALLFNT, untranslated, ammo2, drawshadow, -8, -46;
 
         }
 	}
 
     //inventory
-    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, -94, -3, -106, -20, untranslated;
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 134, -6, 156, -25, untranslated;
 
     //Essence
-    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -45;
-	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -45;
+    DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
+	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -63;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Green, "StatVit",22,-100;
-	drawimage "HUDVit", 4, -103;
-	DrawNumber 1, SMALLFNT, Red, "StatATK",22,-90;
-	drawimage "HUDatk", 4, -93;
-	DrawNumber 1, SMALLFNT, Cyan, "StatINT",22,-80;
-	drawimage "HUDDef", 4, -83;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",22,-70;
-	drawimage "HUDSTR", 4, -73;
-	DrawNumber 1, SMALLFNT, Blue, "StatAGI",22,-60;
-    drawimage "HUDAGI", 4, -63;
+	DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
+	drawimage "HUDVit", 4, -124;
+	DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
+	drawimage "HUDatk", 4, -113;
+	DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
+	drawimage "HUDInt", 4, -102;
+	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
+	drawimage "HUDSTR", 4, -91;
+	DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
+    drawimage "HUDAGI", 4, -80;
 	
     gamemode deathmatch
     {

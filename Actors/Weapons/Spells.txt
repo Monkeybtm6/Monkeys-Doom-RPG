@@ -34,9 +34,10 @@ ACTOR SPBaseSpell : Weapon
   }
 }
 
-ACTOR SPHeal : SPBaseSpell Replaces Soulsphere
+ACTOR SPHeal : SPBaseSpell
 {
   tag "Heal"
+  +INVENTORY.UNDROPPABLE
   States
   {
   Ready:
@@ -78,31 +79,31 @@ ACTOR SPHealEffect : Health
   }
 }
 
-ACTOR SPTest : SPBaseSpell
+ACTOR SPAmmoSynth : SPBaseSpell
 {
-  tag "Test"
+  tag "Ammo Synth"
   States
   {
   Ready:
-    HAPI AABCCBAA 3 A_WeaponReady
+    SPAS AABCCBAA 3 A_WeaponReady
     Loop
   Deselect:
-    HAPI A 1 A_Lower
+    SPAS A 1 A_Lower
     Loop
   Select:
-    HAPF CBA 1 A_Raise
+    SPAS CBA 1 A_Raise
     Loop
   Fire:
-    HAPI ABCBA 3
-    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
-    TNT1 A 0 A_Print("Needs 20 mana")
+    SPAS ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmFire")
+    TNT1 A 0 A_Print("Needs 10 mana")
 	Goto Ready
   ConfirmFire:
-    HAPF ABC 3
-	TNT1 A 0 A_GiveInventory("SPHealEffect")
-	TNT1 A 0 A_TakeInventory("Mana",20)
+    SPAA ABC 3
+	TNT1 A 0 A_GiveInventory("Clip",10)
+	TNT1 A 0 A_TakeInventory("Mana",10)
 	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
-	HSPF CBA 3
+	SPAA CBA 3
 	Goto Ready
   Spawn:
     SOUL ABCDCB 6 Bright

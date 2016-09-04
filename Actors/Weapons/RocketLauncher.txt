@@ -5,16 +5,17 @@ ACTOR RocketLauncherWS : RocketLauncher Replaces RocketLauncher
   Weapon.AmmoUse 1
   Weapon.AmmoUse2 1
   Weapon.AmmoGive 2
-  Weapon.AmmoType "RocketAmmo"
+  Weapon.AmmoType "RLMag"
   Weapon.AmmoType2 "RocketAmmo"
   +WEAPON.NOAUTOFIRE
+  +Weapon.Ammo_Optional
   decal Scorch
   Inventory.PickupMessage "$GOTLAUNCHER"
   Tag "$TAG_ROCKETLAUNCHER"
   States
   {
   Ready:
-    MISG A 1 A_WeaponReady
+    MISG A 1 A_WeaponReady (WRF_AllowReload)
     Loop
   Deselect:
     MISG A 1 A_Lower
@@ -23,59 +24,39 @@ ACTOR RocketLauncherWS : RocketLauncher Replaces RocketLauncher
     MISG A 1 A_Raise
     Loop
   Fire:
-    TNT1 A 0 //A_JumpIfInventory ("PlayerLevel", 5,"Fireplus1")
+    TNT1 A 0 A_JumpIfnoammo("Reload")
+	TNT1 A 0
 	MISG B 8 A_GunFlash
     MISG B 12 A_FireCustomMissile ("RocketPlus1",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-  Fireplus1:
-    TNT1 A 0 A_JumpIfInventory ("PlayerLevel", 7,"Fireplus2")
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketPlus1",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-  Fireplus2:
-    TNT1 A 0 A_JumpIfInventory ("PlayerLevel", 9,"Fireplus3")
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketPlus2",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-  Fireplus3:
-    TNT1 A 0 A_JumpIfInventory ("PlayerLevel", 11,"Fireplus4")
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketPlus3",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-  Fireplus4:
-    TNT1 A 0 A_JumpIfInventory ("PlayerLevel", 13,"Fireplus5")
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketPlus4",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-  Fireplus5:
-    TNT1 A 0
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketPlus5",0,1,0,0,0)
     MISG B 0 A_ReFire
     Goto Ready
   
-  AltFire:
-    SHTG A 0 A_JumpIfInventory ("PlayerLevel", 9,"AltFireplus1")
-    SHTG A 0 A_PrintBold("Must be atleast Lvl 9")
-	Goto Ready
-  AltFireplus1:
-    TNT1 A 0 A_JumpIfInventory ("PlayerLevel", 11,"AltFireplus2")
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketAltPlus1",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
-	
-  AltFireplus2:
-    TNT1 A 0
-	MISG B 8 A_GunFlash
-    MISG B 12 A_FireCustomMissile ("RocketAltPlus2",0,1,0,0,0)
-    MISG B 0 A_ReFire
-    Goto Ready
+   Reload:
+    MISG A 0 A_JumpIfInventory ("RLMag", 6, 2)
+    MISG A 0 A_JumpIfInventory("RocketAmmo", 1, "ReloadStep")
+    MISG A 0
+    goto ready
+   Reloadstep:
+    MISG A 2 Offset(4,40)
+	MISG A 2 Offset(8,48)
+	MISG A 2 Offset(12,58)
+	MISG A 2 Offset(16,68)
+	MISG A 2 Offset(20,78)
+    MISG A 16 Offset(20,78)
+   ReloadLoop:
+    TNT1 A 0 A_TakeInventory("RocketAmmo", 1)
+    TNT1 A 0 A_GiveInventory("RLMag", 1)
+    TNT1 A 0 A_JumpIfInventory("RLMag", 6, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("RocketAmmo", 1, "ReloadLoop")
+    Goto ReloadDone
+   ReloadDone:
+	MISG A 6 Offset(20,78)
+	MISG A 2 Offset(16,68)
+	MISG A 2 Offset(12,58)
+	MISG A 2 Offset(8,48)
+    MISG A 2 Offset(4,40)
+    MISG A 2 Offset(0,32)
+    goto ready
 	
   Flash:
     MISF A 3 Bright A_Light1
@@ -305,4 +286,10 @@ ACTOR RClusterbomb
     HCBP C 2 Bright
     Stop
   }
+}
+
+actor RLMAG : ammo
+{
+ Inventory.MaxAmount 6
+ +IGNORESKILL
 }

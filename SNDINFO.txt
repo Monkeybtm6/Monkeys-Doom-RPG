@@ -25,3 +25,6 @@ Weapons/BFGX2  Sound/Weapons/DSBFGX2
 
 //AdvPlasmaRifle
 Weapons/Plasma3  Sound/Weapons/DSPlasma2
+
+//AssaultRifle
+Weapons/AssRif1  Sound/Weapons/DSARIFLE

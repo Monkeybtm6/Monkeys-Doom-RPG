@@ -2,8 +2,8 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define PLAYER_MAX_HEALTH_ADD 4
-#define atkbase 0.03
-#define AGIbase 0.2
+#define atkbase 0.02
+#define AGIbase 0.25
 #define DAMAGE_COUNTPERCENT 0.02
 #define MaxLevel 60
 int LevelNext[MaxLevel];
@@ -18,11 +18,11 @@ script 90 ENTER
   if(CheckInventory("Playerlevel") <= 0)
     {
 	GiveInventory("Playerlevel",1);
-	GiveInventory("StatVIT",5);
-	GiveInventory("StatATK",5);
-	GiveInventory("StatINT",5);
-	GiveInventory("StatSTR",5);
-	GiveInventory("StatAGI",5);
+	GiveInventory("StatVIT",4);
+	GiveInventory("StatATK",4);
+	GiveInventory("StatINT",4);
+	GiveInventory("StatSTR",4);
+	GiveInventory("StatAGI",4);
 	}
 	ACS_NamedExecuteAlways("Manaregen",0);
 }
