@@ -60,7 +60,8 @@ ACTOR WSDoomMarine : DoomPlayer
     PLAY G 4 A_Pain
     Goto Spawn
   Death:
-    PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
+    PLAY H 0 A_TakeInventory("HasLoaded")
+	PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
   Death1:
     PLAY H 10
     PLAY I 10 A_PlayerScream
@@ -69,7 +70,8 @@ ACTOR WSDoomMarine : DoomPlayer
     PLAY N -1
     Stop
   XDeath:
-    PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
+    PLAY O 0 A_TakeInventory("HasLoaded")
+	PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
   XDeath1:
     PLAY O 5
     PLAY P 5 A_XScream
@@ -316,64 +318,10 @@ ACTOR WSLoadDoomMarine : WSDoomMarine
   Player.ColorSet 5, "Light Brown",   0x38, 0x47,  0x3A
   Player.ColorSet 6, "Light Red",     0xB0, 0xBF,  0xB2
   Player.ColorSet 7, "Light Blue",    0xC0, 0xCF,  0xC2
-  
-  States
-  {
-  Spawn:
-    PLAY A -1
-    Loop
-  See:
-    PLAY ABCD 4 
-    Loop
-  Missile:
-    PLAY E 12
-    Goto Spawn
-  Melee:
-    PLAY F 6 BRIGHT
-    Goto Missile
-  Pain:
-    PLAY G 4 
-    PLAY G 4 A_Pain
-    Goto Spawn
-  Death:
-    PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
-  Death1:
-    PLAY H 10
-    PLAY I 10 A_PlayerScream
-    PLAY J 10 A_NoBlocking
-    PLAY KLM 10
-    PLAY N -1
-    Stop
-  XDeath:
-    PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
-  XDeath1:
-    PLAY O 5
-    PLAY P 5 A_XScream
-    PLAY Q 5 A_NoBlocking
-    PLAY RSTUV 5
-    PLAY W -1
-    Stop
-  AltSkinDeath:
-    PLAY H 6
-    PLAY I 6 A_PlayerScream
-    PLAY JK 6
-    PLAY L 6 A_NoBlocking
-    PLAY MNO 6
-    PLAY P -1
-    Stop
-  AltSkinXDeath:
-    PLAY Q 5 A_PlayerScream
-    PLAY R 0 A_NoBlocking
-    PLAY R 5 A_SkullPop
-    PLAY STUVWX 5
-    PLAY Y -1
-    Stop
-  }
 }
 
 Actor WepSlot1 : Inventory
 {
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
   Inventory.MaxAmount 1
@@ -381,7 +329,6 @@ Actor WepSlot1 : Inventory
 
 Actor WepSlot2 : Inventory
 {
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
   Inventory.MaxAmount 4
@@ -389,7 +336,6 @@ Actor WepSlot2 : Inventory
 
 Actor WepSlot3 : Inventory
 {
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
   Inventory.MaxAmount 2
@@ -397,7 +343,6 @@ Actor WepSlot3 : Inventory
 
 Actor WepSlot4 : Inventory
 {
-  +COUNTITEM
   +INVENTORY.ALWAYSPICKUP
   Inventory.Amount 1
   Inventory.MaxAmount 1
@@ -411,21 +356,25 @@ Actor Mana : Ammo
 
 Actor "Selected spell" : Inventory
 {
-  +INVENTORY.Untossable
   Inventory.Amount 1
   Inventory.MaxAmount 99
 }
 
 Actor "Spellout" : Inventory
 {
-  +INVENTORY.Untossable
   Inventory.Amount 1
   Inventory.MaxAmount 1
 }
 
 Actor "Selected Weapon" : Inventory
 {
-  +INVENTORY.Untossable
+  //+INVENTORY.Untossable
   Inventory.Amount 1
   Inventory.MaxAmount 999
+}
+
+Actor "HasLoaded" : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 1
 }

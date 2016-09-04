@@ -5,9 +5,17 @@ str Magicspells[SpellsList] =
 {
   "SPHeal",
   "SPHeal",
-  "SPAmmoSynth",
+  "SPClipSynth",
   "SPTest2"
 };
+
+/*Script "SpellHud" (Void)
+{
+ int i = CheckInventory("Selected spell");
+ HudMessage(s: Magicspells[i]; 1, CR_Blue, -8, -69, 5, 1.0);
+ Delay(5);
+ Restart;
+}*/
 
 
 Script "SelectedSpell" (void)
@@ -32,6 +40,10 @@ Script "SpellSelector" (Void)
   int i = SpellsList,
       e = CheckInventory("Selected spell");
   GiveInventory("Selected spell",1);
+  if (CheckInventory("Selected spell") > i)
+     {
+	  TakeInventory("Selected spell",i);
+	 }
 until(CheckInventory(Magicspells[CheckInventory("Selected spell")]) == 1)
      {
 	  GiveInventory("Selected spell",1);

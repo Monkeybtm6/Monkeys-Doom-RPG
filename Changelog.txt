@@ -25,4 +25,6 @@ Changed the Hud.
 
 0.28
 Added new weapon, The assault rifle MK2
+Added new spell, Bullet Synthesis.
 Tweaked the stats.
+Database now saves weapons.

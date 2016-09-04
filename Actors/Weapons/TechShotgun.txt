@@ -1,6 +1,6 @@
 ACTOR TechShotgunWS : Shotgun
 {
-  Weapon.SelectionOrder 1301
+  Weapon.SelectionOrder 1299
   Weapon.AmmoUse 1
   Weapon.AmmoUse2 1
   Weapon.AmmoGive 0
@@ -39,6 +39,7 @@ ACTOR TechShotgunWS : Shotgun
     TSGF A 1 Radius_Quake(2,3,0,1,0)
 	TSGF AB 2 Bright A_Light1
     TSGN ABCDDEEEDDCB 2
+	TSGN A 4
 	TSGN A 7 A_ReFire
     Goto Ready
   

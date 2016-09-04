@@ -4,6 +4,7 @@ ACTOR SPBaseSpell : Weapon
   +WEAPON.NOALERT
   +WEAPON.NO_AUTO_SWITCH
   +WEAPON.CHEATNOTWEAPON
+  Inventory.PickupSound "misc/p_pkup"
   States
   {
   Ready:
@@ -79,9 +80,9 @@ ACTOR SPHealEffect : Health
   }
 }
 
-ACTOR SPAmmoSynth : SPBaseSpell
+ACTOR SPClipSynth : SPBaseSpell
 {
-  tag "Ammo Synth"
+  tag "Bullet Synth"
   States
   {
   Ready:
@@ -106,8 +107,8 @@ ACTOR SPAmmoSynth : SPBaseSpell
 	SPAA CBA 3
 	Goto Ready
   Spawn:
-    SOUL ABCDCB 6 Bright
-    Loop
+    SPAS D -1 Bright
+    Stop
 	
   }
 }

@@ -1,6 +1,6 @@
 ACTOR AssaultRifleMK2WS : Weapon
 {
-   Weapon.SelectionOrder 700
+   Weapon.SelectionOrder 699
    Weapon.SlotNumber 3
    Weapon.AmmoUse 1
    Weapon.AmmoGive2 0
@@ -30,20 +30,21 @@ ACTOR AssaultRifleMK2WS : Weapon
      DMGF A 0 A_JumpIfNoAmmo ("Reload")
 	 DMGF A 0 A_PlaySound("Weapons/AssRif2", CHAN_WEAPON)
 	 DMGF A 0 Radius_Quake(1,2,0,1,0)
-	 DMGF A 0 A_FireBullets(5.6, 3, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",14,0,0)), "BulletPuff", FBF_USEAMMO|FBF_NORANDOM)
+	 DMGF A 0 A_FireBullets(5.6, 3, -1, (ACS_NamedExecuteWithResult("DAMAGESCR",14,0,0)), "BulletPuff", FBF_USEAMMO|FBF_NORANDOM)
 	 DMGF A 1 Bright A_Light1
-	 DMGF B 2
+	 DMGF B 1
 	 DMGF A 0 A_JumpIfNoAmmo ("Reload")
 	 DMGF A 0 A_PlaySound("Weapons/AssRif2", CHAN_WEAPON)
 	 DMGF A 0 Radius_Quake(1,2,0,1,0)
-	 DMGF A 0 A_FireBullets(5.6, 3, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",14,0,0)), "BulletPuff", FBF_USEAMMO|FBF_NORANDOM)
+	 DMGF A 0 A_FireBullets(5.6, 3, -1, (ACS_NamedExecuteWithResult("DAMAGESCR",14,0,0)), "BulletPuff", FBF_USEAMMO|FBF_NORANDOM)
 	 DMGF C 1 Bright A_Light1
-	 DMGF D 2
+	 DMGF D 1
+	 DMGG B 0 A_Refire
 	 DMGG B 1
      Goto Ready
    
    Reload:
-    DMGG A 0 A_JumpIfInventory ("AR2Mag", 40, 2)
+    DMGG A 0 A_JumpIfInventory ("AR2Mag", 60, 2)
     DMGG A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
     DMGG A 0
     goto ready
@@ -58,7 +59,7 @@ ACTOR AssaultRifleMK2WS : Weapon
    ReloadLoop:
 	TNT1 A 0 A_TakeInventory("Clip", 1)
     TNT1 A 0 A_GiveInventory("AR2Mag", 1)
-    TNT1 A 0 A_JumpIfInventory("AR2Mag", 40, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("AR2Mag", 60, "ReloadDone")
     TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
@@ -84,7 +85,7 @@ ACTOR AssaultRifleMK2WS : Weapon
 
 actor AR2MAG : ammo
 {
- Inventory.MaxAmount 40
+ Inventory.MaxAmount 60
  +IGNORESKILL
 }
 

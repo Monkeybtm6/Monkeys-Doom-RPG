@@ -127,6 +127,56 @@ States
 	  }
 }
 
+Actor ShotGunSpawner : DynSpawner Replaces Shotgun
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("ELShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLShotgunSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  Stop
+	  }
+}
+
+Actor AssaultRifleSpawner : DynSpawner Replaces Chaingun
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("ELARSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLARSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLARSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  Stop
+	  }
+}
+
 Actor LLImpRandSpawn : Randomspawner
 {
   Dropitem "WSImp"
@@ -149,4 +199,62 @@ Actor LLDemonRandSpawn : Randomspawner
 {
   Dropitem "WSDemon"
   Dropitem "WSBloodDemon"
+}
+
+Actor ELShotgunSpawner : RandomSpawner
+{
+  DropItem "TechShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+}
+
+Actor LLShotgunSpawner : RandomSpawner
+{
+  DropItem "TechShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+  DropItem "ShotgunPickup"
+}
+
+Actor MLShotgunSpawner : RandomSpawner
+{
+  DropItem "TechShotgunPickup"
+  DropItem "ShotgunPickup"
+}
+
+Actor ELARSpawner : RandomSpawner
+{
+  DropItem "AssaultRiflemk2Pickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+}
+
+Actor LLARSpawner : RandomSpawner
+{
+  DropItem "AssaultRiflemk2Pickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+  DropItem "AssaultRiflePickup"
+}
+
+Actor MLARSpawner : RandomSpawner
+{
+  DropItem "AssaultRiflemk2Pickup"
+  DropItem "AssaultRiflePickup"
 }

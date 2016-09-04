@@ -14,6 +14,7 @@ ACTOR WSZombieMan : ZombieMan
   ActiveSound "grunt/active"
   Obituary "$OB_ZOMBIE" // "%o was killed by a zombieman."
   DropItem "Clip"
+  DropItem "SPClipSynth", 5
   DropItem "machinepistolPickup", 10
   States
   {
@@ -76,6 +77,8 @@ ACTOR WSShotgunGuy : ShotgunGuy
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
   DropItem "Shell"
+  DropItem "Shell"
+  DropItem "ShotGunSpawner", 20
   States
   {
   Spawn:
@@ -138,8 +141,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
   AttackSound "chainguy/attack"
   Obituary "$OB_CHAINGUY"
   Dropitem "ClipBox"
-  Dropitem "AssaultRiflePickup", 30
-  Dropitem "AssaultRifleMK2Pickup", 5
+  Dropitem "AssaultRifleSpawner", 50
   States
   {
   Spawn:

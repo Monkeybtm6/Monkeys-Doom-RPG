@@ -174,7 +174,7 @@ actor SGMAG : ammo
  +IGNORESKILL
 }
 
-Actor "ShotgunPickup" : CustomInventory Replaces Shotgun
+Actor "ShotgunPickup" : CustomInventory
 {
   Inventory.PickupMessage "Picked up Shotgun"
   Inventory.PickupSound "misc/W_pkup"

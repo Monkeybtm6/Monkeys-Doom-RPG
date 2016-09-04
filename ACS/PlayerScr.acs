@@ -12,19 +12,24 @@ script 90 ENTER
 {
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
 
-  if(Playerclass(PlayerNumber()) == 0)
-    {ACS_NamedExecuteAlways("LoadCharScr",0);}
-	Delay(1);
-  if(CheckInventory("Playerlevel") <= 0)
-    {
-	GiveInventory("Playerlevel",1);
-	GiveInventory("StatVIT",4);
-	GiveInventory("StatATK",4);
-	GiveInventory("StatINT",4);
-	GiveInventory("StatSTR",4);
-	GiveInventory("StatAGI",4);
+  if (CheckInventory("HasLoaded") == 0)
+	{
+	if(Playerclass(PlayerNumber()) == 0)
+      {ACS_NamedExecuteAlways("LoadCharScr",0);}
+	  Delay(1);
+    if(CheckInventory("Playerlevel") <= 0)
+      {
+	  GiveInventory("Playerlevel",1);
+	  GiveInventory("StatVIT",4);
+	  GiveInventory("StatATK",4);
+	  GiveInventory("StatINT",4);
+	  GiveInventory("StatSTR",4);
+	  GiveInventory("StatAGI",4);
+	  }
+	  GiveInventory("HasLoaded",1);
 	}
-	ACS_NamedExecuteAlways("Manaregen",0);
+  ACS_NamedExecuteAlways("Manaregen",0);
+  //ACS_NamedExecuteAlways("SpellHud",0);
 }
 
 script 91 RESPAWN
