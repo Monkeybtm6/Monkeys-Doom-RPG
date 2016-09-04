@@ -14,7 +14,7 @@ ACTOR MachinePistolWS : Weapon
   //+WEAPON.WIMPY_WEAPON
   +Weapon.Ammo_Optional
   Inventory.Pickupmessage "$PICKUP_PISTOL_DROPPED"
-  Tag "$TAG_PISTOL"
+  Tag "Machine Pistol"
   States
   {
   Ready:

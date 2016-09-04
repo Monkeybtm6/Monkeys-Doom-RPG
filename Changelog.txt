@@ -22,3 +22,7 @@ Added a new weapon, The Tech Shotgun.
 Reimplemented the Backpack.
 Added Mana system.
 Changed the Hud.
+
+0.28
+Added new weapon, The assault rifle MK2
+Tweaked the stats.

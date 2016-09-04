@@ -137,7 +137,9 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
   ActiveSound "chainguy/active"
   AttackSound "chainguy/attack"
   Obituary "$OB_CHAINGUY"
-  Dropitem "Chaingun"
+  Dropitem "ClipBox"
+  Dropitem "AssaultRiflePickup", 30
+  Dropitem "AssaultRifleMK2Pickup", 5
   States
   {
   Spawn:

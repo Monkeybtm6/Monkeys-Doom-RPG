@@ -74,14 +74,14 @@ Script "UpdateStats" (void)
 	
   if( CheckInventory("Backpack") == 1)
     {
-	   SetAmmoCapacity("Clip", 400 + ClipAdd);
+	   SetAmmoCapacity("Clip", 600 + ClipAdd);
        SetAmmoCapacity("Shell", 100 + ShellAdd);
        SetAmmoCapacity("RocketAmmo", 100 + RocketAdd);
        SetAmmoCapacity("Cell", 600 + CellAdd);
     }
   else
     {
-       SetAmmoCapacity("Clip", 200 + ClipAdd);
+       SetAmmoCapacity("Clip", 300 + ClipAdd);
        SetAmmoCapacity("Shell", 50 + ShellAdd);
        SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
        SetAmmoCapacity("Cell", 300 + CellAdd);
