@@ -34,3 +34,6 @@ Weapons/AssRif2  Sound/Weapons/DSAR2
 
 //Auto Shotgun
 Weapons/ASGF  Sound/Weapons/DSASGF
+
+//Minigun
+weapons/minigun	  Sound/Weapons/DSMINIGN

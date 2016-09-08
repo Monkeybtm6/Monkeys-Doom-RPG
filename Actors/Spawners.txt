@@ -249,14 +249,16 @@ Actor ELARSpawner : RandomSpawner
 
 Actor LLARSpawner : RandomSpawner
 {
-  DropItem "AssaultRiflemk2Pickup"
-  DropItem "AssaultRiflePickup",256,4
+  DropItem "AssaultRiflemk2Pickup",256,4
+  DropItem "AssaultRiflePickup",256,12
+  DropItem "MinigunPickup"
 }
 
 Actor MLARSpawner : RandomSpawner
 {
   DropItem "AssaultRiflemk2Pickup"
   DropItem "AssaultRiflePickup"
+  DropItem "MinigunPickup"
 }
 
 Actor BulletSpawner : RandomSpawner Replaces Clip

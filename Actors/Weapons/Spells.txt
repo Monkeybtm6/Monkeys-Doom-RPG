@@ -4,6 +4,7 @@ ACTOR SPBaseSpell : Weapon
   +WEAPON.NOALERT
   +WEAPON.NO_AUTO_SWITCH
   +WEAPON.CHEATNOTWEAPON
+  Weapon.SelectionOrder 9999
   Inventory.PickupSound "misc/p_pkup"
   States
   {
@@ -103,7 +104,7 @@ ACTOR SPClipSynth : SPBaseSpell
 	Goto Ready
   ConfirmFire:
     SPAA ABC 3
-	TNT1 A 0 A_SpawnItemEx("Clip",45,0,30,5)
+	TNT1 A 0 A_SpawnItemEx("NewClip",45,0,30,5)
 	TNT1 A 0 A_TakeInventory("Mana",10)
 	TNT1 A 0 A_GiveInventory("StatProgressINT")
 	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)

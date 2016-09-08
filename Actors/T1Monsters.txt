@@ -146,6 +146,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
   Obituary "$OB_CHAINGUY"
   Dropitem "ClipBox"
   Dropitem "AssaultRifleSpawner", 50
+  Dropitem "MinigunPickup", 10
   States
   {
   Spawn:

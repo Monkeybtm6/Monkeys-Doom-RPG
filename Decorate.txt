@@ -4,7 +4,7 @@
 #include "Actors/Weapons/TechShotgun.txt"
 #include "Actors/Weapons/AutoShotgun.txt"
 #include "Actors/Weapons/Pistol.txt"
-#include "Actors/Weapons/Chaingun.txt"
+#include "Actors/Weapons/AssaultRifle.txt"
 #include "Actors/Weapons/PlasmaRifle.txt"
 #include "Actors/Weapons/AdvPlasmaRifle.txt"
 #include "Actors/Weapons/RocketLauncher.txt"
@@ -12,6 +12,7 @@
 #include "Actors/Weapons/SuperShotgun.txt"
 #include "Actors/Weapons/MachinePistol.txt"
 #include "Actors/Weapons/AssaultRifleMK2.txt"
+#include "Actors/Weapons/Minigun.txt"
 #include "Actors/Weapons/Spells.txt"
 
 #include "Actors/T1Monsters.txt"

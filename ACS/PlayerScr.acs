@@ -70,15 +70,16 @@ CheckInventory("StatSTR") +
 CheckInventory("StatAGI"),
  EXP = CheckInventory("Expereince"),
  Lvl = CheckInventory("Playerlevel"),
- EXPMULT = GetCvar("MRPG_EXPMULT");
+ EXPMULT = GetCvar("MRPG_EXPMULT"),
+ STATEXPMULT = GetCvar("MRPG_STATMULT");
    
    
-for(int sid = 1; sid <= 5; sid++)
+for(int sid = 0; sid <= 5; sid++)
   {
-   if(CheckInventory(StatProgArray[sid]) >= (EXPMULT * StatMult) && StatMult <= 60)
+   if(CheckInventory(StatProgArray[sid]) >= (STATEXPMULT * StatMult) && StatMult <= 60)
    {
       GiveInventory(StatArray[sid], 1);
-      TakeInventory(StatProgArray[sid],(EXPMULT * StatMult));
+      TakeInventory(StatProgArray[sid],(STATEXPMULT * StatMult));
       Log(s:"Stat Increased for ",f:PlayerNumber());
    }
   }
