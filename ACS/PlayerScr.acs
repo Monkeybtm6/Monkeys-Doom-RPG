@@ -1,12 +1,28 @@
 #library "PlayerScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define PLAYER_MAX_HEALTH_ADD 4
+
 #define atkbase 0.02
-#define AGIbase 0.25
+#define AGIbase 0.20
 #define DAMAGE_COUNTPERCENT 0.02
 #define MaxLevel 60
 int LevelNext[MaxLevel];
+str StatArray[5] =
+{
+"StatVIT",
+"StatATK",
+"StatINT",
+"StatSTR",
+"StatAGI"
+};
+str StatProgArray[5] =
+{
+"StatProgressVIT",
+"StatProgressATK",
+"StatProgressINT",
+"StatProgressSTR",
+"StatProgressAGI"
+};
 
 script 90 ENTER
 {
@@ -25,11 +41,13 @@ script 90 ENTER
 	  GiveInventory("StatINT",4);
 	  GiveInventory("StatSTR",4);
 	  GiveInventory("StatAGI",4);
+	  GiveInventory("PistolWS",1);
+	  GiveInventory("Wepslot1",1);
 	  }
 	  GiveInventory("HasLoaded",1);
 	}
   ACS_NamedExecuteAlways("Manaregen",0);
-  //ACS_NamedExecuteAlways("SpellHud",0);
+  ACS_NamedExecuteAlways("UpdateStats",0);
 }
 
 script 91 RESPAWN
@@ -44,24 +62,40 @@ Script "Levelupcheck" (int EXPA)
 {
 GiveInventory("Expereince", EXPA);
 
-int EXP = CheckInventory("Expereince");
-int Lvl = CheckInventory("Playerlevel");
-int EXPMULT = GetCvar("MRPG_EXPMULT");
+Int StatMult =
+CheckInventory("StatVIT") +
+CheckInventory("StatATK") +
+CheckInventory("StatINT") +
+CheckInventory("StatSTR") +
+CheckInventory("StatAGI"),
+ EXP = CheckInventory("Expereince"),
+ Lvl = CheckInventory("Playerlevel"),
+ EXPMULT = GetCvar("MRPG_EXPMULT");
    
-   if(EXP >= (EXPMULT * Lvl))
+   
+for(int sid = 1; sid <= 5; sid++)
+  {
+   if(CheckInventory(StatProgArray[sid]) >= (EXPMULT * StatMult) && StatMult <= 60)
+   {
+      GiveInventory(StatArray[sid], 1);
+      TakeInventory(StatProgArray[sid],(EXPMULT * StatMult));
+      Log(s:"Stat Increased for ",f:PlayerNumber());
+   }
+  }
+   
+   if(EXP >= (EXPMULT * Lvl) && LVL <= Maxlevel)
    {
       GiveInventory("Playerlevel", 1);
       TakeInventory("Expereince",(EXPMULT * lvl));
       ACS_NamedExecuteAlways("UpdateStats",0);
    }
-
 }
 
 Script "UpdateStats" (void)
 {
-  int StartHealth = CheckInventory("StatVIT") * 20,
+  int StartHealth = CheckInventory("StatVIT") * 15,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
-  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 4) + StartHealth),
+  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),
@@ -80,14 +114,16 @@ Script "UpdateStats" (void)
   if( CheckInventory("Backpack") == 1)
     {
 	   SetAmmoCapacity("Clip", 600 + ClipAdd);
-       SetAmmoCapacity("Shell", 100 + ShellAdd);
+       SetAmmoCapacity("RifleAmmo", 400 + ShellAdd);
+	   SetAmmoCapacity("Shell", 100 + ShellAdd);
        SetAmmoCapacity("RocketAmmo", 100 + RocketAdd);
        SetAmmoCapacity("Cell", 600 + CellAdd);
     }
   else
     {
        SetAmmoCapacity("Clip", 300 + ClipAdd);
-       SetAmmoCapacity("Shell", 50 + ShellAdd);
+       SetAmmoCapacity("RifleAmmo", 200 + ShellAdd);
+	   SetAmmoCapacity("Shell", 50 + ShellAdd);
        SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
        SetAmmoCapacity("Cell", 300 + CellAdd);
 	}

@@ -1,19 +1,23 @@
 #library "DatabaseScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define SaveItems 19
+#define SaveItems 27
 str MyInventory[SaveItems] =
 {
-    "Expereince",  "PlayerLevel",
-	"StatVIT",     "StatATK",
-	"StatSTR",     "StatINT",
-	"StatAGI",     "Wepslot1",
-	"Wepslot2",     "Wepslot3",
-	"MachinePistolWS", "AssaultRifleWS",
-	"AssaultRifleMK2WS", "ShotgunWS",
-	"TechShotgunWS", "PlasmaRifleWS",
-	"AdvPlasmaRifleWS", "RocketLauncherWS",
-	"BFG9000WS"
+    "Expereince",           "PlayerLevel",
+	"StatVIT",              "StatATK",
+	"StatSTR",              "StatINT",
+	"StatAGI",              "StatProgressVIT",
+	"StatProgressATK",      "StatProgressINT",
+	"StatProgressSTR",      "StatProgressAGI",
+	"Wepslot1",             "Wepslot2",             
+	"Wepslot3",             "PistolWS",
+	"MachinePistolWS",      "AssaultRifleWS",
+	"AssaultRifleMK2WS",    "ShotgunWS",
+	"TechShotgunWS",        "PlasmaRifleWS",
+	"AdvPlasmaRifleWS",     "RocketLauncherWS",
+	"BFG9000WS",            "AutoShotgunWS",
+	"SPClipSynth"
 	
 };
 Script "LoadCharScr" (void)
@@ -33,7 +37,7 @@ Script "LoadCharScr" (void)
         TakeActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
 		GiveActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
     }
-	ACS_NamedExecuteAlways("UpdateStats",0);
+	//ACS_NamedExecuteAlways("UpdateStats",0);
 	print(s:"Character Restored.");
 }
 

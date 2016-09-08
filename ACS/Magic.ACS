@@ -1,18 +1,26 @@
 #library "Spells"
 #include "zcommon.acs"
-#Define SpellsList 4
+#Define SpellsList 3
 str Magicspells[SpellsList] = 
 {
-  "SPHeal",
   "SPHeal",
   "SPClipSynth",
   "SPTest2"
 };
 
+str SpellsTag[SpellsList] = 
+{
+  "Heal",
+  "Bullet Synth",
+  "Test2"
+};
+
 /*Script "SpellHud" (Void)
 {
+ SetHudSize(640, 480, 0);
+ SetFont("Smallfnt");
  int i = CheckInventory("Selected spell");
- HudMessage(s: Magicspells[i]; 1, CR_Blue, -8, -69, 5, 1.0);
+ HudMessage(s: SpellsTag[i]; HUDMSG_PLAIN, 1, CR_Blue,570.6,468.0, 5);
  Delay(5);
  Restart;
 }*/
@@ -21,7 +29,7 @@ str Magicspells[SpellsList] =
 Script "SelectedSpell" (void)
 {
   int i = CheckInventory("Selected spell");
-  if (CheckInventory("Spellout") == 0 )
+  if (CheckInventory("Spellout") == 0 && CheckInventory(Magicspells[CheckInventory("Selected spell")]) == 1)
 	{
 	SetUserVariable(0,"User_Weapon",GetWeapon());
 	SetWeapon(Magicspells[i]);
@@ -37,22 +45,20 @@ Script "SelectedSpell" (void)
 
 Script "SpellSelector" (Void)
 {
-  int i = SpellsList,
-      e = CheckInventory("Selected spell");
+  int i = SpellsList;
   GiveInventory("Selected spell",1);
-  if (CheckInventory("Selected spell") > i)
-     {
-	  TakeInventory("Selected spell",i);
-	 }
-until(CheckInventory(Magicspells[CheckInventory("Selected spell")]) == 1)
-     {
-	  GiveInventory("Selected spell",1);
-	   if (CheckInventory("Selected spell") > i)
-          {
-	      TakeInventory("Selected spell",i);
-	      }
-	 }
-  
+  if (CheckInventory("Selected spell") >= i)
+    {
+    TakeInventory("Selected spell",99);
+    }
+  until (CheckInventory(Magicspells[CheckInventory("Selected spell")]) == 1)
+       {
+	    GiveInventory("Selected spell",1);
+	     if (CheckInventory("Selected spell") >= i)
+            {
+	        TakeInventory("Selected spell",99);
+		    }
+	   }
   if (CheckInventory("Spellout") > 0 )
 	{
 	SetWeapon(Magicspells[CheckInventory("Selected spell")]);

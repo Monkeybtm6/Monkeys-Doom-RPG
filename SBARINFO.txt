@@ -1,5 +1,6 @@
 height 0;
 Resolution 640,400;
+InterpolateHealth true;
 
 statusbar fullscreen, forcescaled, fullscreenoffsets
 {
@@ -26,7 +27,8 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
-    DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
+    //drawnumber 1, SMALLFNT, untranslated, "Selected spell", drawshadow, -8, -69;
+	DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
 	drawimage ammoicon2, -16, -8, centerbottom;
     drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
 
@@ -43,7 +45,7 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	}
 
     //inventory
-    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 134, -6, 156, -25, untranslated;
+    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 127, -16, 156, -25, untranslated;
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
@@ -96,7 +98,8 @@ statusbar normal, forcescaled, fullscreenoffsets
 
     //ammo
     //drawimage ammoicon1, -12, -8, centerbottom;
-    DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
+    //drawnumber 1, SMALLFNT, untranslated, "Selected spell", drawshadow, -8, -69;
+	DrawString SMALLFNT, untranslated, Weapontag, -8, -59;
 	drawimage ammoicon2, -16, -8, centerbottom;
     drawnumber 4, BIGFONT, untranslated, ammo1, drawshadow, -28, -24;
 
@@ -113,22 +116,23 @@ statusbar normal, forcescaled, fullscreenoffsets
 	}
 
     //inventory
-    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 134, -6, 156, -25, untranslated;
+    //drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 127, -16, 156, -25, untranslated;
+	DrawInventoryBar Doom,alwaysshowcounter,translucent, 5, SMALLFNT, -270, -32; 
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -63;
 	
 	//Stats
-	DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
+	DrawNumber 2, SMALLFNT, Red, "StatVit",alignment(left),23,-121;
 	drawimage "HUDVit", 4, -124;
-	DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
+	DrawNumber 2, SMALLFNT, White, "StatATK",alignment(left),23,-110;
 	drawimage "HUDatk", 4, -113;
-	DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
+	DrawNumber 2, SMALLFNT, Blue, "StatINT",alignment(left),23,-99;
 	drawimage "HUDInt", 4, -102;
-	DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
+	DrawNumber 2, SMALLFNT, DarkRed, "StatSTR",alignment(left),23,-88;
 	drawimage "HUDSTR", 4, -91;
-	DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
+	DrawNumber 2, SMALLFNT, Green, "StatAGI",alignment(left),23,-77;
     drawimage "HUDAGI", 4, -80;
 	
     gamemode deathmatch

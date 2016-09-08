@@ -28,3 +28,5 @@ Added new weapon, The assault rifle MK2
 Added new spell, Bullet Synthesis.
 Tweaked the stats.
 Database now saves weapons.
+Added new weapon, the Auto Shotgun.
+Classes removed and instead replaced with a dynamic character growth system.

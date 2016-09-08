@@ -2,8 +2,7 @@ Actor StatVit : Inventory
 {          
   Inventory.PickupMessage "Vitality Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -16,10 +15,9 @@ Actor StatVit : Inventory
 
 Actor StatATK : Inventory
 {          
-  Inventory.PickupMessage "Striength Increased"
+  Inventory.PickupMessage "Attack Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -34,8 +32,7 @@ Actor StatINT : Inventory
 {          
   Inventory.PickupMessage "Defense Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -50,8 +47,7 @@ Actor StatSTR : Inventory
 {          
   Inventory.PickupMessage "Strength Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -66,8 +62,7 @@ Actor StatAgi : Inventory
 {          
   Inventory.PickupMessage "Speed Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 10
-  +COUNTITEM
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -112,6 +107,41 @@ Actor MonStatSTR : CustomInventory
     ESES A -1 
     loop
   }
+}
+
+Actor StatProgressVIT : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +INVENTORY.ALWAYSPICKUP
+}
+
+Actor StatProgressATK : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +INVENTORY.ALWAYSPICKUP
+}
+
+Actor StatProgressINT : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +INVENTORY.ALWAYSPICKUP
+}
+
+Actor StatProgressSTR : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +INVENTORY.ALWAYSPICKUP
+}
+
+Actor StatProgressAGI : Inventory
+{
+  Inventory.Amount 1
+  Inventory.MaxAmount 9999
+  +INVENTORY.ALWAYSPICKUP
 }
 
 DamageType Pierce

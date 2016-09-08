@@ -9,6 +9,7 @@ Plasma Rifle: Taken from Complex Doom.
 Machine Pistol: Mike12
 Advanced Plasma Rifle: Eriance
 Tech Shotgun: Eriance
+Auto Shotgun: Eriance
 Assault Rifle MK2: Eriance
 
 (See complex dooms credits and readme, 

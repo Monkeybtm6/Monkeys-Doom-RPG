@@ -2,6 +2,7 @@
 #include "Actors/Weapons/Melee.txt"
 #include "Actors/Weapons/Shotgun.txt"
 #include "Actors/Weapons/TechShotgun.txt"
+#include "Actors/Weapons/AutoShotgun.txt"
 #include "Actors/Weapons/Pistol.txt"
 #include "Actors/Weapons/Chaingun.txt"
 #include "Actors/Weapons/PlasmaRifle.txt"

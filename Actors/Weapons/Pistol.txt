@@ -38,22 +38,22 @@ ACTOR PistolWS : Weapon
     Goto Ready
 
    Reload:
-    PKPI A 0 A_JumpIfInventory ("pistmag", 12, 2)
+    PKPI A 0 A_JumpIfInventory ("pistmag", 15, 2)
     PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
     PKPI A 0
     goto ready
    Reloadstep:
-    PKPR A 2 A_playSound("weapons/pistolclipout", CHAN_WEAPON)
+    PKPR A 2 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
 	PKPR BCDE 2
     PKPR F 3
    ReloadLoop:
     TNT1 A 0 A_TakeInventory("Clip", 1)
     TNT1 A 0 A_GiveInventory("pistmag", 1)
-    TNT1 A 0 A_JumpIfInventory("pistmag", 12, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("pistmag", 15, "ReloadDone")
     TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
-    PKPR G 2 A_playSound("weapons/pistolclipin", CHAN_WEAPON)
+    PKPR G 2 A_playSound("weapons/pistolClipin", CHAN_WEAPON)
     PKPR HIJKLMNOPQ 2
     goto ready
   
@@ -77,7 +77,7 @@ ACTOR PistolWS : Weapon
 
 actor "Pistmag" : Ammo
 {
-  Inventory.MaxAmount 12
+  Inventory.MaxAmount 15
   +IGNORESKILL
 }
 

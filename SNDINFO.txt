@@ -31,3 +31,6 @@ Weapons/AssRif1  Sound/Weapons/DSARIFLE
 
 //AssaultRifleMK2
 Weapons/AssRif2  Sound/Weapons/DSAR2
+
+//Auto Shotgun
+Weapons/ASGF  Sound/Weapons/DSASGF

@@ -5,7 +5,7 @@ ACTOR AssaultRifleWS : Weapon
    Weapon.AmmoUse 1
    Weapon.AmmoGive2 0
    Weapon.AmmoType "ARMag"
-   Weapon.AmmoType2 "Clip"
+   Weapon.AmmoType2 "RifleAmmo"
    Decal BulletChip
    Inventory.PickupMessage "You got the Assault Rifle" // "You got the chaingun"
    +Weapon.Ammo_Optional
@@ -39,19 +39,19 @@ ACTOR AssaultRifleWS : Weapon
    
    Reload:
     CHGG A 0 A_JumpIfInventory ("ARMag", 32, 2)
-    CHGG A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
+    CHGG A 0 A_JumpIfInventory("RifleAmmo", 1, "ReloadStep")
     CHGG A 0
     goto ready
    Reloadstep:
     CHGR SRQPO 2
-	CHGR N 1 A_playSound("weapons/pistolclipin")
+	CHGR N 1 A_playSound("weapons/pistolClipout")
 	CHGR MLKJIHG 2
     CHGR G 3
    ReloadLoop:
-	TNT1 A 0 A_TakeInventory("Clip", 1)
+	TNT1 A 0 A_TakeInventory("RifleAmmo", 1)
     TNT1 A 0 A_GiveInventory("ARMag", 1)
     TNT1 A 0 A_JumpIfInventory("ARMag", 32, "ReloadDone")
-    TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
+    TNT1 A 0 A_JumpIfInventory("RifleAmmo", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
 	CHGR GHIJKLM 2
