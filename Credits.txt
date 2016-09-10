@@ -11,6 +11,7 @@ Advanced Plasma Rifle: Eriance
 Tech Shotgun: Eriance
 Auto Shotgun: Eriance
 Assault Rifle MK2: Eriance
+Wand: Heretic
 
 (See complex dooms credits and readme, 
 readme does state sprites are free to use with proper credit, hence this.)

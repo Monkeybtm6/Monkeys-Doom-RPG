@@ -75,6 +75,8 @@ Actor StatAgi : Inventory
 
 Actor MonStatATK : CustomInventory
 {          
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States
@@ -87,6 +89,8 @@ Actor MonStatATK : CustomInventory
 
 Actor MonStatVit : CustomInventory
 {          
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States

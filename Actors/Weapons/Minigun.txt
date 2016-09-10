@@ -2,6 +2,7 @@ ACTOR MinigunWS : Weapon
 {
 	Game Doom
 	Weapon.AmmoType "RifleAmmo" 
+	Weapon.AmmoType2 "RifleAmmo" 
 	Weapon.AmmoGive 0
 	Weapon.AmmoUse 1
 	Weapon.Selectionorder 700

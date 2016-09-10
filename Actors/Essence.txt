@@ -47,6 +47,8 @@ Actor PlayerLevel : Inventory
 Actor MonsterLevelGiver : CustomInventory
 {          
   Inventory.PickupMessage "I dont think you should have this."
+  Inventory.Amount 1
+  Inventory.MaxAmount 20
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States

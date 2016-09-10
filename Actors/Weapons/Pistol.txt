@@ -101,3 +101,73 @@ Actor "PistolPickup" : CustomInventory replaces Pistol
 	Fail
   }
 }
+
+ACTOR PistolDebug : Weapon
+{
+  Weapon.SelectionOrder 9998
+  Weapon.SlotNumber 2
+  Weapon.AmmoUse 1
+  Weapon.AmmoUse2 1
+  Weapon.AmmoGive2 0
+  Weapon.AmmoType "Pistmag"
+  Weapon.AmmoType2 "Clip"
+  Decal BulletChip
+  Obituary "$OB_MPPISTOL"
+  +WEAPON.WIMPY_WEAPON 
+  +Weapon.Ammo_Optional
+  Inventory.Pickupmessage "Debug Gun, does no damage"
+  Tag "Debugger"
+  States
+  {
+  Ready:
+    PKPI A 1 A_WeaponReady(wrf_allowreload | WRF_ALLOWZOOM)
+    Loop
+  Deselect:
+    PKPI A 1 A_Lower
+    Loop
+  Select:
+    PKPI A 1 A_Raise
+    Loop
+  Fire:
+    PISG A 0 A_JumpIfNoAmmo("Reload")
+    PKPI A 3
+    PKPI A 0 
+	PKPI A 0 A_FireBullets (0, 0, 1, 0, "PistPuff",FBF_NORANDOM)
+    PKPI A 0 ACS_NamedExecutealways("MonDebug")
+	PKPI A 0 A_PlaySound("weapons/PSfire", CHAN_WEAPON)
+    PKPF A 2 A_GunFlash
+    PKPI BCDEF 1
+    PKPI A 0 A_ReFire
+    Goto Ready
+
+   Reload:
+    PKPI A 0 A_JumpIfInventory ("pistmag", 15, 2)
+    PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
+    PKPI A 0
+    goto ready
+   Reloadstep:
+    PKPR A 2 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
+	PKPR BCDE 2
+    PKPR F 3
+   ReloadLoop:
+    TNT1 A 0 A_TakeInventory("Clip", 1)
+    TNT1 A 0 A_GiveInventory("pistmag", 1)
+    TNT1 A 0 A_JumpIfInventory("pistmag", 15, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
+    Goto ReloadDone
+   ReloadDone:
+    PKPR G 2 A_playSound("weapons/pistolClipin", CHAN_WEAPON)
+    PKPR HIJKLMNOPQ 2
+    goto ready
+  
+  Flash:
+    PISF A 0
+    PISF A 0 Bright A_Light1
+    Goto LightDone
+
+  Spawn:
+    PIST A -1
+    Stop
+  
+  }
+}

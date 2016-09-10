@@ -1,9 +1,25 @@
 #Library "Monsterscript"
 #include "zcommon.acs"
 #define MONSTER_TID 2000
-#define DAMAGE_COUNTPERCENT 0.03
+#define DAMAGE_COUNTPERCENT 0.05
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
+
+Script "MonsterStatsInt2" (Void)
+{
+ int MonsterTid = UniqueTID(),
+ Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
+ MyHealth = getactorproperty(0, APROP_Health),
+ MyVit = CheckInventory("StatVit"),
+ MyATK = CheckInventory("StatATK"),
+ Skillmult = Gameskill() / 2.0,
+ MyLevel = Random(-2,2) + Thismap;
+ If (MyLevel <= 0)
+   {MyLevel = 1;}
+ 
+ setuservariable(0,"user_level",MyLevel);
+ SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 3) * Mylevel));
+}
 
 Script "MonsterStatsInt" (Void)
 {
@@ -13,17 +29,19 @@ Script "MonsterStatsInt" (Void)
  MyVit = CheckInventory("StatVit"),
  MyATK = CheckInventory("StatATK"),
  Skillmult = Gameskill() / 2.0,
- MyLevel = Random(-2,2) + Thismap * Skillmult;
+ MyLevel = Random(-2,2) + Thismap;
  If (MyLevel <= 0)
    {MyLevel = 1;}
  
- GiveInventory("MonsterlevelGiver",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 4) * Mylevel));
+ GiveInventory("Monsterlevel",MyLevel);
+ SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 3) * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)
 {
-	int levelchecker = CheckInventory("StatATK") * CheckInventory("Monsterlevel");
+	Int mylevel = CheckInventory("Monsterlevel");
+	
+	int levelchecker = CheckInventory("StatATK") * mylevel;
 	int counter = DAMAGE_COUNTPERCENT * levelchecker;
     int outdamage = indamage * (1.0 + counter);
 	setresultvalue(outdamage >> 16);
@@ -31,7 +49,32 @@ script "MonDAMAGESCR" (int indamage)
 	
 }
 
+script "MonDAMAGESCR2" (int indamage)
+{
+	Int mylevel = GetUserVariable(0,"user_level");
+	
+	int levelchecker = CheckInventory("StatATK") * mylevel;
+	int counter = DAMAGE_COUNTPERCENT * levelchecker;
+    int outdamage = indamage * (1.0 + counter);
+	setresultvalue(outdamage >> 16);
+	printbold(f: outdamage);
+	
+}
+
 Script "MapNumCheck" (void)
 {
 	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM));
+}
+
+script "MonDebug" (Void)
+{
+  //int playertarg = (activatortid());
+  if (setActivator(0,AAPTR_PLAYER_GETTARGET))
+    {
+    int dudeLevel = GetUserArray(0,"user_stats",0);
+    int dudeVIT = GetUserArray(0,"user_stats",1);
+    int dudeATk = GetUserArray(0,"user_stats",2);
+	}
+	//setActivator(playertarg);
+	Printbold(f:DudeLevel >> 16 ,f:DudeVit >> 16 ,f:DudeAtk >> 16 );
 }

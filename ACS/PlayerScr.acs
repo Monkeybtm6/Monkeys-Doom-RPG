@@ -96,7 +96,7 @@ Script "UpdateStats" (void)
 {
   int StartHealth = CheckInventory("StatVIT") * 15,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
-  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth),
+  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 3) + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),
@@ -139,7 +139,7 @@ Script "UpdateStats" (void)
 Script "ManaRegen" (void)
 {
 Giveinventory("Mana",1);
-Delay(35);
+Delay(30 - CheckInventory("StatINT"));
 Restart;
 }
 
@@ -171,4 +171,18 @@ script "WeaponDrop" (void)
 	
 	Takeinventory(Currentwep,1);
 	
+}
+
+script "LevelendGrowth" UNLOADING
+{
+int StrengthGrowth = getlevelinfo(LEVELINFO_TOTAL_ITEMS),
+ExpKillbonus = getlevelinfo(LEVELINFO_KILLED_MONSTERS),
+ExpSecretBonus = getlevelinfo(LEVELINFO_FOUND_SECRETS);
+
+for (int i = 0; i < playercount(); i++) 
+    {
+     GiveActorInventory(PLAYER_TID_START + i,"StatProgressSTR",StrengthGrowth);
+	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPKillBonus);
+	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPSecretBonus * 10);
+	}
 }

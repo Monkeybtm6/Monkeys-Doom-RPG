@@ -37,3 +37,6 @@ Weapons/ASGF  Sound/Weapons/DSASGF
 
 //Minigun
 weapons/minigun	  Sound/Weapons/DSMINIGN
+
+//wand
+weapons/WandHit	  Sound/Weapons/DSGLDHIT

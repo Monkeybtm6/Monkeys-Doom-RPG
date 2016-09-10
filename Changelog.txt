@@ -32,3 +32,6 @@ Added new weapon, the Auto Shotgun.
 Classes removed and instead replaced with a dynamic character growth system.
 Added new weapon, the Minigun.
 Fixed issue where dropping weapon switched to spells.
+Added Cvar "MRPG_STATMULT" to scale the rate base stats grow.
+Added new weapon, the Wand.
+Added experience bonuses for monster kills and secrets found at the end of levels.

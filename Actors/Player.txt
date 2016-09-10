@@ -56,7 +56,8 @@ ACTOR WSDoomMarine : DoomPlayer
     PLAY F 6 BRIGHT
     Goto Missile
   Pain:
-    PLAY G 4 
+    TNT1 A 0 A_GiveInventory("StatProgressVIT",Random(1,4))
+	PLAY G 4 
     PLAY G 4 A_Pain
     Goto Spawn
   Death:

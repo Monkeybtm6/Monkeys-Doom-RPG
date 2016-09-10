@@ -1,7 +1,7 @@
 #library "DatabaseScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define SaveItems 28
+#define SaveItems 29
 str MyInventory[SaveItems] =
 {
     "Expereince",           "PlayerLevel",
@@ -17,7 +17,8 @@ str MyInventory[SaveItems] =
 	"TechShotgunWS",        "PlasmaRifleWS",
 	"AdvPlasmaRifleWS",     "RocketLauncherWS",
 	"BFG9000WS",            "AutoShotgunWS",
-	"MinigunWS",            "SPClipSynth"
+	"MinigunWS",            "SuperShotgunWS",
+	"SPClipSynth"
 	
 };
 Script "LoadCharScr" (void)
