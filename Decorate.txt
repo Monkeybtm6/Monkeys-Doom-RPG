@@ -14,6 +14,7 @@
 #include "Actors/Weapons/AssaultRifleMK2.txt"
 #include "Actors/Weapons/Minigun.txt"
 #include "Actors/Weapons/Wand.txt"
+#include "Actors/Weapons/TechPistol.txt"
 #include "Actors/Weapons/Spells.txt"
 
 #include "Actors/T1Monsters.txt"

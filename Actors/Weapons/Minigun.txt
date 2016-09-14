@@ -8,6 +8,10 @@ ACTOR MinigunWS : Weapon
 	Weapon.Selectionorder 700
 	Weapon.Kickback 100
 	Weapon.SlotNumber 3
+    Weapon.BobSpeed 2.0
+    Weapon.BobRangeX 0.90
+    Weapon.BobRangeX 0.75
+    Weapon.BobStyle Smooth
 	Tag "Minigun"
 	Inventory.PickupMessage "$PICKUP_MINIGUN"
 	Obituary "$OB_MINIGUN"
@@ -31,8 +35,8 @@ ACTOR MinigunWS : Weapon
 		Loop 
 	Fire: 
 		MNGG A 0 A_GunFlash
-		MNGG A 2 A_FireBullets(5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "BulletPuff")
-		MNGG B 2 A_FireBullets(5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "BulletPuff")
+		MNGG A 1 A_FireBullets(5.6, 3, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "BulletPuff")
+		MNGG B 2 A_FireBullets(5.6, 3, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "BulletPuff")
 		MNGG A 2 A_ReFire
 		MNGG B 2
 		MNGG A 4
@@ -65,7 +69,7 @@ Actor "MinigunPickup" : CustomInventory Replaces Minigun
     Stop
   Pickup:
     TNT1 A 0 A_Jumpifinventory("MinigunWS",0,"PickupFail")
-    TNT1 A 0 A_Jumpifinventory("Wepslot2",1,"PickupFail")
+    TNT1 A 0 A_Jumpifinventory("Wepslot2",0,"PickupFail")
 	TNT1 A 0 A_GiveInventory ("MinigunWS")
 	TNT1 A 0 A_GiveInventory ("Wepslot2")
     stop

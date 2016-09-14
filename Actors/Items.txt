@@ -248,3 +248,25 @@ Actor NewClipbox : NewClip
     Loop
   }
 }
+
+ACTOR BlurSphereReplacer : CustomInventory Replaces BlurSphere
+{
+  +COUNTITEM
+  +VISIBILITYPULSE
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  +INVENTORY.BIGPOWERUP
+  Inventory.MaxAmount 0
+  RenderStyle Translucent
+  Inventory.PickupMessage "$GOTINVIS" // "Partial Invisibility"
+  States
+  {
+  Spawn:
+     PINS ABCD 6 Bright
+     Loop
+  Pickup:
+    TNT1 A 0 A_GiveInventory("BlurSphere")
+	TNT1 A 0 A_GiveInventory("SPBlur")
+	stop
+  }
+}

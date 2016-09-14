@@ -8,6 +8,7 @@ Var Int user_VIT;
 ACTOR WSZombieMan : WSMONSTER
 {
   Health 20
+  GibHealth -20
   Radius 20
   Height 56
   Speed 8
@@ -47,7 +48,7 @@ ACTOR WSZombieMan : WSMONSTER
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverZom", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	POSS H 5
     POSS I 5 A_Scream
     POSS J 5 A_NoBlocking
@@ -56,7 +57,7 @@ ACTOR WSZombieMan : WSMONSTER
     Stop
   XDeath:
     TNT1 A 0 A_GiveToTarget("EssencegiverZom", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	POSS M 5
     POSS N 5 A_XScream
     POSS O 5 A_NoBlocking
@@ -72,6 +73,7 @@ ACTOR WSZombieMan : WSMONSTER
 ACTOR WSShotgunGuy : ShotgunGuy
 {
   Health 30
+  GibHealth -20
   Radius 20
   Height 56
   Mass 100
@@ -112,7 +114,7 @@ ACTOR WSShotgunGuy : ShotgunGuy
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverZom", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	SPOS H 5
     SPOS I 5 A_Scream
     SPOS J 5 A_NoBlocking
@@ -121,7 +123,7 @@ ACTOR WSShotgunGuy : ShotgunGuy
     Stop
   XDeath:
     TNT1 A 0 A_GiveToTarget("EssencegiverZom", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	SPOS M 5
     SPOS N 5 A_XScream
     SPOS O 5 A_NoBlocking
@@ -138,6 +140,7 @@ ACTOR WSShotgunGuy : ShotgunGuy
 ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
 {
   Health 70
+  GibHealth -20
   Radius 20
   Height 56
   Mass 100
@@ -179,7 +182,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverDemon", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	CPOS H 5
     CPOS I 5 A_Scream
     CPOS J 5 A_NoBlocking
@@ -188,7 +191,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
     Stop
   XDeath:
     TNT1 A 0 A_GiveToTarget("EssencegiverDemon", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	CPOS O 5 
     CPOS P 5 A_XScream
     CPOS Q 5 A_NoBlocking
@@ -205,6 +208,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
 ACTOR WSImp : DoomImp //replaces DoomImp
 {
   Health 60
+  GibHealth -30
   Radius 20
   Height 56
   Mass 100
@@ -218,6 +222,7 @@ ACTOR WSImp : DoomImp //replaces DoomImp
   ActiveSound "imp/active"
   HitObituary "$OB_IMPHIT"
   Obituary "$OB_IMP"
+  Dropitem "WandPickup", 1
   States
   {
   Spawn:
@@ -241,7 +246,7 @@ ACTOR WSImp : DoomImp //replaces DoomImp
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverImp", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	TROO I 8
     TROO J 8 A_Scream
     TROO K 6
@@ -250,7 +255,7 @@ ACTOR WSImp : DoomImp //replaces DoomImp
     Stop
   XDeath:
     TNT1 A 0 A_GiveToTarget("EssencegiverImp", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	TROO N 5
     TROO O 5 A_XScream
     TROO P 5
@@ -302,7 +307,7 @@ ACTOR WSDemon : Demon
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverDemon", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	SARG I 8
     SARG J 8 A_Scream
     SARG K 4
@@ -357,7 +362,7 @@ ACTOR WSCacodemon : Cacodemon replaces Cacodemon
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverCaco", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	HEAD G 8
     HEAD H 8 A_Scream
     HEAD IJ 8
@@ -430,7 +435,7 @@ ACTOR WSBaronOfHell : BaronOfHell replaces BaronOfHell
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverBaron", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	BOSS I 8
     BOSS J 8 A_Scream
     BOSS K 8
@@ -519,7 +524,7 @@ ACTOR WShellknight : Hellknight replaces Hellknight
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverBaron", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	BOS2 I 8
     BOS2 J 8 A_Scream
     BOS2 K 8
@@ -582,7 +587,7 @@ ACTOR WSarchvile : archvile replaces archvile
     Goto See
   Death:
     TNT1 A 0  A_GiveToTarget("EssencegiverArch", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	VILE Q 7
     VILE R 7 A_Scream
     VILE S 7 A_NoBlocking
@@ -635,7 +640,7 @@ ACTOR WSFatso : Fatso replaces Fatso
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverMancubus", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	FATT K 6
     FATT L 6 A_Scream
     FATT M 6 A_NoBlocking
@@ -713,7 +718,7 @@ ACTOR WSPainElemental : PainElemental replaces PainElemental
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverMancubus", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	PAIN H 8 Bright
     PAIN I 8 Bright A_Scream
     PAIN JK 8 Bright
@@ -775,7 +780,7 @@ Actor WSRevenant : Revenant Replaces Revenant
     Goto See
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverBaron", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	SKEL LM 7
     SKEL N 7 A_Scream
     SKEL O 7 A_NoBlocking
@@ -833,7 +838,7 @@ ACTOR WSArachnotron : Arachnotron Replaces Arachnotron
     Goto See+1
   Death:
     TNT1 A 0 A_GiveToTarget("EssencegiverMancubus", 1)
-	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,3))
 	BSPI J 20 A_Scream
     BSPI K 7 A_NoBlocking
     BSPI LMNO 7

@@ -7,6 +7,10 @@ ACTOR RocketLauncherWS : RocketLauncher
   Weapon.AmmoGive 0
   Weapon.AmmoType "RLMag"
   Weapon.AmmoType2 "RocketAmmo"
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   +WEAPON.NOAUTOFIRE
   +Weapon.Ammo_Optional
   decal Scorch
@@ -312,7 +316,7 @@ Actor "RocketLauncherPickup" : CustomInventory Replaces RocketLauncher
     Stop
   Pickup:
     TNT1 A 0 A_Jumpifinventory("RocketLauncherWS",0,"PickupFail")
-    TNT1 A 0 A_Jumpifinventory("Wepslot3",1,"PickupFail")
+    TNT1 A 0 A_Jumpifinventory("Wepslot3",0,"PickupFail")
 	TNT1 A 0 A_GiveInventory ("RocketLauncherWS")
 	TNT1 A 0 A_GiveInventory ("Wepslot3")
     stop

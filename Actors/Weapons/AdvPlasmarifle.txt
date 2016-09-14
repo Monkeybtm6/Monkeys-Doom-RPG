@@ -7,6 +7,10 @@ ACTOR AdvPlasmaRifleWS : PlasmaRifle
   Weapon.AmmoType "AdvPlasmag"
   Weapon.AmmoType2 "Cell"
   Weapon.KickBack 90
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   +WEAPON.AMMO_OPTIONAL
   decal Scorch
   Inventory.PickupMessage "$GOTPLASMA"

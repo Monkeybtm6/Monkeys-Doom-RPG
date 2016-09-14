@@ -10,6 +10,10 @@ ACTOR AutoShotgunWS : Weapon
   Weapon.SlotNumber 3
   Weapon.KickBack 60
   Weapon.SelectionOrder 1298
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   Decal BulletChip
   Inventory.PickupMessage "Picked up an Auto Shotgun"
   Obituary "$OB_MPSHOTGUN"

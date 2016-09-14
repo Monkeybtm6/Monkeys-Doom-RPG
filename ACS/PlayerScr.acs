@@ -96,7 +96,7 @@ Script "UpdateStats" (void)
 {
   int StartHealth = CheckInventory("StatVIT") * 15,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
-  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 3) + StartHealth),
+  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),
@@ -182,6 +182,8 @@ ExpSecretBonus = getlevelinfo(LEVELINFO_FOUND_SECRETS);
 for (int i = 0; i < playercount(); i++) 
     {
      GiveActorInventory(PLAYER_TID_START + i,"StatProgressSTR",StrengthGrowth);
+	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressINT",EXPSecretBonus * 5);
+	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressAGI",EXPSecretBonus * 5);
 	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPKillBonus);
 	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPSecretBonus * 10);
 	}

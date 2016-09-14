@@ -8,9 +8,9 @@
 
 -Change Defense stat into intelligence stat DONE
 
--Create magic artifact system. IN PROGRESS.
+-Create magic artifact system. DONE
 
--Fix Magic Switching.
+-Fix Magic Switching. DONE
 
 -Custom Random spawner that swaps out enemies based on map number and difficulty. DONE
 

@@ -9,6 +9,10 @@ ACTOR MachinePistolWS : Weapon
   Weapon.AmmoGive2 20
   Weapon.AmmoType "MPistmag"
   Weapon.AmmoType2 "Clip"
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   Decal BulletChip
   Obituary "$OB_MPPISTOL"
   //+WEAPON.WIMPY_WEAPON
@@ -116,7 +120,7 @@ Actor "MachinePistolPickup" : CustomInventory
     Stop
   Pickup:
     TNT1 A 0 A_Jumpifinventory("MachinePistolWS",0,"PickupFail")
-    TNT1 A 0 A_Jumpifinventory("Wepslot1",1,"PickupFail")
+    TNT1 A 0 A_Jumpifinventory("Wepslot1",0,"PickupFail")
 	TNT1 A 0 A_GiveInventory ("MachinePistolWS")
 	TNT1 A 0 A_GiveInventory ("Wepslot1")
     stop

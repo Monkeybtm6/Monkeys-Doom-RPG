@@ -5,7 +5,7 @@ str Magicspells[SpellsList] =
 {
   "SPHeal",
   "SPClipSynth",
-  "SPTest2"
+  "SPBlur"
 };
 
 str SpellsTag[SpellsList] = 

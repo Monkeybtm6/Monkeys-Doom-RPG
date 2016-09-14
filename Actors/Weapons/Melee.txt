@@ -3,6 +3,10 @@ ACTOR FistWS : Fist Replaces Fist
   Weapon.SelectionOrder 3700
   Weapon.SlotNumber 1
   Weapon.Kickback 100
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   Obituary "$OB_MPFIST"
   Tag "$TAG_FIST"
   +WEAPON.WIMPY_WEAPON
@@ -47,6 +51,10 @@ ACTOR ChainsawWS : Chainsaw Replaces Chainsaw
   Inventory.PickupMessage "$GOTCHAINSAW"
   Obituary "$OB_MPCHAINSAW"
   Tag "$TAG_CHAINSAW"
+  Weapon.BobSpeed 2.0
+  Weapon.BobRangeX 0.90
+  Weapon.BobRangeX 0.75
+  Weapon.BobStyle Smooth
   +WEAPON.MELEEWEAPON
   States
   {

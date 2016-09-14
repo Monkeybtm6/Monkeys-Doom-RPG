@@ -1,7 +1,7 @@
 #library "DatabaseScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define SaveItems 29
+#define SaveItems 31
 str MyInventory[SaveItems] =
 {
     "Expereince",           "PlayerLevel",
@@ -12,8 +12,9 @@ str MyInventory[SaveItems] =
 	"StatProgressSTR",      "StatProgressAGI",
 	"Wepslot1",             "Wepslot2",             
 	"Wepslot3",             "PistolWS",
-	"MachinePistolWS",      "AssaultRifleWS",
-	"AssaultRifleMK2WS",    "ShotgunWS",
+	"MachinePistolWS",      "WandWS",
+	"AssaultRifleWS",       "AssaultRifleMK2WS",    
+	"ShotgunWS",            "SPBlur",
 	"TechShotgunWS",        "PlasmaRifleWS",
 	"AdvPlasmaRifleWS",     "RocketLauncherWS",
 	"BFG9000WS",            "AutoShotgunWS",

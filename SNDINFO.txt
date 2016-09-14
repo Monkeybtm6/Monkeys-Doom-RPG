@@ -40,3 +40,6 @@ weapons/minigun	  Sound/Weapons/DSMINIGN
 
 //wand
 weapons/WandHit	  Sound/Weapons/DSGLDHIT
+
+//TechPistol
+weapons/tpisf     Sound/Weapons/DSTPISF
