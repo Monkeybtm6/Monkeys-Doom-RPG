@@ -37,3 +37,5 @@ Added new weapon, the Wand.
 Added experience bonuses for monster kills and secrets found at the end of levels.
 Added new spell, Invisability
 Added new weapon, the Tech Pistol
+Added Custom Difficulties
+Now supports invasion

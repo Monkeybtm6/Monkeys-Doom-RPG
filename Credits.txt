@@ -12,6 +12,8 @@ Tech Shotgun: Eriance
 Auto Shotgun: Eriance
 Assault Rifle MK2: Eriance
 Wand: Heretic
+Tech Pistol: Eriance
+Minigun: Skulltag
 
 (See complex dooms credits and readme, 
 readme does state sprites are free to use with proper credit, hence this.)
@@ -25,6 +27,8 @@ Other sound effects taken from PSX doom.
 Fonts taken from PSX doom.
 
 Some Monster sprites taken from Realm667 (sure everyone takes something from here.)
+
+Several weapon fire sounds taken from Perfect Dark.
 
 
 And tons of help from the wonderful people on the zdoom and zandronum forums.

@@ -270,3 +270,31 @@ ACTOR BlurSphereReplacer : CustomInventory Replaces BlurSphere
 	stop
   }
 }
+
+ACTOR AmmoBoxReplacer : CustomInventory Replaces ClipBox
+{
+  +COUNTITEM
+  Inventory.PickupMessage "Picked up Ammo"
+  States
+  {
+  Spawn:
+    AMMO A -1
+    Stop
+  Pickup:
+	TNT1 A 0 A_Jumpifinventory("Clip",0,"PickupRif")
+	TNT1 A 0 A_Jumpifinventory("Rifleammo",0,"Pickupclip")
+	TNT1 A 0 A_jump(127,"PickupRif")
+  Pickupclip:
+	TNT1 A 0 A_Jumpifinventory("Clip",0,"PickupFail")
+	TNT1 A 0 A_GiveInventory("Clip",80)
+	stop
+  PickupRif:
+	TNT1 A 0 A_Jumpifinventory("Rifleammo",0,"PickupFail")
+	TNT1 A 0 A_GiveInventory("Rifleammo",80)
+	stop
+  PickupFail:
+    TNT1 A 0
+	Fail
+  
+  }
+}

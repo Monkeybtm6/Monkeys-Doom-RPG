@@ -1,0 +1,84 @@
+ClearSkills
+
+
+Skill baby
+{
+   AmmoFactor = 2.0
+   DamageFactor = 0.5
+   MonsterHealth = 0.5
+   EasyBossBrain
+   Aggressiveness = 0.5
+   SpawnFilter = Baby
+   Textcolor = Green
+   ACSReturn = 0
+   Name = "Easy"
+   MustConfirm = "This is incredibly simple just to learn the ends and outs. Not reccomended for a full playthrough."
+}
+
+Skill Normal
+{
+   AmmoFactor = 1.0
+   DamageFactor = 1.0
+   MonsterHealth = 1.0
+   EasyBossBrain
+   Aggressiveness = 1.0
+   SpawnFilter = Normal
+   //Textcolor = Green
+   ACSReturn = 0
+   Name = "Normal"
+   MustConfirm = "Reccomended skill, Level 1 characters start here."
+}
+
+Skill Normal2
+{
+   AmmoFactor = 1.0
+   DamageFactor = 1.0
+   MonsterHealth = 1.0
+   EasyBossBrain
+   Aggressiveness = 1.0
+   SpawnFilter = Normal
+   //Textcolor = Green
+   ACSReturn = 1
+   Name = "Experienced"
+   MustConfirm = "Normal but enemies start at level 16, For Moderate level characters"
+}
+
+Skill Normal3
+{
+   AmmoFactor = 1.0
+   DamageFactor = 1.0
+   MonsterHealth = 1.0
+   EasyBossBrain
+   Aggressiveness = 1.0
+   SpawnFilter = Normal
+   //Textcolor = Green
+   ACSReturn = 2
+   Name = "Seasoned"
+   MustConfirm = "Normal but enemies start at level 32, For Moderate/High level characters"
+}
+
+Skill Hard
+{
+   AmmoFactor = 1.5
+   DamageFactor = 1.0
+   MonsterHealth = 1.5
+   Aggressiveness = 1.0
+   SpawnFilter = Hard
+   //Textcolor = Green
+   ACSReturn = 3
+   Name = "Hard"
+   MustConfirm = "Enemies Have 50% more health and start at level 48!!!, For High level characters"
+}
+
+Skill Insane
+{
+   AmmoFactor = 2.0
+   DamageFactor = 1.5
+   MonsterHealth = 2.0
+   Aggressiveness = 1.0
+   SpawnFilter = Nightmare
+   Textcolor = Red
+   ACSReturn = 3
+   Name = "Insane"
+   MustConfirm = "Enemies Have Double health and start at level 48!!!, For Very High level characters"
+}

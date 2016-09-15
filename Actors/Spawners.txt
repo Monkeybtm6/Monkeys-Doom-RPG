@@ -264,7 +264,7 @@ Actor MLARSpawner : RandomSpawner
 Actor BulletSpawner : RandomSpawner Replaces Clip
 {
   DropItem "NewClip"
-  DropItem "RifleAmmo"//, 180
+  DropItem "RifleAmmo"
   /*States
   {
   Spawn:
@@ -277,7 +277,7 @@ Actor BulletSpawner : RandomSpawner Replaces Clip
   }*/
 }
 
-Actor BulletBoxSpawner : RandomSpawner Replaces ClipBox
+Actor BulletBoxSpawner : RandomSpawner //Replaces ClipBox
 {
   DropItem "NewClipBox"
   DropItem "RifleBox", 180

@@ -1,0 +1,198 @@
+ACTOR WSWeakMonsterSpot : CustomMonsterInvasionSpot replaces WeakMonsterSpot
+{
+	Game Doom
+	DropItem "wsZombieMan"
+	DropItem "wsShotgunGuy"
+	DropItem "wsDoomImp"
+	DropItem "wsDarkImp"
+	DropItem "wsDemon"
+	DropItem "wsBloodDemon"
+	DropItem "wsLostSoul"
+}
+
+ACTOR WSPowerfulMonsterSpot : CustomMonsterInvasionSpot replaces PowerfulMonsterSpot
+{
+	Game Doom
+	DropItem "WSChaingunGuy"
+	DropItem "WSSuperShotgunGuy"
+	DropItem "WSCacodemon"
+	DropItem "WSCacolantern"
+	DropItem "WSRevenant"
+	DropItem "WSHellKnight"
+	DropItem "WSBaronOfHell"
+	DropItem "WSArachnotron"
+	DropItem "WSFatso"
+	DropItem "WSPainElemental"
+}
+
+ACTOR WSVeryPowerfulMonsterSpot : CustomMonsterInvasionSpot replaces VeryPowerfulMonsterSpot
+{
+	Game Doom
+	DropItem "Abaddon"
+	DropItem "WSHectebus"
+	DropItem "WSBelphegor"
+	DropItem "WSArchvile"
+}
+
+ACTOR WSAnyMonsterSpot : CustomMonsterInvasionSpot replaces AnyMonsterSpot
+{
+	Game Doom
+	DropItem "wsDoomImp"
+	DropItem "wsDarkImp"
+	DropItem "wsDemon"
+	DropItem "wsSpectre"
+	DropItem "WSBloodDemon"
+	DropItem "WSZombieMan"
+	DropItem "WSShotgunGuy"
+	DropItem "WSChaingunGuy"
+	DropItem "WSSuperShotgunGuy"
+	DropItem "WSCacodemon"
+	DropItem "WSCacolantern"
+	DropItem "Abaddon"
+	DropItem "WSRevenant"
+	DropItem "WSFatso"
+	DropItem "WSHectebus"
+	DropItem "WSArachnotron"
+	DropItem "WSHellKnight"
+	DropItem "WSBaronOfHell"
+	DropItem "WSBelphegor"
+	DropItem "WSLostSoul"
+	DropItem "WSPainElemental"
+	DropItem "WSCyberdemon"
+	DropItem "WSSpiderMastermind"
+	DropItem "WSArchvile"
+}
+
+ACTOR WSDarkImpSpot : CustomMonsterInvasionSpot Replaces DarkImpSpot
+{
+	Game Doom
+	DropItem "WSDarkImp"
+}
+
+//=================================================================================================
+//
+// Blood demon spawner
+//
+//=================================================================================================
+
+ACTOR wsBloodDemonSpot : CustomMonsterInvasionSpot Replaces BloodDemonSpot
+{
+	Game Doom
+	DropItem "WSBloodDemon"
+}
+
+//=================================================================================================
+//
+// Super shotgun guy spawner
+//
+//=================================================================================================
+
+ACTOR WSSuperShotgunGuySpot : CustomMonsterInvasionSpot Replaces SuperShotgunGuySpot
+{	
+	Game Doom
+	DropItem "WSSuperShotgunGuy"
+}
+
+//=================================================================================================
+//
+// Cacolantern spawner
+//
+//=================================================================================================
+
+ACTOR WSCacolanternSpot : CustomMonsterInvasionSpot Replaces CacolanternSpot
+{
+	Game Doom
+	DropItem "WSCacolantern"
+}
+
+//=================================================================================================
+//
+// Abaddon spawner
+//
+//=================================================================================================
+
+/*ACTOR AbaddonSpot : CustomMonsterInvasionSpot 5216
+{
+	Game Doom
+	DropItem "Abaddon"
+}*/
+
+//=================================================================================================
+//
+// Hectebus spawner
+//
+//=================================================================================================
+
+ACTOR WSHectebusSpot : CustomMonsterInvasionSpot Replaces HectebusSpot
+{
+	Game Doom
+	DropItem "WSHectebus"
+}
+
+//=================================================================================================
+//
+// Belphegor spawner
+//
+//=================================================================================================
+
+ACTOR WSBelphegorSpot : CustomMonsterInvasionSpot Replaces BelphegorSpot
+{
+	Game Doom
+	DropItem "WSBelphegor"
+}
+
+
+//=================================================================================================
+//
+// Weapons
+//
+//=================================================================================================
+
+//=================================================================================================
+//
+// Minigun spawner
+//
+//=================================================================================================
+
+ACTOR WSMinigunSpot : CustomWeaponInvasionSpot Replaces MinigunSpot
+{
+	Game Doom
+	DropItem "MinigunWS"
+}
+
+//=================================================================================================
+//
+// Grenade launcher spawner
+//
+//=================================================================================================
+
+ACTOR WSGrenadeLauncherSpot : CustomWeaponInvasionSpot Replaces GrenadeLauncherSpot
+{
+	Game Doom
+	DropItem "RocketLauncherWS"
+}
+
+//=================================================================================================
+//
+// Railgun spawner
+//
+//=================================================================================================
+
+ACTOR WSRailgunSpot : CustomWeaponInvasionSpot Replaces RailgunSpot
+{
+	Game Doom
+	DropItem "AdvPlasmaRifleWS"
+}
+
+//=================================================================================================
+//
+// BFG10K spawner
+//
+//=================================================================================================
+
+ACTOR WSBFG10KSpot : CustomWeaponInvasionSpot Replaces BFG10KSpot
+{
+	Game Doom
+	DropItem "BFG9000WS"
+}
+

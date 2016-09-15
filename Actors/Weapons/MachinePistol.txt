@@ -113,6 +113,7 @@ Actor "MachinePistolPickup" : CustomInventory
 {
   Inventory.PickupMessage "Picked up Machine Pistol"
   Inventory.PickupSound "misc/W_pkup"
+  Scale 0.7
   states
   {
   Spawn:

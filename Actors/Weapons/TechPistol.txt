@@ -17,7 +17,6 @@ ACTOR TechPistolWS : Weapon
   Obituary "$OB_MPPISTOL"
   +WEAPON.WIMPY_WEAPON 
   +Weapon.Ammo_Optional
-  +WEAPON.NOAUTOFIRE
   Inventory.Pickupmessage "Picked up Tech Pistol"
   Tag "Tech Pistol"
   States
@@ -34,16 +33,16 @@ ACTOR TechPistolWS : Weapon
   Fire:
     TNT1 A 0 A_JumpIfNoAmmo("Reload")
     TNT1 A 0 
-	TNT1 A 0 A_FireBullets (5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",16,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
+	TNT1 A 0 A_FireBullets (5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",14,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
     TNT1 A 0 A_PlaySound("weapons/TPISF", CHAN_WEAPON)
-    DPIF A 2 A_GunFlash
+    DPIF A 3 A_GunFlash
     DPIF BCD 1
-    DPIF A 0 //A_ReFire
+    DPIF A 0 A_ReFire
     Goto Ready
 
    Reload:
-    PKPI A 0 A_JumpIfInventory ("Techpistmag", 8, 2)
-    PKPI A 0 A_JumpIfInventory("Clip", 2, "ReloadStep")
+    PKPI A 0 A_JumpIfInventory ("Techpistmag", 10, 1)
+    PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
     PKPI A 0
     goto ready
    Reloadstep:
@@ -55,10 +54,10 @@ ACTOR TechPistolWS : Weapon
 	DPIG A 1 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
 	DPIG A 16
    ReloadLoop:
-    TNT1 A 0 A_TakeInventory("Clip", 2)
+    TNT1 A 0 A_TakeInventory("Clip", 1)
     TNT1 A 0 A_GiveInventory("techpistmag", 1)
-    TNT1 A 0 A_JumpIfInventory("techpistmag", 8, "ReloadDone")
-    TNT1 A 0 A_JumpIfInventory("Clip", 2, "ReloadLoop")
+    TNT1 A 0 A_JumpIfInventory("techpistmag", 10, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
 	DPIG A 1 A_playSound("weapons/pistolClipin")
@@ -90,7 +89,7 @@ ACTOR TechPistolWS : Weapon
 
 actor "TechPistmag" : Ammo
 {
-  Inventory.MaxAmount 8
+  Inventory.MaxAmount 10
   +IGNORESKILL
 }
 

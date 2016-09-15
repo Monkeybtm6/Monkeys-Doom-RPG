@@ -2,21 +2,33 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
-#define MonDAMAGE_COUNTPERCENT 0.03
+#define MonDAMAGE_COUNTPERCENT 0.02
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 Function int ThisLevel (void)
 {
- int Mapcheck = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
- int LevelCheck = 0;
- for (int i = 0; i < playercount(); i++) 
-    {
-     Levelcheck += CheckActorInventory(PLAYER_TID_START + i,"Playerlevel") / 2;
-	}
- int leveladd = LevelCheck / playercount();
- Return Leveladd + Mapcheck;
+ int SkillMult = 16 * GameSkill();
+ int leveladd = playercount() * 2;
+ int levelSet = 0;
+ 
+ If(getcvar("MRPG_PlayerScale") == True)
+   {
+   int levelav = 1;
+   for (int i = 0; i < playercount(); i++) 
+     {
+      levelav +=  CheckActorInventory(PLAYER_TID_START + i,"Playerlevel");
+	 }
+	LevelSet = levelav / playercount();
+   }
+   Else
+   {
+	levelSet = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
+   }
+ if( Levelset <= 0)
+ {Levelset = 1;}
+ 
+ Return (Leveladd + LevelSet) + SkillMult;
 }
-
 
 Script "MonsterStatsInt2" (Void)
 {
@@ -32,6 +44,7 @@ Script "MonsterStatsInt2" (Void)
  
  setuservariable(0,"user_level",MyLevel);
  SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 3) * Mylevel));
+  SetActorProperty(0, APROP_SpawnHealth, MyHealth + ((MyVit * 3) * Mylevel));
 }
 
 Script "MonsterStatsInt" (Void)
@@ -47,7 +60,8 @@ Script "MonsterStatsInt" (Void)
    {MyLevel = 1;}
  
  GiveInventory("Monsterlevel",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 4) * Mylevel));
+ SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 2) * Mylevel));
+ SetActorProperty(0, APROP_SpawnHealth, MyHealth + ((MyVit * 2) * Mylevel));
 }
 
 script "MonDAMAGESCR" (int indamage)
@@ -73,7 +87,14 @@ script "MonDAMAGEPROJSCR" (int indamage)
 
 Script "MapNumCheck" (void)
 {
+	if(GameSkill() >= 2)
+	{
+	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM) * 2);
+	}
+	Else
+	{
 	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM));
+	}
 }
 
 script "MonDebug" (Void)

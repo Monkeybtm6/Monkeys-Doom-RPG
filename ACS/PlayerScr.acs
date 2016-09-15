@@ -60,6 +60,10 @@ script 91 RESPAWN
 
 Script "Levelupcheck" (int EXPA)
 {
+  SetActivatorToTarget(0);
+  if(ClassifyActor(ACTOR_MONSTER))
+  { Terminate; }
+
 GiveInventory("Expereince", EXPA);
 
 Int StatMult =
@@ -94,6 +98,9 @@ for(int sid = 0; sid <= 5; sid++)
 
 Script "UpdateStats" (void)
 {
+  if(ClassifyActor(ACTOR_MONSTER))
+  { Terminate; }
+  
   int StartHealth = CheckInventory("StatVIT") * 15,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
   Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth),

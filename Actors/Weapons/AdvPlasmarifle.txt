@@ -86,7 +86,7 @@ ACTOR AdvPlasmaBall
   Height 8
   Scale 0.3
   Speed 70
-  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",16,0,0,0))
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",14,0,0,0))
   Projectile
   +RANDOMIZE
   RenderStyle Add

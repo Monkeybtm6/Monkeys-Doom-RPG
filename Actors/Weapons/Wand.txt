@@ -30,7 +30,7 @@ ACTOR WandWS : Weapon
     GWND A 0 A_JumpIfNoAmmo("Reload")
     GWND A 3
     GWND A 0 
-	GWND A 0 A_FireBullets (5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",7,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
+	GWND A 0 A_FireBullets (5.6, 0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",6,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
 	GWND A 0 A_PlaySound("weapons/Wandhit", CHAN_WEAPON)
     GWND BCD 1 A_GunFlash
     GWND A 0 A_ReFire
