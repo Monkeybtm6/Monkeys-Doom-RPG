@@ -4,7 +4,7 @@
 
 #define atkbase 0.02
 #define AGIbase 0.20
-#define DAMAGE_COUNTPERCENT 0.02
+#define DAMAGE_COUNTPERCENT 0.01
 #define MaxLevel 60
 int LevelNext[MaxLevel];
 str StatArray[5] =
@@ -44,7 +44,7 @@ script 90 ENTER
 	  GiveInventory("PistolWS",1);
 	  GiveInventory("Wepslot1",1);
 	  }
-	  GiveInventory("HasLoaded",1);
+	  //GiveInventory("HasLoaded",1);
 	}
   ACS_NamedExecuteAlways("Manaregen",0);
   ACS_NamedExecuteAlways("UpdateStats",0);
@@ -61,8 +61,10 @@ script 91 RESPAWN
 Script "Levelupcheck" (int EXPA)
 {
   SetActivatorToTarget(0);
-  if(ClassifyActor(ACTOR_MONSTER))
-  { Terminate; }
+  if(ClassifyActor(0) & ACTOR_MONSTER)
+  { 
+  Terminate; 
+  }
 
 GiveInventory("Expereince", EXPA);
 
@@ -98,12 +100,14 @@ for(int sid = 0; sid <= 5; sid++)
 
 Script "UpdateStats" (void)
 {
-  if(ClassifyActor(ACTOR_MONSTER))
-  { Terminate; }
+  if(ClassifyActor(0) & ACTOR_MONSTER)
+  { 
+  Terminate; 
+  }
   
   int StartHealth = CheckInventory("StatVIT") * 15,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
-  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 2) + StartHealth),
+  Player_Max_Health_Out = (PLAYER_MAX_HEALTH_in + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),

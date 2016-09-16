@@ -111,7 +111,7 @@ Actor AdvPlasmag : Ammo
  +IGNORESKILL
 }
 
-Actor "AdvPlasmaRiflePickup" : CustomInventory
+Actor "AdvPlasmaRiflePickup" : CustomInventory Replaces Railgun
 {
   Inventory.PickupMessage "Picked up Advanced PlasmaRifle"
   Inventory.PickupSound "misc/W_pkup"

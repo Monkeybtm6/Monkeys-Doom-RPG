@@ -20,14 +20,10 @@
 
 -Add ability to save character data outside of the game. (and take advantage of zandronums database features.) DONE
 
--Change enemies to make them more fun to fight.
-
--Improve the weapons (they kinda suck right now)
-
--Make Custom main menu
+-Make Custom main menu (Postponed)
 
 -Character startup menu handle character loading or starting anew.
 
 -Bars for health armor and magic. DONE
 
--Enemy health bar.
+-Enemy health bar. (Postponed)

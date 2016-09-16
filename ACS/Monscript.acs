@@ -2,7 +2,7 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
-#define MonDAMAGE_COUNTPERCENT 0.02
+#define MonDAMAGE_COUNTPERCENT 0.01
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 Function int ThisLevel (void)
@@ -22,7 +22,7 @@ Function int ThisLevel (void)
    }
    Else
    {
-	levelSet = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
+	levelSet = getlevelinfo(LEVELINFO_LEVELNUM);
    }
  if( Levelset <= 0)
  {Levelset = 1;}
@@ -30,24 +30,24 @@ Function int ThisLevel (void)
  Return (Leveladd + LevelSet) + SkillMult;
 }
 
-Script "MonsterStatsInt2" (Void)
+Script "MonsterStatsInt" (Void)
 {
  int MonsterTid = UniqueTID(),
  Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
  MyHealth = getactorproperty(0, APROP_Health),
- MyVit = CheckInventory("StatVit"),
- MyATK = CheckInventory("StatATK"),
+ MyVit = GetUserVariable(0,"User_VIT"),
+ MyATK = GetUserVariable(0,"User_ATK"),
  Skillmult = Gameskill() / 2.0,
- MyLevel = Random(-2,2) + Thismap;
+ MyLevel = ThisLevel();
  If (MyLevel <= 0)
    {MyLevel = 1;}
  
  setuservariable(0,"user_level",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + ((MyVit * 3) * Mylevel));
-  SetActorProperty(0, APROP_SpawnHealth, MyHealth + ((MyVit * 3) * Mylevel));
+ SetActorProperty(0, APROP_Health, MyHealth + (MyVit * Mylevel));
+  SetActorProperty(0, APROP_SpawnHealth, MyHealth + (MyVit * Mylevel));
 }
 
-Script "MonsterStatsInt" (Void)
+Script "MonsterStatsInt2" (Void)
 {
  int MonsterTid = UniqueTID(),
  Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
@@ -66,7 +66,7 @@ Script "MonsterStatsInt" (Void)
 
 script "MonDAMAGESCR" (int indamage)
 {
-	Int mylevel = CheckInventory("Monsterlevel");
+	Int mylevel = GetUserVariable(0,"User_ATK") * GetUserVariable(0,"User_level");
 	
     int outdamage = indamage * (1.0 + (MonDAMAGE_COUNTPERCENT * Mylevel));
 	setresultvalue(outdamage >> 16);
@@ -77,7 +77,7 @@ script "MonDAMAGESCR" (int indamage)
 script "MonDAMAGEPROJSCR" (int indamage)
 {
 	SetActivatorToTarget(0);
-	Int mylevel = CheckInventory("Monsterlevel");
+	Int mylevel = GetUserVariable(0,"User_ATK") * GetUserVariable(0,"User_level");
 	
     int outdamage = indamage * (1.0 + (MonDAMAGE_COUNTPERCENT * Mylevel));
 	setresultvalue(outdamage >> 16);

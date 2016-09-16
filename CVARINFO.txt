@@ -1,6 +1,6 @@
 user String MRPG_MyId = 0;
 
 Server Int MRPG_EXPMult = 100;
-Server Int MRPG_STATMult = 15;
+Server Int MRPG_STATMult = 20;
 Server bool MRPG_UseDB = true;
 Server bool MRPG_PlayerScale = False;

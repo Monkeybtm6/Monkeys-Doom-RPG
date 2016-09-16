@@ -181,7 +181,7 @@ ACTOR WSGrenadeLauncherSpot : CustomWeaponInvasionSpot Replaces GrenadeLauncherS
 ACTOR WSRailgunSpot : CustomWeaponInvasionSpot Replaces RailgunSpot
 {
 	Game Doom
-	DropItem "AdvPlasmaRifleWS"
+	DropItem "AdvPlasmaRiflePickup"
 }
 
 //=================================================================================================
@@ -193,6 +193,6 @@ ACTOR WSRailgunSpot : CustomWeaponInvasionSpot Replaces RailgunSpot
 ACTOR WSBFG10KSpot : CustomWeaponInvasionSpot Replaces BFG10KSpot
 {
 	Game Doom
-	DropItem "BFG9000WS"
+	DropItem "BFG9000Pickup"
 }
 

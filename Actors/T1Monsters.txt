@@ -23,11 +23,14 @@ ACTOR WSZombieMan : ZombieMan
   DropItem "Clip"
   DropItem "SPClipSynth", 2
   DropItem "machinepistolPickup", 5
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",3)
-	TNT1 A 0 A_Giveinventory("StatVit",2)
+    TNT1 A 0 A_SetUserVar("user_ATK",3)
+	TNT1 A 0 A_SetUserVar("user_VIT",2)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     POSS AB 10 A_Look
@@ -88,11 +91,14 @@ ACTOR WSShotgunGuy : ShotgunGuy
   DropItem "Shell"
   DropItem "Shell"
   DropItem "ShotGunSpawner", 20
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",2)
-	TNT1 A 0 A_Giveinventory("StatVIT",3)
+    TNT1 A 0 A_SetUserVar("user_ATK",2)
+	TNT1 A 0 A_SetUserVar("user_VIT",3)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     SPOS AB 10 A_Look
@@ -154,12 +160,14 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
   Dropitem "ClipBox"
   Dropitem "AssaultRifleSpawner", 50
   Dropitem "MinigunPickup", 10
-
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",2)
-	TNT1 A 0 A_Giveinventory("StatVIT",3)
+    TNT1 A 0 A_SetUserVar("user_ATK",2)
+	TNT1 A 0 A_SetUserVar("user_VIT",3)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     CPOS AB 10 A_Look
@@ -219,11 +227,14 @@ ACTOR WSImp : DoomImp //replaces DoomImp
   HitObituary "$OB_IMPHIT"
   Obituary "$OB_IMP"
   Dropitem "WandPickup", 1
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",2)
-	TNT1 A 0 A_Giveinventory("StatVIT",3)
+    TNT1 A 0 A_SetUserVar("user_ATK",2)
+	TNT1 A 0 A_SetUserVar("user_VIT",3)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     TROO AB 10 A_Look
@@ -281,11 +292,14 @@ ACTOR WSDemon : Demon
   DeathSound "demon/death"
   ActiveSound "demon/active"
   Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",5)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",5)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     SARG AB 10 A_Look
@@ -335,11 +349,14 @@ ACTOR WSCacodemon : Cacodemon replaces Cacodemon
   ActiveSound "caco/active"
   Obituary "$OB_CACO"
   HitObituary "$OB_CACOHIT"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",6)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     HEAD A 10 A_Look
@@ -408,11 +425,14 @@ ACTOR WSBaronOfHell : BaronOfHell replaces BaronOfHell
   ActiveSound "baron/active"
   Obituary "$OB_BARON"
   HitObituary "$OB_BARONHIT"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",6)
-	TNT1 A 0 A_Giveinventory("StatVIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",6)
+	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     BOSS AB 10 A_Look
@@ -452,6 +472,9 @@ ACTOR WSCyberdemon : Cyberdemon replaces Cyberdemon
 	DamageFactor "Slash", 1.2
 	DamageFactor "Strike", 1.0
 	DamageFactor "Plasma", 1.2
+	Var Int user_level;
+    Var Int user_ATK;
+    Var Int user_VIT;
 	States
 	{
     Death:
@@ -473,6 +496,9 @@ ACTOR WSSpiderMastermind : SpiderMastermind replaces SpiderMastermind
 	DamageFactor "Slash", 0.5
 	DamageFactor "Strike", 0.8
 	DamageFactor "Plasma", 1.2
+	Var Int user_level;
+    Var Int user_ATK;
+    Var Int user_VIT;
 	States
 	{
   Death:
@@ -497,11 +523,14 @@ ACTOR WShellknight : Hellknight replaces Hellknight
   DeathSound "knight/death"
   HitObituary "$OB_KNIGHTHIT"
   Obituary "$OB_KNIGHT"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",6)
-	TNT1 A 0 A_Giveinventory("StatVIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",6)
+	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     BOS2 AB 10 A_Look
@@ -554,11 +583,14 @@ ACTOR WSarchvile : archvile replaces archvile
   ActiveSound "vile/active"
   MeleeSound "vile/stop"
   Obituary "$OB_VILE"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",5)
-	TNT1 A 0 A_Giveinventory("StatVIT",7)
+    TNT1 A 0 A_SetUserVar("user_ATK",5)
+	TNT1 A 0 A_SetUserVar("user_VIT",7)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     VILE AB 10 A_Look
@@ -609,11 +641,14 @@ ACTOR WSFatso : Fatso replaces Fatso
   DeathSound "fatso/death"
   ActiveSound "fatso/active"
   Obituary "$OB_FATSO"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",10)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",10)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     FATT AB 15 A_Look
@@ -690,11 +725,14 @@ ACTOR WSPainElemental : PainElemental replaces PainElemental
   PainSound "pain/pain"
   DeathSound "pain/death"
   ActiveSound "pain/active"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",6)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     PAIN A 10 A_Look
@@ -746,11 +784,14 @@ Actor WSRevenant : Revenant Replaces Revenant
   MeleeSound "skeleton/melee"
   HitObituary "$OB_UNDEADHIT" // "%o was punched by a revenant."
   Obituary "$OB_UNDEAD" // "%o couldn't evade a revenant's fireball."
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     SKEL AB 10 A_Look
@@ -806,11 +847,14 @@ ACTOR WSArachnotron : Arachnotron Replaces Arachnotron
   DeathSound "baby/death"
   ActiveSound "baby/active"
   Obituary "$OB_BABY"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_Giveinventory("StatATK",4)
-	TNT1 A 0 A_Giveinventory("StatVIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     BSPI AB 10 A_Look

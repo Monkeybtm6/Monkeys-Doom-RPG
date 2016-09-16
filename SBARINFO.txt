@@ -45,22 +45,23 @@ statusbar fullscreen, forcescaled, fullscreenoffsets
 	}
 
     //inventory
-    drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 127, -16, 156, -25, untranslated;
+    //drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 127, -16, 156, -25, untranslated;
+	DrawInventoryBar Doom,alwaysshowcounter,translucent, 1, SMALLFNT, -102, -32; 
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;
 	DrawNumber 2, SMALLFNT, White,"PlayerLevel", 24, -63;
 	
 	//Stats
-	//DrawNumber 1, SMALLFNT, Red, "StatVit",23,-121;
+	//DrawNumber 2, SMALLFNT, Red, "StatVit",alignment(left),18,-121;
 	//drawimage "HUDVit", 4, -124;
-	//DrawNumber 1, SMALLFNT, White, "StatATK",23,-110;
+	//DrawNumber 2, SMALLFNT, White, "StatATK",alignment(left),18,-110;
 	//drawimage "HUDatk", 4, -113;
-	//DrawNumber 1, SMALLFNT, Blue, "StatINT",23,-99;
+	//DrawNumber 2, SMALLFNT, Blue, "StatINT",alignment(left),18,-99;
 	//drawimage "HUDInt", 4, -102;
-	//DrawNumber 1, SMALLFNT, DarkRed, "StatSTR",23,-88;
+	//DrawNumber 2, SMALLFNT, DarkRed, "StatSTR",alignment(left),18,-88;
 	//drawimage "HUDSTR", 4, -91;
-	//DrawNumber 1, SMALLFNT, Green, "StatAGI",23,-77;
+	//DrawNumber 2, SMALLFNT, Green, "StatAGI",alignment(left),18,-77;
     //drawimage "HUDAGI", 4, -80;
 	
     gamemode deathmatch
@@ -117,7 +118,7 @@ statusbar normal, forcescaled, fullscreenoffsets
 
     //inventory
     //drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, BIGFONT, 127, -16, 156, -25, untranslated;
-	DrawInventoryBar Doom,alwaysshowcounter,translucent, 5, SMALLFNT, -270, -32; 
+	DrawInventoryBar Doom,alwaysshowcounter,translucent, 5, SMALLFNT, -226, -32; 
 
     //Essence
     DrawNumber 5, SMALLFNT, GREEN,"Expereince", 73, -63;

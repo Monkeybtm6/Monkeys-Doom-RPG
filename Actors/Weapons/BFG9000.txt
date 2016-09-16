@@ -4,7 +4,7 @@ ACTOR BFG9000WS : BFG9000
   Weapon.SelectionOrder 2800
   Weapon.SlotNumber 4
   Weapon.AmmoUse 30
-  Weapon.AmmoGive 40
+  Weapon.AmmoGive 0
   Weapon.AmmoType "Cell"
   Weapon.AmmoType2 "Cell"
   Weapon.BobSpeed 2.0
