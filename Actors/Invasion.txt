@@ -28,7 +28,7 @@ ACTOR WSPowerfulMonsterSpot : CustomMonsterInvasionSpot replaces PowerfulMonster
 ACTOR WSVeryPowerfulMonsterSpot : CustomMonsterInvasionSpot replaces VeryPowerfulMonsterSpot
 {
 	Game Doom
-	DropItem "Abaddon"
+	DropItem "WSAbaddon"
 	DropItem "WSHectebus"
 	DropItem "WSBelphegor"
 	DropItem "WSArchvile"
@@ -48,7 +48,7 @@ ACTOR WSAnyMonsterSpot : CustomMonsterInvasionSpot replaces AnyMonsterSpot
 	DropItem "WSSuperShotgunGuy"
 	DropItem "WSCacodemon"
 	DropItem "WSCacolantern"
-	DropItem "Abaddon"
+	DropItem "WSAbaddon"
 	DropItem "WSRevenant"
 	DropItem "WSFatso"
 	DropItem "WSHectebus"
@@ -111,11 +111,11 @@ ACTOR WSCacolanternSpot : CustomMonsterInvasionSpot Replaces CacolanternSpot
 //
 //=================================================================================================
 
-/*ACTOR AbaddonSpot : CustomMonsterInvasionSpot 5216
+ACTOR WSAbaddonSpot : CustomMonsterInvasionSpot Replaces AbaddonSpot
 {
 	Game Doom
-	DropItem "Abaddon"
-}*/
+	DropItem "WSAbaddon"
+}
 
 //=================================================================================================
 //
@@ -157,7 +157,7 @@ ACTOR WSBelphegorSpot : CustomMonsterInvasionSpot Replaces BelphegorSpot
 ACTOR WSMinigunSpot : CustomWeaponInvasionSpot Replaces MinigunSpot
 {
 	Game Doom
-	DropItem "MinigunWS"
+	DropItem "MinigunPickup"
 }
 
 //=================================================================================================
@@ -169,7 +169,7 @@ ACTOR WSMinigunSpot : CustomWeaponInvasionSpot Replaces MinigunSpot
 ACTOR WSGrenadeLauncherSpot : CustomWeaponInvasionSpot Replaces GrenadeLauncherSpot
 {
 	Game Doom
-	DropItem "RocketLauncherWS"
+	DropItem "RocketLauncherPickup"
 }
 
 //=================================================================================================
