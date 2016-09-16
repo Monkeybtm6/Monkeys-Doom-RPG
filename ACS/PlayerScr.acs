@@ -176,6 +176,20 @@ script "PROJDAMAGESCR" (int indamage)
 	
 }
 
+script "MAGJDAMAGESCR" (int indamage, int Isproj)
+{
+	if(Isproj == 1)
+	{ SetActivatorToTarget(0); }
+	
+	int atkchecker = CheckInventory("StatATK") * CheckInventory("StatINT");
+	int levelchecker = atkchecker * CheckInventory("Playerlevel");
+	int counter = DAMAGE_COUNTPERCENT * levelchecker;
+    int outdamage = indamage * (1.0 + counter);
+	setresultvalue(outdamage >> 16);
+	//print(f: outdamage);
+	
+}
+
 script "WeaponDrop" (void)
 {
 	str Currentwep = Checkweapon("");

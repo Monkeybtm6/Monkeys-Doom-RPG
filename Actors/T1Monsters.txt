@@ -226,7 +226,8 @@ ACTOR WSImp : DoomImp //replaces DoomImp
   ActiveSound "imp/active"
   HitObituary "$OB_IMPHIT"
   Obituary "$OB_IMP"
-  Dropitem "WandPickup", 1
+  Dropitem "SPFireBall", 5
+  Dropitem "Wandpickup", 1
   Var Int user_level;
   Var Int user_ATK;
   Var Int user_VIT;
@@ -431,7 +432,7 @@ ACTOR WSBaronOfHell : BaronOfHell replaces BaronOfHell
   States
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",6)
+    TNT1 A 0 A_SetUserVar("user_ATK",5)
 	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
@@ -529,7 +530,7 @@ ACTOR WShellknight : Hellknight replaces Hellknight
   States
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",6)
+    TNT1 A 0 A_SetUserVar("user_ATK",5)
 	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
@@ -589,7 +590,7 @@ ACTOR WSarchvile : archvile replaces archvile
   States
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",5)
+    TNT1 A 0 A_SetUserVar("user_ATK",3)
 	TNT1 A 0 A_SetUserVar("user_VIT",7)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
@@ -648,7 +649,7 @@ ACTOR WSFatso : Fatso replaces Fatso
   {
   Spawn:
     TNT1 A 0 A_SetUserVar("user_ATK",4)
-	TNT1 A 0 A_SetUserVar("user_VIT",10)
+	TNT1 A 0 A_SetUserVar("user_VIT",8)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     FATT AB 15 A_Look

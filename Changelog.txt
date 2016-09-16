@@ -39,3 +39,4 @@ Added new spell, Invisability.
 Added new weapon, the Tech Pistol.
 Added Custom Difficulties.
 Now supports invasion.
+Added new spell, Imp Fire

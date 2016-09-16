@@ -85,7 +85,7 @@ ACTOR RocketPlus1 : Rocket
   Radius 11
   Height 8
   Speed 24
-  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",20,0,0,0))
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",30,0,0,0))
   Projectile
   +RANDOMIZE
   +DEHEXPLOSION
