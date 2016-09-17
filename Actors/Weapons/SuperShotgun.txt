@@ -34,7 +34,8 @@ ACTOR SuperShotgunWS : SuperShotgun
 	SHT2 A 3
     SHT2 A 0 A_FireBullets (11.2, 7.1, 20, (ACS_NamedExecuteWithResult("DAMAGESCR",12,0,0)), "BulletPuff", FBF_USEAMMO|FBF_NORANDOM)
     SHT2 A 0 A_PlaySound ("weapons/SSGFIRE", CHAN_WEAPON)
-    SHT2 A 0 A_ZoomFactor(0.975)
+    SHT2 AAAAAAAA 0 A_FireCustomMissile("Tracer",Random(4,-4),0,0,Random(4,-4))
+	SHT2 A 0 A_ZoomFactor(0.975)
 	SHT2 A 7 A_GunFlash
     SHT2 B 1 A_ZoomFactor(0.985)
     SHT2 B 1 A_ZoomFactor(0.995)

@@ -7,7 +7,7 @@
 
 Function int ThisLevel (void)
 {
- int SkillMult = 16 * GameSkill();
+ int SkillMult = 5 * GameSkill();
  int leveladd = playercount() * 2;
  int levelSet = 0;
  
@@ -87,14 +87,7 @@ script "MonDAMAGEPROJSCR" (int indamage)
 
 Script "MapNumCheck" (void)
 {
-	if(GameSkill() >= 2)
-	{
-	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM) * 2);
-	}
-	Else
-	{
-	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM));
-	}
+	setResultValue(ThisLevel());
 }
 
 script "MonDebug" (Void)

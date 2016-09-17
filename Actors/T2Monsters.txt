@@ -7,7 +7,7 @@ ACTOR WSCacolantern
    Height 56
    PainChance 128
    Mass 400
-   Meleedamage 6 
+   Meleedamage (ACS_NamedExecuteWithResult("MonDAMAGESCR",6,0,0) * random(1,8)) 
    REACTIONTIME 8 
    BloodColor "EB 6F 0F"
    MONSTER
@@ -68,7 +68,7 @@ actor CacolanternBallWS
     Radius 13
     Height 8
     Speed 20
-    Damage 9
+    Damage (ACS_NamedExecuteWithResult("MonDAMAGESCR",8,0,0) * random(1,8))
     PROJECTILE
     RENDERSTYLE ADD
     ALPHA 0.67
@@ -161,7 +161,7 @@ ACTOR MonPlasmaBall
   Height 6
   Scale 0.3
   Speed 50
-  Damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",10,0,0,0))
+  Damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",8,0,0,0))
   Projectile
   +RANDOMIZE
   RenderStyle Add
@@ -239,7 +239,7 @@ actor WSDarkImp : DoomImp  // [RT] Inherits from the DoomImp for convenience
 actor DarkImpBallWS : DoomImpBall // [RT] Inherits from DoomImpBall for convenience.
 {
   Speed 20
-  damage 3 // [RT] I think this is right, change if neccesary.
+  damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",3,0,0,0) * random(1,8)) // [RT] I think this is right, change if neccesary.
   states
   {
   Spawn:
@@ -502,7 +502,7 @@ ACTOR BelphegorBallWS : BaronBall
 	Speed 20
 }
 
-ACTOR WSAbaddon : Cacolantern Replaces Abaddon
+ACTOR WSAbaddon : WSCacolantern Replaces Abaddon
 {
 	SpawnID 220
 	Health 1200
@@ -510,6 +510,9 @@ ACTOR WSAbaddon : Cacolantern Replaces Abaddon
 	PainChance 40
 	Obituary "$OB_ABADDON"
 	HitObituary "$OB_ABADDON_MELEE"
+	Var Int user_level;
+    Var Int user_ATK;
+    Var Int user_VIT;
 	States
 	{
     Spawn:
@@ -550,11 +553,10 @@ ACTOR WSAbaddon : Cacolantern Replaces Abaddon
 
 ACTOR AbaddonBallWS
 {
-	SpawnID 221
 	Radius 6
 	Height 8
 	Speed 20
-	Damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",10,0,0,0))
+	Damage (ACS_NamedExecuteWithResult("MonDAMAGESCR",10,0,0) * random(1,8))
 	Projectile
 	+RANDOMIZE
 	RenderStyle Add

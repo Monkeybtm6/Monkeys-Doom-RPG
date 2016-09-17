@@ -39,4 +39,10 @@ Added new spell, Invisability.
 Added new weapon, the Tech Pistol.
 Added Custom Difficulties.
 Now supports invasion.
-Added new spell, Imp Fire
+Added new spell, Imp Fire.
+
+0.29
+Added bullet Tracers.
+Lowered Plasmagun fire sound.
+Fixed bug where Cyberdemon and spider mastermind wouldnt scale correctly
+Adjusted the difficulty settings

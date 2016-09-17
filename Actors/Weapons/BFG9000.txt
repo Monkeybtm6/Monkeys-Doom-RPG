@@ -67,7 +67,7 @@ ACTOR NewBFGBall
   Radius 13
   Height 8
   Speed 25
-  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",60,0,0,0))
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",70,0,0,0))
   Projectile
   +RANDOMIZE
   RenderStyle Add
