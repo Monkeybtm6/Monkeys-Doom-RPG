@@ -5,7 +5,7 @@
  echo Step 1: Packing
  echo Packing...
  cd %cd%
- 7z a -r -ssw -tzip %ProjName%n.pk3 -xr!.git "*" 
+ 7z a -r -ssw -tzip %ProjName%n.pk3 -xr!.git -x!*.bat -x!MonRpg.pk3 "*" 
  echo Done packing.
  
  echo Step 2: Replace old version
