@@ -11,18 +11,31 @@ Function int ThisLevel (void)
  int leveladd = playercount() * 2;
  int levelSet = 0;
  
- If(getcvar("MRPG_PlayerScale") == True)
+ Switch(getcvar("MRPG_PlayerScale"))
    {
    int levelav = 1;
+   int Mapav = 1;
+  Case 0:
    for (int i = 0; i < playercount(); i++) 
      {
       levelav +=  CheckActorInventory(PLAYER_TID_START + i,"Playerlevel");
 	 }
 	LevelSet = levelav / playercount();
-   }
-   Else
-   {
+	break;
+   
+   Case 1:
 	levelSet = getlevelinfo(LEVELINFO_LEVELNUM);
+	break;
+	
+   Case 2:
+    for (int E = 0; E < playercount(); E++) 
+      {
+       levelav +=  CheckActorInventory(PLAYER_TID_START + E,"Playerlevel");
+	  }
+	 Mapav = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
+	 LevelSet = (levelav / playercount()) + getlevelinfo(LEVELINFO_LEVELNUM) / 2;
+	 
+	 break;
    }
  if( Levelset <= 0)
  {Levelset = 1;}

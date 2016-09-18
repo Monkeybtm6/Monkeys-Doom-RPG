@@ -1,4 +1,10 @@
 
+OptionValue "OnOffMix"
+{
+	0, "Off"
+	1, "On"
+	2, "Mix"
+}
 
 OptionMenu "OptionsMenu"
 {
@@ -29,13 +35,17 @@ OptionMenu "MRPGOpt"
 {
 	Title "Monkey's RPG Options"
 	StaticText " "
-	StaticText "Dont Tell anyone your iD"
+	StaticText "Dont Tell anyone your ID"
 	StaticText "Its how the database identifies you along with your name."
 	StaticText " "
-	Slider "My Custom ID", "MRPG_MyID", 000, 999, 1, 3
+	Slider "My Custom ID", "MRPG_MyID", 000, 999, 1.0, 0
 	StaticText " "
 	Option "Use Database (Zandronum)", "MRPG_UseDB", "OnOff"
-	Option "Player Based Level Scaling", "MRPG_PlayerScale", "OnOff"
+	Option "Player Based Level Scaling", "MRPG_PlayerScale", "OnOffMix"
+	StaticText " "
+	StaticText "Player Growth Settings."
+	Slider "Experience Rate", "MRPG_EXPMult", 000, 1000, 5.0, 0
+	Slider "Stat Growth Rate", "MRPG_STATMult", 000, 200, 1.0, 0
 }
 
 OptionMenu "CustomizeControls"
