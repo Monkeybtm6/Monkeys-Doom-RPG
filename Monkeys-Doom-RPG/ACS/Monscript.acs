@@ -2,7 +2,7 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
-#define MonDAMAGE_COUNTPERCENT 0.01
+#define MonDAMAGE_COUNTPERCENT 0.005
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 Function int ThisLevel (void)
@@ -10,37 +10,37 @@ Function int ThisLevel (void)
  int SkillMult = 5 * GameSkill();
  int leveladd = playercount() * 2;
  int levelSet = 0;
- 
- Switch(getcvar("MRPG_PlayerScale"))
-   {
-   int levelav = 1;
-   int Mapav = 1;
-  Case 0:
-   for (int i = 0; i < playercount(); i++) 
-     {
+ int i = 0;
+ int levelav = 1;
+ int Mapav = 1;
+  
+  If(getcvar("MRPG_PlayerScale") == 1)
+    {
+     for (i = 0; i < playercount(); i++) 
+       {
       levelav +=  CheckActorInventory(PLAYER_TID_START + i,"Playerlevel");
-	 }
-	LevelSet = levelav / playercount();
-	break;
+	   }
+	  LevelSet = levelav / playercount();
+    }
    
-   Case 1:
-	levelSet = getlevelinfo(LEVELINFO_LEVELNUM);
-	break;
+  If(getcvar("MRPG_PlayerScale") == 0)
+     {
+	  levelSet = getlevelinfo(LEVELINFO_LEVELNUM);
+     }
 	
-   Case 2:
-    for (int E = 0; E < playercount(); E++) 
-      {
-       levelav +=  CheckActorInventory(PLAYER_TID_START + E,"Playerlevel");
-	  }
-	 Mapav = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
-	 LevelSet = ((levelav / playercount()) + getlevelinfo(LEVELINFO_LEVELNUM)) / 2;
-	 
-	 break;
-   }
+  If(getcvar("MRPG_PlayerScale") >= 2)
+    {
+     for (i = 0; i < playercount(); i++) 
+       {
+        levelav +=  CheckActorInventory(PLAYER_TID_START + i,"Playerlevel");
+       }
+	   Mapav = getlevelinfo(LEVELINFO_LEVELNUM);
+	   LevelSet = ((levelav / playercount()) + Mapav) / 2;
+	 }
  if( Levelset <= 0)
  {Levelset = 1;}
  
- Return ((Leveladd + LevelSet) + SkillMult);
+ Return (Leveladd + LevelSet) + SkillMult;
 }
 
 Script "MonsterStatsInt" (Void)
@@ -100,7 +100,8 @@ script "MonDAMAGEPROJSCR" (int indamage)
 
 Script "MapNumCheck" (void)
 {
-	setResultValue(ThisLevel());
+	int SkillMult = 5 * GameSkill();
+	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM) + SkillMult);
 }
 
 script "MonDebug" (Void)

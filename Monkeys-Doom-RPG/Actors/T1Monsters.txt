@@ -519,8 +519,8 @@ ACTOR WSCyberdemon : Cyberdemon replaces Cyberdemon
   States
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",5)
-	TNT1 A 0 A_SetUserVar("user_VIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     CYBR AB 10 A_Look
@@ -627,10 +627,13 @@ ACTOR WSSpiderMastermind : SpiderMastermind replaces SpiderMastermind
   DeathSound "spider/death"
   ActiveSound "spider/active"
   Obituary "$OB_SPIDER"
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
   States
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",5)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
 	TNT1 A 0 A_SetUserVar("user_VIT",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:

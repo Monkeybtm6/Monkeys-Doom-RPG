@@ -105,9 +105,9 @@ Script "UpdateStats" (void)
   Terminate; 
   }
   
-  int StartHealth = CheckInventory("StatVIT") * 15,
+  int StartHealth = CheckInventory("StatVIT") * 20,
   Player_Max_Health_in = CheckInventory("StatVIT") * CheckInventory("PlayerLevel"),
-  Player_Max_Health_Out = (PLAYER_MAX_HEALTH_in + StartHealth),
+  Player_Max_Health_Out = ((PLAYER_MAX_HEALTH_in * 1) + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),

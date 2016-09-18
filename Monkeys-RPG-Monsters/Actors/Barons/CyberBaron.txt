@@ -24,8 +24,8 @@ ACTOR WSCyberbaron : Baronofhell 10000
   states
   {
   Spawn:
-    TNT1 A 0 A_SetUserVar("user_ATK",6)
-	TNT1 A 0 A_SetUserVar("user_VIT",8)
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",6)
 	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
   Spawn2:
     CBOS AB 10 A_Look
