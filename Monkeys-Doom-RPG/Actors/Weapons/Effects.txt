@@ -22,3 +22,33 @@ Actor Tracer : FastProjectile
 	 Stop
 	}
 }
+
+DamageType WSPierce
+{
+   Factor 1.0
+}
+
+DamageType WSStrike
+{
+   Factor 1.0
+}
+
+DamageType WSPlasma
+{
+   Factor 1.0
+}
+
+DamageType WSFire
+{
+   Factor 1.0
+}
+
+DamageType WSIce
+{
+   Factor 0.8
+}
+
+DamageType WSHoly
+{
+   Factor 1.4
+}

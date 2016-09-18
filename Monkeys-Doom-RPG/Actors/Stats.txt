@@ -147,18 +147,3 @@ Actor StatProgressAGI : Inventory
   Inventory.MaxAmount 9999
   +INVENTORY.ALWAYSPICKUP
 }
-
-DamageType Pierce
-{
-   Factor 1.0
-}
-
-DamageType Strike
-{
-   Factor 1.0
-}
-
-DamageType Plasma
-{
-   Factor 1.0
-}

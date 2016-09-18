@@ -5,7 +5,7 @@ Var Int user_ATK;
 Var Int user_VIT;
 }
 
-ACTOR WSZombieMan : ZombieMan
+ACTOR WSZombieMan : ZombieMan Replaces ZombieMan
 {
   Health 20
   Radius 20
@@ -72,7 +72,7 @@ ACTOR WSZombieMan : ZombieMan
     Goto See
   }
 }
-ACTOR WSShotgunGuy : ShotgunGuy
+ACTOR WSShotgunGuy : ShotgunGuy Replaces ShotgunGuy
 {
   Health 30
   Radius 20
@@ -210,7 +210,7 @@ ACTOR WSChaingunGuy : ChaingunGuy replaces ChaingunGuy
   }
 }
 
-ACTOR WSImp : DoomImp //replaces DoomImp
+ACTOR WSImp : DoomImp replaces DoomImp
 {
   Health 60
   Radius 20
@@ -277,7 +277,7 @@ ACTOR WSImp : DoomImp //replaces DoomImp
   }
 }
 
-ACTOR WSDemon : Demon 
+ACTOR WSDemon : Demon Replaces Demon
 {
   Health 150
   PainChance 180

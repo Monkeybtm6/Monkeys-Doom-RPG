@@ -8,25 +8,35 @@ States
    TNT1 A 0
    TNT1 A 0 A_Jump(256,"DynSpawner")
   DynSpawner:
-      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 48, "VeryHighLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 32, "HighLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
 	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
 	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
    EarlyLevelSpawn:
-	  TNT1 A 0 
+	  TNT1 A 0
 	  TNT1 A -1
 	  Stop
    LowLevelSpawn:
-      TNT1 A 0 
+      TNT1 A 0 A_Jump(256,"EarlyLevelSpawn")
 	  TNT1 A -1
 	  Stop
    MidLevelSpawn:
-      TNT1 A 0 
+      TNT1 A 0 A_Jump(256,"LowLevelSpawn")
+	  TNT1 A -1
+	  Stop
+   HighLevelSpawn:
+      TNT1 A 0 A_Jump(256,"MidLevelSpawn")
+	  TNT1 A -1
+	  Stop
+   VeryHighLevelSpawn:
+      TNT1 A 0 A_Jump(256,"HighLevelSpawn")
 	  TNT1 A -1
 	  Stop
 	  }
 }
 
-Actor WSimpspawner Replaces Doomimp
+Actor WSimpspawner : DynSpawner
 {
 +NOTDMATCH
 States
@@ -57,7 +67,7 @@ States
 	  }
 }
 
-Actor WSZombiespawner replaces ZombieMan
+Actor WSZombiespawner : DynSpawner
 {
 +NOTDMATCH
 States
@@ -83,7 +93,7 @@ States
 	  }
 }
 
-Actor WSSGpawner replaces ShotgunGuy
+Actor WSSGpawner : DynSpawner
 {
 +NOTDMATCH
 States
@@ -109,7 +119,7 @@ States
 	  }
 }
 
-Actor WSDemonpawner replaces Demon
+Actor WSDemonpawner : DynSpawner
 {
 +NOTDMATCH
 States
