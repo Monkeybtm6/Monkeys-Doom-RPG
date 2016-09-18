@@ -44,5 +44,7 @@ Added new spell, Imp Fire.
 0.29
 Added bullet Tracers.
 Lowered Plasmagun fire sound.
-Fixed bug where Cyberdemon and spider mastermind wouldnt scale correctly
-Adjusted the difficulty settings
+Fixed bug where Cyberdemon and spider mastermind wouldnt scale correctly.
+Adjusted the difficulty settings.
+Changed pistol sprite back to vanilla.
+Changed Shotgun sprite back to vanilla.

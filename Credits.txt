@@ -2,9 +2,7 @@ Code: Monkeybtm6
 
 Weapon Sprites: 
 
-Pistol: taken from Complex Doom.
-Assault Rifle: taken from Complex Doom. Originally made by Mike12
-ShotGun: Taken from Complex Doom.
+Assault Rifle: Mike12
 Plasma Rifle: Taken from Complex Doom.
 Machine Pistol: Mike12
 Advanced Plasma Rifle: Eriance

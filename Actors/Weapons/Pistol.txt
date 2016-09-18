@@ -23,30 +23,30 @@ ACTOR PistolWS : Weapon
   States
   {
   Ready:
-    PKPI A 1 A_WeaponReady(wrf_allowreload | WRF_ALLOWZOOM)
+    PISG A 1 A_WeaponReady(wrf_allowreload | WRF_ALLOWZOOM)
     Loop
   Deselect:
-    PKPI A 1 A_Lower
+    PISG A 1 A_Lower
     Loop
   Select:
-    PKPI A 1 A_Raise
+    PISG A 1 A_Raise
     Loop
   Fire:
     PISG A 0 A_JumpIfNoAmmo("Reload")
-    PKPI A 1
-    PKPI A 0 
-	PKPI A 0 A_FireBullets (4.6, 1.4, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",10,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
-    TNT1 A 0 A_FireCustomMissile("Tracer",Random(3,-3),0,0,Random(3,-3))
-	PKPI A 0 A_PlaySound("weapons/PSfire", CHAN_WEAPON)
-    PKPF A 2 A_GunFlash
-    PKPI BCDEF 1
-    PKPI A 0 A_ReFire
+    PISG A 3
+    PISG A 0 
+	PISG A 0 A_FireBullets (4.6, 1.4, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",10,0,0)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
+    TNT1 A 0 A_FireCustomMissile("Tracer",fRandom(3,-3),0,0,fRandom(3,-3))
+	PISG A 0 A_PlaySound("weapons/PSfire", CHAN_WEAPON)
+    PISG B 5 A_GunFlash
+    PISG C 3 
+	PISG B 4 A_ReFire
     Goto Ready
 
    Reload:
-    PKPI A 0 A_JumpIfInventory ("pistmag", 15, 2)
-    PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
-    PKPI A 0
+    PISG A 0 A_JumpIfInventory ("pistmag", 15, 2)
+    PISG A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
+    PISG A 0
     goto ready
    Reloadstep:
     PKPR A 2 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
@@ -70,8 +70,7 @@ ACTOR PistolWS : Weapon
 	stop
   
   Flash:
-    TNT1 A 0
-    TNT1 A 2 Bright A_Light1
+    PISF A 6 Bright A_Light1
     Goto LightDone
 
   Spawn:

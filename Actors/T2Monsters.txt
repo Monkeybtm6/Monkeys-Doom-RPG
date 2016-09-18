@@ -7,7 +7,7 @@ ACTOR WSCacolantern
    Height 56
    PainChance 128
    Mass 400
-   Meleedamage (ACS_NamedExecuteWithResult("MonDAMAGESCR",6,0,0) * random(1,8)) 
+   Meleedamage 6 
    REACTIONTIME 8 
    BloodColor "EB 6F 0F"
    MONSTER
