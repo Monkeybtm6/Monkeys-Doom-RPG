@@ -1,0 +1,218 @@
+Actor WSimpspawner : DynSpawner Replaces doomimp
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  Deciding:
+   TNT1 A 0
+   loop
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSImp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLImpRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("WSDarkImp",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSZombiespawner : DynSpawner Replaces Zombieman
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSZombieMan",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLZomRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLZomRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSSGpawner : DynSpawner Replaces shotgunguy
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSShotgunGuy",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLSGRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   midLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLSGRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSDemonpawner : DynSpawner Replaces Demon
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+  Deciding:
+   TNT1 A 0
+   loop
+  DynSpawner:
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSDemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLDemonRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("WSBloodDemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSBaronspawner : DynSpawner Replaces BaronOfHell
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSBaronOfHell",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLBaronRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLBaronRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   HightLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("HLBaronRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSCyberspawner : DynSpawner Replaces Cyberdemon
+{
++NOTDMATCH
+States
+  {
+  Spawn:
+   TNT1 A 0
+   TNT1 A 0
+   TNT1 A 0 A_Jump(256,"DynSpawner")
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSCyberdemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("WSAnnihilator",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor LLImpRandSpawn : Randomspawner
+{
+  Dropitem "WSImp"
+  Dropitem "WSDarkImp"
+}
+
+Actor LLZomRandSpawn : Randomspawner
+{
+  Dropitem "WSZombieMan"
+  Dropitem "WSRapidFireTrooper"
+}
+
+Actor MLZomRandSpawn : Randomspawner
+{
+  Dropitem "WSZombieMan"
+  Dropitem "WSRapidFireTrooper"
+  Dropitem "WSPlasmaZombie"
+}
+
+Actor LLSGRandSpawn : Randomspawner
+{
+  Dropitem "WSShotgunGuy"
+  Dropitem "WSASGGuy"
+}
+
+Actor MLSGRandSpawn : Randomspawner
+{
+  Dropitem "WSShotgunGuy"
+  Dropitem "WSASGGuy"
+  Dropitem "WSuperShotgunGuy"
+}
+
+Actor LLDemonRandSpawn : Randomspawner
+{
+  Dropitem "WSDemon"
+  Dropitem "WSBloodDemon"
+}
+
+Actor LLBaronRandSpawn : Randomspawner
+{
+  Dropitem "WSBaronOfHell"
+  Dropitem "WSCyberbaron"
+  Dropitem "WSBelphegor"
+}
+
+Actor MLBaronRandSpawn : Randomspawner
+{
+  Dropitem "WSBaronOfHell"
+  Dropitem "WSCyberbaron"
+  Dropitem "WSBelphegor"
+  Dropitem "WSBruiserDemon"
+}
+
+Actor HLBaronRandSpawn : Randomspawner
+{
+  Dropitem "WSCyberbaron"
+  Dropitem "WSBelphegor"
+  Dropitem "WSBruiserDemon"
+  Dropitem "WSArchonofHell"
+}

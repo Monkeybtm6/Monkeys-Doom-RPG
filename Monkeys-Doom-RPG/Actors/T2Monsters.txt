@@ -442,7 +442,7 @@ ACTOR HectShotWS : FatShot
    }
 }
 
-ACTOR WSBelphegor : HellKnight Replaces Belphegor
+/*ACTOR WSBelphegor : HellKnight Replaces Belphegor
 {
   SpawnID 215
   Health 1500
@@ -500,7 +500,7 @@ ACTOR BelphegorBallWS : BaronBall
 {
 	SpawnID 222
 	Speed 20
-}
+}*/
 
 ACTOR WSAbaddon : WSCacolantern Replaces Abaddon
 {

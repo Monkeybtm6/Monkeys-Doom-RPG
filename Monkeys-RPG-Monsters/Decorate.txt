@@ -1,0 +1,15 @@
+//Zombies
+#include "Actors/Zombies/AssaultShotgunGuy.txt"
+#include "Actors/Zombies/RapidFireTrooper.txt"
+
+//Barons
+#include "Actors/Barons/Belphegor.txt"
+#include "Actors/Barons/BruiserDemon.txt"
+#include "Actors/Barons/ArchonofHell.txt"
+#include "Actors/Barons/CyberBaron.txt"
+
+//Cybers
+#include "Actors/CyberDemons/Annihilator.txt"
+
+//Spawner
+#include "Actors/MonSpawners.txt"

@@ -33,14 +33,14 @@ Function int ThisLevel (void)
        levelav +=  CheckActorInventory(PLAYER_TID_START + E,"Playerlevel");
 	  }
 	 Mapav = getlevelinfo(LEVELINFO_LEVELNUM) / 2;
-	 LevelSet = (levelav / playercount()) + getlevelinfo(LEVELINFO_LEVELNUM) / 2;
+	 LevelSet = ((levelav / playercount()) + getlevelinfo(LEVELINFO_LEVELNUM)) / 2;
 	 
 	 break;
    }
  if( Levelset <= 0)
  {Levelset = 1;}
  
- Return (Leveladd + LevelSet) + SkillMult;
+ Return ((Leveladd + LevelSet) + SkillMult);
 }
 
 Script "MonsterStatsInt" (Void)
