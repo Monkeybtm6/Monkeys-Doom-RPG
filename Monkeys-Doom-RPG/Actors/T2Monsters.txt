@@ -510,9 +510,6 @@ ACTOR WSAbaddon : WSCacolantern
 	PainChance 40
 	Obituary "$OB_ABADDON"
 	HitObituary "$OB_ABADDON_MELEE"
-	Var Int user_level;
-    Var Int user_ATK;
-    Var Int user_VIT;
 	States
 	{
     Spawn:

@@ -305,7 +305,7 @@ actor RLMAG : ammo
  +IGNORESKILL
 }
 
-Actor "RocketLauncherPickup" : CustomInventory
+Actor "RocketLauncherPickup" : CustomInventory Replaces RocketLauncher
 {
   Inventory.PickupMessage "Picked up Rocket Launcher"
   Inventory.PickupSound "misc/W_pkup"
