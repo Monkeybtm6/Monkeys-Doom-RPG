@@ -1,7 +1,7 @@
 // Cyber Baron created by Ben2k9/Virtue
 
 
-ACTOR WSCyberbaron : Baronofhell 10000
+ACTOR WSCyberbaron : Baronofhell Replaces Cyberbaron
 {
   obituary "%o was splayed by a cyber baron"
   hitobituary "%o was ripped to shreds by a cyber baron"

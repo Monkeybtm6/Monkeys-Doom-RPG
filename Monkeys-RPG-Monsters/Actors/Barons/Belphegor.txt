@@ -3,6 +3,7 @@ ACTOR WSBelphegor : HellKnight Replaces Belphegor
   SpawnID 215
   Health 1500
   PainChance 25
+  MONSTER
   SeeSound "baron/sight"
   PainSound "baron/pain"
   DeathSound "baron/death"

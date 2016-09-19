@@ -50,3 +50,7 @@ Changed pistol sprite back to vanilla.
 Changed Shotgun sprite back to vanilla.
 Added options to change experience rate and stat growth rates.
 Added new scaling mode, Mixed where it takes into account both map number and player levels.
+Buffed Advanced Plasma Rifle.
+Added improved medkit varients.
+Made the invasion compatibility a seperate patch wad.
+Made a new addon wad, a monster pack.

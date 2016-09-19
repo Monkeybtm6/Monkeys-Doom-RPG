@@ -62,7 +62,7 @@ ACTOR MinigunWS : Weapon
 	}
 }
 
-Actor "MinigunPickup" : CustomInventory Replaces Minigun
+Actor "MinigunPickup" : CustomInventory
 {
   Inventory.PickupMessage "Picked up Minigun"
   Inventory.PickupSound "misc/W_pkup"

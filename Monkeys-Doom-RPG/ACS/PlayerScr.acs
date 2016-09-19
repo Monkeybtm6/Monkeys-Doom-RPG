@@ -31,21 +31,21 @@ script 90 ENTER
   if (CheckInventory("HasLoaded") == 0)
 	{
 	if(Playerclass(PlayerNumber()) == 0)
-      {ACS_NamedExecuteAlways("LoadCharScr",0);}
-	  Delay(1);
-    if(CheckInventory("Playerlevel") <= 0)
-      {
-	  GiveInventory("Playerlevel",1);
-	  GiveInventory("StatVIT",4);
-	  GiveInventory("StatATK",4);
-	  GiveInventory("StatINT",4);
-	  GiveInventory("StatSTR",4);
-	  GiveInventory("StatAGI",4);
-	  GiveInventory("PistolWS",1);
-	  GiveInventory("Wepslot1",1);
-	  }
-	  //GiveInventory("HasLoaded",1);
+      { ACS_NamedExecuteAlways("LoadCharScr",0); }
+	  GiveInventory("HasLoaded",1);
 	}
+ if(CheckInventory("Playerlevel") <= 0)
+  {
+    GiveInventory("Playerlevel",1);
+	GiveInventory("StatVIT",4);
+	GiveInventory("StatATK",4);
+    GiveInventory("StatINT",4);
+    GiveInventory("StatSTR",4);
+    GiveInventory("StatAGI",4);
+    GiveInventory("PistolWS",1);
+    GiveInventory("Wepslot1",1);
+  }
+  delay(1);
   ACS_NamedExecuteAlways("Manaregen",0);
   ACS_NamedExecuteAlways("UpdateStats",0);
 }
@@ -181,7 +181,7 @@ script "MAGJDAMAGESCR" (int indamage, int Isproj)
 	if(Isproj == 1)
 	{ SetActivatorToTarget(0); }
 	
-	int atkchecker = CheckInventory("StatATK") * CheckInventory("StatINT");
+	int atkchecker = CheckInventory("StatINT");
 	int levelchecker = atkchecker * CheckInventory("Playerlevel");
 	int counter = DAMAGE_COUNTPERCENT * levelchecker;
     int outdamage = indamage * (1.0 + counter);

@@ -3,10 +3,10 @@ ACTOR AdvPlasmaRifleWS : PlasmaRifle
   Weapon.SelectionOrder 90
   Weapon.SlotNumber 3
   Weapon.AmmoUse 1
-  Weapon.AmmoGive2 40
+  Weapon.AmmoGive2 0
   Weapon.AmmoType "AdvPlasmag"
   Weapon.AmmoType2 "Cell"
-  Weapon.KickBack 90
+  Weapon.KickBack 70
   Weapon.BobSpeed 2.0
   Weapon.BobRangeX 0.90
   Weapon.BobRangeX 0.75
@@ -31,7 +31,7 @@ ACTOR AdvPlasmaRifleWS : PlasmaRifle
 	TNT1 A 0 A_AlertMonsters
 	DPGF A 2 A_FireCustomMissile("PlasmaBallplus",0,1,0,0,0)
 	DPGF B 0 A_Playsound("weapons/Plasma3", CHAN_WEAPON)
-	DPGF B 3
+	DPGF B 2
 	TNT1 A 0 Radius_Quake(1,2,0,1,0)
 	TNT1 A 0 A_GunFlash
     TNT1 A 0 A_JumpIfInventory("AdvPlasmag",1,1)
@@ -44,7 +44,7 @@ ACTOR AdvPlasmaRifleWS : PlasmaRifle
 	Goto Ready	
 	
 Reload:
-    DPGG A 0 A_JumpIfInventory ("AdvPlasmag", 30, 2)
+    DPGG A 0 A_JumpIfInventory ("AdvPlasmag", 40, 2)
     DPGG A 0 A_JumpIfInventory("Cell", 1, "ReloadStep")
     DPGG A 0
     goto ready
@@ -55,7 +55,7 @@ Reload:
    ReloadLoop:
 	TNT1 A 0 A_TakeInventory("Cell", 1)
     TNT1 A 0 A_GiveInventory("AdvPlasmag", 1)
-    TNT1 A 0 A_JumpIfInventory("AdvPlasmag", 30, "ReloadDone")
+    TNT1 A 0 A_JumpIfInventory("AdvPlasmag", 40, "ReloadDone")
     TNT1 A 0 A_JumpIfInventory("Cell", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
@@ -107,11 +107,11 @@ ACTOR AdvPlasmaBall
 
 Actor AdvPlasmag : Ammo
 {
- Inventory.MaxAmount 30
+ Inventory.MaxAmount 40
  +IGNORESKILL
 }
 
-Actor "AdvPlasmaRiflePickup" : CustomInventory Replaces Railgun
+Actor "AdvPlasmaRiflePickup" : CustomInventory
 {
   Inventory.PickupMessage "Picked up Advanced PlasmaRifle"
   Inventory.PickupSound "misc/W_pkup"

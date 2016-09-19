@@ -9,7 +9,7 @@ Actor Tracer : FastProjectile
 	damage 0
     radius 1
 	height 1
-    Scale 0.2
+    Scale 0.18
 	speed 140
     renderstyle ADD
     states

@@ -23,7 +23,7 @@ Skill Normal
    EasyBossBrain
    Aggressiveness = 1.0
    SpawnFilter = Normal
-   //Textcolor = Green
+   Textcolor = Blue
    ACSReturn = 0
    Name = "Normal"
    MustConfirm = "Reccomended skill, Level 1 characters start here."
@@ -37,7 +37,7 @@ Skill Normal2
    EasyBossBrain
    Aggressiveness = 1.0
    SpawnFilter = Normal
-   //Textcolor = Green
+   Textcolor = Blue
    ACSReturn = 1
    Name = "Experienced"
    MustConfirm = "Normal but enemies Are a few levels higher, For Moderate level characters"
@@ -51,23 +51,36 @@ Skill Normal3
    EasyBossBrain
    Aggressiveness = 1.0
    SpawnFilter = Hard
-   //Textcolor = Green
+   Textcolor = Gold
    ACSReturn = 2
    Name = "Seasoned"
    MustConfirm = "Moderately Tougher, For Moderate/High level characters or those that are Skilled at doom."
 }
 
-Skill Hard
+Skill Tough
 {
    AmmoFactor = 1.0
    DamageFactor = 1.2
    MonsterHealth = 1.5
    Aggressiveness = 1.0
    SpawnFilter = Hard
-   //Textcolor = Green
+   Textcolor = Orange
    ACSReturn = 3
-   Name = "Hard"
+   Name = "Tough"
    MustConfirm = "Enemies Have 50% more health and start at Even higher levels, For High level characters"
+}
+
+Skill Hard
+{
+   AmmoFactor = 1.5
+   DamageFactor = 1.5
+   MonsterHealth = 2.5
+   Aggressiveness = 1.0
+   SpawnFilter = Hard
+   Textcolor = Red
+   ACSReturn = 4
+   Name = "Hard"
+   MustConfirm = "Enemies Have Double health and start at High levels, For Very High level characters"
 }
 
 Skill Insane
@@ -77,8 +90,8 @@ Skill Insane
    MonsterHealth = 2.0
    Aggressiveness = 1.0
    SpawnFilter = Nightmare
-   Textcolor = Orange
-   ACSReturn = 4
+   Textcolor = DarkRed
+   ACSReturn = 5
    Name = "Insane"
-   MustConfirm = "Enemies Have Double health and start at High levels, For Very High level characters"
+   MustConfirm = "Enemies Have Double health and start at Extremely High levels, For Very High level characters or those with a death wish"
 }

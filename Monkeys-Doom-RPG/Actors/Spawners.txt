@@ -8,10 +8,10 @@ States
    TNT1 A 0
    TNT1 A 0 A_Jump(256,"DynSpawner")
   DynSpawner:
-      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 48, "VeryHighLevelSpawn")
-	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 32, "HighLevelSpawn")
-	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 16, "MidLevelSpawn")
-	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 8, "LowLevelSpawn")
+      TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 32, "VeryHighLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 25, "HighLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 17, "MidLevelSpawn")
+	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 9, "LowLevelSpawn")
 	  TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 1, "EarlyLevelSpawn")
    EarlyLevelSpawn:
 	  TNT1 A 0

@@ -63,13 +63,23 @@ ACTOR SPHeal : SPBaseSpell
     TNT1 A 0 A_Print("Needs 20 mana")
 	Goto Ready
   ConfirmFire:
-    HSPF ABC 3
+    TNT1 A 0 A_JumpIfInventory("Statint",8,"ConfirmFire2")
+	HSPF ABC 3
 	TNT1 A 0 A_GiveInventory("SPHealEffect")
 	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(10,20))
 	TNT1 A 0 A_TakeInventory("Mana",20)
 	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
 	HSPF CBA 3
 	Goto Ready
+  ConfirmFire2:
+	HSPF ABC 3
+	TNT1 A 0 A_GiveInventory("SPHealEffect2")
+	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(10,20))
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	HSPF CBA 3
+	Goto Ready
+  
   Spawn:
     SOUL ABCDCB 6 Bright
     Loop
@@ -80,6 +90,17 @@ ACTOR SPHeal : SPBaseSpell
 ACTOR SPHealEffect : Health
 {
   Inventory.Amount 10
+  States
+  {
+  Spawn:
+    MEDI A -1
+    Stop
+  }
+}
+
+ACTOR SPHealEffect2 : Health
+{
+  Inventory.Amount 20
   States
   {
   Spawn:

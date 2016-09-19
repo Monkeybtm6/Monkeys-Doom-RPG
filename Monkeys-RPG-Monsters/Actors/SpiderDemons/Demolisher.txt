@@ -1,0 +1,111 @@
+Actor WSDemolisher Replaces Demolisher
+{
+  Obituary "%o felt the power of the Spider-Demolisher."
+  Health 6000 
+  Radius 96 
+  Height 100 
+  Mass 1000 
+  Speed 16 
+  PainChance 20 
+  Monster
+  +NoTarget
+  +FloorClip
+  +Boss
+  +MissileEvenMore
+  +NoRadiusDmg
+  SeeSound "monster/demsit" 
+  AttackSound "spider/attack" 
+  PainSound "spider/pain" 
+  DeathSound "monster/demdth" 
+  ActiveSound "spider/active" 
+  Var Int user_level;
+  Var Int user_ATK;
+  Var Int user_VIT;
+  States 
+  {
+  Spawn:
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",6)
+	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
+  Spawn2:
+    DEMO AB 10 A_Look 
+    Loop 
+  See: 
+    DEMO A 3 A_Metal 
+    DEMO ABB 3 A_Chase 
+    DEMO C 3 A_Metal 
+    DEMO CDD 3 A_Chase 
+    DEMO E 3 A_Metal 
+    DEMO EFF 3 A_Chase 
+    Loop 
+  Missile:
+    DEMO A 0 Bright A_Jump (128,20)
+    DEMO A 20 A_FaceTarget
+    DEMO T 1 Bright A_Playsound ("weapons/bfgf")
+    DEMO T 4 Bright A_FaceTarget
+    DEMO T 4 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO U 10 Bright A_CustomMissile ("WSDemolisherBFGBall",32,0,0)
+    DEMO T 0 Bright A_Jump (128,10)
+    DEMO T 1 Bright A_Playsound ("weapons/bfgf")
+    DEMO T 4 Bright A_FaceTarget
+    DEMO T 4 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget
+    DEMO T 5 Bright A_FaceTarget 
+    DEMO U 10 Bright A_CustomMissile ("WSDemolisherBFGBall",32,0,0)
+    DEMO T 0 Bright A_Jump (192,1)
+    Goto See
+    DEMO A 20 A_FaceTarget
+    DEMO G 0 Bright A_SPosAttack
+    DEMO G 4 Bright A_SPosAttack
+    DEMO H 0 Bright A_SPosAttack
+    DEMO H 4 Bright A_SPosAttack
+    DEMO H 1 Bright A_SpidRefire 
+    Goto Missile+21 
+  Pain: 
+    DEMO I 3 
+    DEMO I 3 A_Pain 
+    Goto See 
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,200)
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",10)
+    DEMO J 20 Bright A_Scream 
+    DEMO K 10 Bright A_NoBlocking 
+    DEMO LMNOPQR 10 Bright
+    DEMO S 30 
+    DEMO S -1 A_BossDeath 
+    Stop 
+   } 
+}
+
+ACTOR WSDemolisherBFGBall
+{
+  Radius 13
+  Height 8
+  Speed 25
+  Damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",50,0,0,0))
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Scale 0.5
+  Alpha 0.75
+  DeathSound "weapons/bfgx2"
+  Obituary "$OB_MPBFG_BOOM"
+  States
+  {
+  Spawn:
+    BFS1 AB 4 Bright
+    Loop
+  Death:
+    TNT1 A 0 Radius_Quake(3,12,0,64,0)
+	BFE1 AB 8 Bright
+    BFE1 C 8 Bright A_BFGSpray
+    BFE1 DEF 8 Bright
+    Stop
+  }
+}

@@ -361,7 +361,7 @@ ACTOR WSSuperShotgunGuy
    }
 }
 
-ACTOR WSHectebus : Fatso Replaces Hectebus
+ACTOR WSHectebus : Fatso
 {
    SpawnID 158
    Health 1200
@@ -442,7 +442,7 @@ ACTOR HectShotWS : FatShot
    }
 }
 
-/*ACTOR WSBelphegor : HellKnight Replaces Belphegor
+ACTOR WSBelphegor : HellKnight
 {
   SpawnID 215
   Health 1500
@@ -500,9 +500,9 @@ ACTOR BelphegorBallWS : BaronBall
 {
 	SpawnID 222
 	Speed 20
-}*/
+}
 
-ACTOR WSAbaddon : WSCacolantern Replaces Abaddon
+ACTOR WSAbaddon : WSCacolantern
 {
 	SpawnID 220
 	Health 1200

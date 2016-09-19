@@ -1,4 +1,4 @@
-ACTOR WSAnnihilator 30111 
+ACTOR WSAnnihilator Replaces Annihilator
 {
 Obituary "The Cyber Annihilator blew %o away with its rockets."
 Health 7000 
@@ -12,7 +12,7 @@ MONSTER
 +FLOORCLIP 
 +NORADIUSDMG 
 +BOSS 
-+MISSILEEVENMORE 
++MISSILEMORE 
 SeeSound "monster/annsit" 
 PainSound "cyber/pain" 
 DeathSound "monster/anndth" 
