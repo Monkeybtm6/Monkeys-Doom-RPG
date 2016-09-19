@@ -85,6 +85,7 @@ Actor ELShotgunSpawner : RandomSpawner
 Actor LLShotgunSpawner : RandomSpawner
 {
   DropItem "TechShotgunPickup",256,4
+  DropItem "CrossbowPickup",256,4
   DropItem "ShotgunPickup",256,14
   DropItem "AutoShotgunPickup"
 }
@@ -93,6 +94,7 @@ Actor MLShotgunSpawner : RandomSpawner
 {
   DropItem "TechShotgunPickup",256,3
   DropItem "ShotgunPickup",256,3
+  DropItem "CrossbowPickup",256,3
   DropItem "AutoShotgunPickup"
 }
 

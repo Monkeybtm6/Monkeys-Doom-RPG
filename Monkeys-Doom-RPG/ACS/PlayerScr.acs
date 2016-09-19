@@ -206,7 +206,7 @@ ExpSecretBonus = getlevelinfo(LEVELINFO_FOUND_SECRETS);
 
 for (int i = 0; i < playercount(); i++) 
     {
-     GiveActorInventory(PLAYER_TID_START + i,"StatProgressSTR",StrengthGrowth);
+     GiveActorInventory(PLAYER_TID_START + i,"StatProgressSTR",StrengthGrowth * 3);
 	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressINT",EXPSecretBonus * 5);
 	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressAGI",EXPSecretBonus * 5);
 	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPKillBonus);

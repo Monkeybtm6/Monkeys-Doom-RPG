@@ -10,6 +10,7 @@ Tech Shotgun: Eriance
 Auto Shotgun: Eriance
 Assault Rifle MK2: Eriance
 Wand: Heretic
+Crossbow: Heretic
 Tech Pistol: Eriance
 Minigun: Skulltag
 

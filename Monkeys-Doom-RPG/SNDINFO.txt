@@ -43,3 +43,7 @@ weapons/WandHit	  Sound/Weapons/DSGLDHIT
 
 //TechPistol
 weapons/tpisf     Sound/Weapons/DSTPISF
+
+//Crossbow
+weapons/bowshoot  Sound/Weapons/DSBOWSHT
+weapons/bowhit    Sound/Weapons/DSHRNHIT
