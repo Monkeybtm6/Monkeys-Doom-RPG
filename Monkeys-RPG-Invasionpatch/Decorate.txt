@@ -198,3 +198,11 @@ ACTOR WSBFG10KSpot : CustomWeaponInvasionSpot Replaces BFG10KSpot
 	DropItem "BFG9000Pickup"
 }
 
+Actor MinigunPickup2 : MinigunPickup Replaces Minigun
+{}
+
+Actor AdvPlasmaRiflePickup2 : AdvPlasmaRiflePickup Replaces Railgun
+{}
+
+Actor RocketLauncherPickup2 : RocketLauncherPickup Replaces GrenadeLauncher
+{}

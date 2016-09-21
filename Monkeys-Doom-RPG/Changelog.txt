@@ -55,3 +55,5 @@ Added improved medkit varients.
 Made the invasion compatibility a seperate patch wad.
 Made a new addon wad, a monster pack.
 Added new weapon, Magic crossbow.
+Fixed bug where players would reset after a round in multiplayer.
+Fixed dynamic spawners in multiplayer.

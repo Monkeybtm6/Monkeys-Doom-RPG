@@ -106,6 +106,60 @@ ACTOR WSBlueArmor : BasicArmorPickup Replaces BlueArmor
   }
 }
 
+ACTOR WSRedArmor : BasicArmorPickup
+{
+  +INVENTORY.KEEPDEPLETED
+  Translation "112:127=176:191"
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up the UltraArmor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 60
+  Armor.SaveAmount 300
+  States
+  {
+  Spawn:
+    ARM1 A 6 Bright
+    Loop
+  }
+}
+
+ACTOR WSSilverArmor : BasicArmorPickup
+{
+  +INVENTORY.KEEPDEPLETED
+  Translation "112:127=96:111"
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up the SilverArmor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 60
+  Armor.SaveAmount 400
+  States
+  {
+  Spawn:
+    ARM1 A 6 Bright
+    Loop
+  }
+}
+
+ACTOR WSGoldArmor : BasicArmorPickup
+{
+  +INVENTORY.KEEPDEPLETED
+  Translation "112:127=160:167"
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "Picked up the GoldArmor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 75
+  Armor.SaveAmount 500
+  States
+  {
+  Spawn:
+    ARM1 A 6 Bright
+    Loop
+  }
+}
+
 ACTOR WSStimpack : HealthPickup
 {
   health 10

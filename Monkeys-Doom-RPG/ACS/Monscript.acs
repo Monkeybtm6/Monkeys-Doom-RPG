@@ -45,6 +45,9 @@ Function int ThisLevel (void)
 
 Script "MonsterStatsInt" (Void)
 {
+ if(Playercount() == 0)
+ { Delay(2); Restart; }
+ 
  int MonsterTid = UniqueTID(),
  Thismap = GetLevelInfo (LEVELINFO_LEVELNUM),
  MyHealth = getactorproperty(0, APROP_Health),
@@ -100,8 +103,10 @@ script "MonDAMAGEPROJSCR" (int indamage)
 
 Script "MapNumCheck" (void)
 {
-	int SkillMult = 5 * GameSkill();
-	setResultValue(getlevelinfo(LEVELINFO_LEVELNUM) + SkillMult);
+	if(Playercount() == 0)
+    { Delay(2); Restart; }
+	
+	setResultValue(ThisLevel());
 }
 
 script "MonDebug" (Void)
@@ -115,4 +120,9 @@ script "MonDebug" (Void)
 	
 	//setActivator(playertarg);
 	Printbold(f:DudeLevel >> 16 ,f:DudeVit >> 16 ,f:DudeAtk >> 16 );
+}
+
+script "CheckPlayerCount" (Void)
+{
+setResultValue(Playercount());
 }

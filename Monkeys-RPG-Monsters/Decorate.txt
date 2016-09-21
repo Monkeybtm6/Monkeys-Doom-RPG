@@ -2,8 +2,10 @@
 #include "Actors/Zombies/AssaultShotgunGuy.txt"
 #include "Actors/Zombies/RapidFireTrooper.txt"
 
+//Imps
+#include "Actors/Imps/MadImp.txt"
+
 //Barons
-//#include "Actors/Barons/Belphegor.txt"
 #include "Actors/Barons/BruiserDemon.txt"
 #include "Actors/Barons/ArchonofHell.txt"
 #include "Actors/Barons/CyberBaron.txt"
