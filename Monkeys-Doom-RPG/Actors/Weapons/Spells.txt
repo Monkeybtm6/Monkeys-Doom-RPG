@@ -247,7 +247,7 @@ ACTOR SPImpFireEffect
   Radius 6
   Height 8
   Speed 50
-  Damage (ACS_NamedExecuteWithResult("MAGJDAMAGESCR",10,1,0,0))
+  Damage (ACS_NamedExecuteWithResult("MAGJDAMAGESCR",10,1,0,0) * Random( 1, 4))
   Projectile
   +RANDOMIZE
   RenderStyle Add

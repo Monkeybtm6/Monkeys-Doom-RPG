@@ -57,3 +57,7 @@ Made a new addon wad, a monster pack.
 Added new weapon, Magic crossbow.
 Fixed bug where players would reset after a round in multiplayer.
 Fixed dynamic spawners in multiplayer.
+
+0.30
+Fixed bug where tech pistol wasnt being saved to database.
+added randomness back to all projectiles, plasma guns and rocket launchers should not suck anymore.

@@ -58,7 +58,7 @@ ACTOR CrossbowFX1
   Radius 11
   Height 8
   Speed 30
-  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",10,0,0,0) * Random(1,3))
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",10,0,0,0) * Random( 1, 4))
   Projectile
   RenderStyle Add
   SeeSound "weapons/bowshoot"
@@ -78,7 +78,7 @@ ACTOR CrossbowFX1
 ACTOR CrossbowFX3 : CrossbowFX1
 {
   Speed 20
-  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",4,0,0,0) * Random(1,3))
+  Damage (ACS_NamedExecuteWithResult("PROJDAMAGESCR",4,0,0,0) * Random( 1, 3))
   SeeSound ""
   -NOBLOCKMAP
   +WINDTHRUST
