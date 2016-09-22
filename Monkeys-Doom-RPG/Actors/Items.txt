@@ -88,7 +88,7 @@ ACTOR WSGreenArmor : BasicArmorPickup Replaces GreenArmor
   }
 }
 
-ACTOR WSBlueArmor : BasicArmorPickup Replaces BlueArmor
+ACTOR WSBlueArmor : BasicArmorPickup
 {
   +INVENTORY.KEEPDEPLETED
   Radius 20

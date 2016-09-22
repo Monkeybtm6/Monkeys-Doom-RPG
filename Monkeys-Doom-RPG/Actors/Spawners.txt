@@ -79,6 +79,26 @@ States
 	  }
 }
 
+Actor BlueArmorSpawner : DynSpawner Replaces BlueArmor
+{
++NOTDMATCH
+States
+  {
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("ELARMSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLARMSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   MidLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("MLARMSpawner",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
 Actor ELShotgunSpawner : RandomSpawner
 {
   DropItem "TechShotgunPickup"
@@ -121,6 +141,30 @@ Actor MLARSpawner : RandomSpawner
   DropItem "AssaultRiflePickup"
   DropItem "MinigunPickup"
 }
+
+Actor ELARMSpawner : RandomSpawner
+{
+  DropItem "WSBlueArmor",256,20
+  DropItem "WSRedArmor"
+
+}
+
+Actor LLARMSpawner : RandomSpawner
+{
+  DropItem "WSBlueArmor",256,10
+  DropItem "WSRedArmor",256,5
+  DropItem "WSSilverArmor"
+  
+}
+
+Actor MLARMSpawner : RandomSpawner
+{
+  DropItem "WSBlueArmor",256,10
+  DropItem "WSRedArmor",256,10
+  DropItem "WSSilverArmor",256,5
+  DropItem "WSGoldArmor"
+}
+
 
 Actor BulletSpawner : RandomSpawner Replaces Clip
 {

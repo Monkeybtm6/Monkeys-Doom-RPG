@@ -61,3 +61,4 @@ Fixed dynamic spawners in multiplayer.
 0.30
 Fixed bug where tech pistol wasnt being saved to database.
 added randomness back to all projectiles, plasma guns and rocket launchers should not suck anymore.
+Added a few new forms of armor.

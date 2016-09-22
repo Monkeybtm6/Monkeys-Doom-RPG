@@ -12,8 +12,11 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "wepslot1"
   Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
+  Player.StartItem "Shell", 12
+  Player.StartItem "Cell", 60
+  Player.StartItem "RocketAmmo", 6
   Player.StartItem "Pistmag", 15
-  Player.StartItem "SGmag", 8
+  Player.StartItem "RifleAmmo", 50
   Player.StartItem "Playerlevel", 1
   Player.StartItem "SPHeal"
   
@@ -23,10 +26,6 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "StatSTR", 4
   Player.StartItem "StatAGI", 4
   
-  //Player.StartItem "RocketAmmo", 50
-  //Player.StartItem "RocketLauncherWS"
-  //Player.StartItem "PlasmaRifleWS"
-  //Player.StartItem "Cell" 300
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
@@ -110,13 +109,11 @@ ACTOR WSLoadDoomMarine : WSDoomMarine
   Player.CrouchSprite "PLYC"
   Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
+  Player.StartItem "Shell", 12
+  Player.StartItem "Cell", 60
+  Player.StartItem "RocketAmmo", 6
   Player.StartItem "Pistmag", 15
-  Player.StartItem "SGmag", 8
-  Player.StartItem "SPHeal"
-  //Player.StartItem "RocketAmmo", 50
-  //Player.StartItem "RocketLauncherWS"
-  //Player.StartItem "PlasmaRifleWS"
-  //Player.StartItem "Cell" 300
+  Player.StartItem "RifleAmmo", 50
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
