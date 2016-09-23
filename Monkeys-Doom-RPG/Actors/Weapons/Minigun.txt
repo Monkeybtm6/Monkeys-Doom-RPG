@@ -7,7 +7,7 @@ ACTOR MinigunWS : Weapon
 	Weapon.AmmoUse 1
 	Weapon.Selectionorder 700
 	Weapon.Kickback 100
-	Weapon.SlotNumber 3
+	Weapon.SlotNumber 4
     Weapon.BobSpeed 2.0
     Weapon.BobRangeX 0.90
     Weapon.BobRangeX 0.75

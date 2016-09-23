@@ -1,7 +1,7 @@
 ACTOR AssaultRifleMK2WS : Weapon
 {
    Weapon.SelectionOrder 699
-   Weapon.SlotNumber 3
+   Weapon.SlotNumber 4
    Weapon.AmmoUse 1
    Weapon.AmmoGive2 0
    Weapon.AmmoType "AR2Mag"

@@ -2,7 +2,7 @@ ACTOR BFG9000WS : BFG9000
 {
   Height 20
   Weapon.SelectionOrder 2800
-  Weapon.SlotNumber 4
+  Weapon.SlotNumber 6
   Weapon.AmmoUse 30
   Weapon.AmmoGive 0
   Weapon.AmmoType "Cell"

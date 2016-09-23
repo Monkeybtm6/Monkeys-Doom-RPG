@@ -1,7 +1,7 @@
 ACTOR AssaultRifleWS : Weapon
 {
    Weapon.SelectionOrder 700
-   Weapon.SlotNumber 3
+   Weapon.SlotNumber 4
    Weapon.AmmoUse 1
    Weapon.AmmoGive2 0
    Weapon.AmmoType "ARMag"

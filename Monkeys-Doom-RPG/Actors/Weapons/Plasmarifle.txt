@@ -1,7 +1,7 @@
 ACTOR PlasmaRifleWS : PlasmaRifle
 {
   Weapon.SelectionOrder 100
-  Weapon.SlotNumber 3
+  Weapon.SlotNumber 5
   Weapon.AmmoUse 1
   Weapon.AmmoGive2 0
   Weapon.AmmoType "Plasmag"
