@@ -64,3 +64,5 @@ added randomness back to all projectiles, plasma guns and rocket launchers shoul
 Added a few new forms of armor.
 Put Randomized weapon damage back.
 Put Rifle type, Energy type and Shotgun type primary weapons on seperate quick select keys.
+Added new weapon, Unmaker (Doom64).
+Plasma dynamic spawner added.

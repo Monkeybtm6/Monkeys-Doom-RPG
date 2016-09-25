@@ -13,6 +13,7 @@ Wand: Heretic
 Crossbow: Heretic
 Tech Pistol: Eriance
 Minigun: Skulltag
+Unmaker: Doom 64
 
 (See complex dooms credits and readme, 
 readme does state sprites are free to use with proper credit, hence this.)

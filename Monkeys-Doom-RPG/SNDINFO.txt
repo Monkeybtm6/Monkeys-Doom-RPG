@@ -47,3 +47,6 @@ weapons/tpisf     Sound/Weapons/DSTPISF
 //Crossbow
 weapons/bowshoot  Sound/Weapons/DSBOWSHT
 weapons/bowhit    Sound/Weapons/DSHRNHIT
+
+//Unmaker
+weapons/unmaker   Sound/Weapons/DSLASER

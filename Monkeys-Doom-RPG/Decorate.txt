@@ -16,6 +16,7 @@
 #include "Actors/Weapons/Wand.txt"
 #include "Actors/Weapons/TechPistol.txt"
 #include "Actors/Weapons/Crossbow.txt"
+#include "Actors/Weapons/Unmaker.txt"
 #include "Actors/Weapons/Spells.txt"
 #include "Actors/Weapons/Effects.txt"
 

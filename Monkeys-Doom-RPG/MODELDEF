@@ -7,3 +7,12 @@ Model Tracer {
    PITCHFROMMOMENTUM
    FrameIndex TRCR A 0 0
 }
+
+Model UMLaser { 
+   Path "Models"
+   SKIN 0 "Laser1.png"
+   MODEL 0 "Tracer.md3"
+   Scale 7.5 2.0 1.5
+   PITCHFROMMOMENTUM
+   FrameIndex LRCR A 0 0
+}

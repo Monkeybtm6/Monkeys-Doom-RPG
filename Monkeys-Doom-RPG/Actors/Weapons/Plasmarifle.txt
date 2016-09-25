@@ -115,7 +115,7 @@ Actor Plasmag : Ammo
  +IGNORESKILL
 }
 
-Actor "PlasmaRiflePickup" : CustomInventory Replaces PlasmaRifle
+Actor "PlasmaRiflePickup" : CustomInventory
 {
   Inventory.PickupMessage "Picked up PlasmaRifle"
   Inventory.PickupSound "misc/W_pkup"
