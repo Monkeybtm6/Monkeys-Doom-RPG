@@ -114,6 +114,7 @@ ACTOR WSLoadDoomMarine : WSDoomMarine
   Player.StartItem "RocketAmmo", 6
   Player.StartItem "Pistmag", 15
   Player.StartItem "RifleAmmo", 50
+  Player.StartItem "SPHeal"
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial

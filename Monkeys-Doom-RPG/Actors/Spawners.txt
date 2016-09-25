@@ -8,7 +8,8 @@ States
    TNT1 A 0
    TNT1 A 0
   SpawnLoop:
-   ESES A 5 A_JumpIf(Callacs("CheckPlayercount") > 0,"DynSpawner")
+   OCPS ABC 5
+   TNT1 A 0 A_JumpIf(Callacs("CheckPlayercount") > 0,"DynSpawner")
    Loop
   DynSpawner:
       TNT1 A 0 A_JumpIf(ACS_NamedExecuteWithResult("MapnumCheck") >= 32, "VeryHighLevelSpawn")

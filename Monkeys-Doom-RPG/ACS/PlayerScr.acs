@@ -100,7 +100,7 @@ for(int sid = 0; sid <= 5; sid++)
 
 Script "UpdateStats" (void)
 {
-  if(ClassifyActor(0) & ACTOR_MONSTER)
+  if(!(ClassifyActor(0) & ACTOR_PLAYER))
   { 
   Terminate; 
   }

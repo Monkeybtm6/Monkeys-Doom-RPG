@@ -20,7 +20,7 @@ str MyInventory[SaveItems] =
 	"BFG9000WS",            "AutoShotgunWS",
 	"MinigunWS",            "SuperShotgunWS",
 	"SPClipSynth",          "SPFireBall",
-	"CrossbowWS",            "TechPistolWS"
+	"CrossbowWS",           "TechPistolWS"
 	
 };
 Script "LoadCharScr" (void)
