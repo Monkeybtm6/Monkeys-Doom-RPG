@@ -66,3 +66,5 @@ Put Randomized weapon damage back.
 Put Rifle type, Energy type and Shotgun type primary weapons on seperate quick select keys.
 Added new weapon, Unmaker (Doom64).
 Plasma dynamic spawner added.
+Lowered health enemies gain through leveling.
+Lowered player damage increase through leveling.

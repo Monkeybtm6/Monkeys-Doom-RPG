@@ -1,20 +1,8 @@
-//Zombies
-#include "Actors/Zombies/AssaultShotgunGuy.txt"
-#include "Actors/Zombies/RapidFireTrooper.txt"
-
-//Imps
-#include "Actors/Imps/MadImp.txt"
-
-//Barons
-#include "Actors/Barons/BruiserDemon.txt"
-#include "Actors/Barons/ArchonofHell.txt"
-#include "Actors/Barons/CyberBaron.txt"
-
-//Cybers
-#include "Actors/CyberDemons/Annihilator.txt"
-
-//Spiders
-#include "Actors/SpiderDemons/Demolisher.txt"
+#include "Actors/Zombies.txt"
+#include "Actors/Imps.txt"
+#include "Actors/Barons.txt"
+#include "Actors/CyberDemons.txt"
+#include "Actors/SpiderDemons.txt"
 
 //Spawner
 #include "Actors/MonSpawners.txt"

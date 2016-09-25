@@ -127,7 +127,7 @@ Actor "AdvPlasmaRiflePickup" : CustomInventory
 	TNT1 A 0 A_GiveInventory ("Wepslot2")
     stop
   PickupFail:
-    TNT1 A 0 A_Print("Slot 2 full/Already have weapon.",1)
+    TNT1 A 0 A_Print("Primary slot full/Already have weapon.",1)
 	Fail
   }
 }

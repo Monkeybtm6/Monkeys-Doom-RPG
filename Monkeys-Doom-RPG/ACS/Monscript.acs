@@ -2,7 +2,7 @@
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
-#define MonDAMAGE_COUNTPERCENT 0.005
+#define MonDAMAGE_COUNTPERCENT 0.006
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 Function int ThisLevel (void)
@@ -54,13 +54,14 @@ Script "MonsterStatsInt" (Void)
  MyVit = GetUserVariable(0,"User_VIT"),
  MyATK = GetUserVariable(0,"User_ATK"),
  Skillmult = Gameskill() / 2.0,
+ VitalityMult = ((MyVit * 0.5) >> 16),
  MyLevel = ThisLevel();
  If (MyLevel <= 0)
    {MyLevel = 1;}
  
  setuservariable(0,"user_level",MyLevel);
- SetActorProperty(0, APROP_Health, MyHealth + (MyVit * Mylevel));
-  SetActorProperty(0, APROP_SpawnHealth, MyHealth + (MyVit * Mylevel));
+ SetActorProperty(0, APROP_Health, MyHealth + (VitalityMult * Mylevel));
+  SetActorProperty(0, APROP_SpawnHealth, MyHealth + (VitalityMult * Mylevel));
 }
 
 Script "MonsterStatsInt2" (Void)
