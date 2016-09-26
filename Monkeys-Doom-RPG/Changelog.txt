@@ -68,3 +68,5 @@ Added new weapon, Unmaker (Doom64).
 Plasma dynamic spawner added.
 Lowered health enemies gain through leveling.
 Lowered player damage increase through leveling.
+Changed the weapon slot full messages.
+Added character load menu.

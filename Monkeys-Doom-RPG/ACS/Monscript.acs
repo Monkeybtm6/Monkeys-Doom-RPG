@@ -1,5 +1,6 @@
 #Library "Monsterscript"
 #include "zcommon.acs"
+#import "Playerscr.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
 #define MonDAMAGE_COUNTPERCENT 0.006
@@ -104,9 +105,6 @@ script "MonDAMAGEPROJSCR" (int indamage)
 
 Script "MapNumCheck" (void)
 {
-	if(Playercount() == 0)
-    { Delay(2); Restart; }
-	
 	setResultValue(ThisLevel());
 }
 
@@ -125,5 +123,8 @@ script "MonDebug" (Void)
 
 script "CheckPlayerCount" (Void)
 {
-setResultValue(Playercount());
+if(playerloaded <= 0)
+  { setResultValue(0); }
+else
+   { setResultValue(Playercount()); }
 }

@@ -7,6 +7,7 @@
 #define DAMAGE_COUNTPERCENT 0.006
 #define MaxLevel 60
 int LevelNext[MaxLevel];
+int Playerloaded;
 str StatArray[5] =
 {
 "StatVIT",
@@ -26,13 +27,34 @@ str StatProgArray[5] =
 
 script 90 ENTER
 {
+  int inMenu = true;
+  int input;
+  
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
-
   if (CheckInventory("HasLoaded") == 0)
 	{
-	if(Playerclass(PlayerNumber()) == 0)
-      { ACS_NamedExecuteAlways("LoadCharScr",0); }
+	 SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
+     Hudmessage(s:"Welcome! Press use to load character, Reload to create new.";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,0,1);
+	 While(inmenu) 
+	  { 
+	  input = GetPlayerInput(-1, INPUT_BUTTONS);
+	  
+	  if(input & BT_USE)
+	    {
+	    ACS_NamedExecuteAlways("LoadCharScr",0);
+		inmenu = false;
+		}
+		
+	  else if(input & BT_RELOAD)
+	    {
+		inmenu = false;
+		}
+	   Delay(1);
+	  }
+	  SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	  GiveInventory("HasLoaded",1);
+	  Hudmessage(s:"";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,1,1);
+	  Playerloaded =+ 1;
 	}
  if(CheckInventory("Playerlevel") <= 0)
   {

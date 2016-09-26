@@ -8,8 +8,6 @@ ACTOR WSDoomMarine : DoomPlayer
   PainChance 255
   Player.DisplayName "Marine"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "PistolWS"
-  Player.StartItem "wepslot1"
   Player.StartItem "FistWS"
   Player.StartItem "Clip", 50
   Player.StartItem "Shell", 12
@@ -17,7 +15,6 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "RocketAmmo", 6
   Player.StartItem "Pistmag", 15
   Player.StartItem "RifleAmmo", 50
-  Player.StartItem "Playerlevel", 1
   Player.StartItem "SPHeal"
   
   Player.StartItem "StatVit", 4
