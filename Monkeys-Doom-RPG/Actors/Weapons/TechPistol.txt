@@ -52,6 +52,8 @@ ACTOR TechPistolWS : Weapon
 	DPIG A 2 Offset(12,58)
 	DPIG A 2 Offset(16,68)
 	DPIG A 2 Offset(20,78)
+	DPIG A 2 Offset(20,88)
+	DPIG A 2 Offset(20,98)
 	DPIG A 1 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
 	DPIG A 16
    ReloadLoop:
@@ -62,7 +64,9 @@ ACTOR TechPistolWS : Weapon
     Goto ReloadDone
    ReloadDone:
 	DPIG A 1 A_playSound("weapons/pistolClipin")
-	DPIG A 6 Offset(20,78)
+    DPIG A 6 Offset(20,98)
+	DPIG A 2 Offset(20,88)
+	DPIG A 2 Offset(20,78)
 	DPIG A 2 Offset(16,68)
 	DPIG A 2 Offset(12,58)
 	DPIG A 2 Offset(8,48)

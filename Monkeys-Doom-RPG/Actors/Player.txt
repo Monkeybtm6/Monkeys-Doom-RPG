@@ -17,12 +17,6 @@ ACTOR WSDoomMarine : DoomPlayer
   Player.StartItem "RifleAmmo", 50
   Player.StartItem "SPHeal"
   
-  Player.StartItem "StatVit", 4
-  Player.StartItem "StatATK", 4
-  Player.StartItem "StatINT", 4
-  Player.StartItem "StatSTR", 4
-  Player.StartItem "StatAGI", 4
-  
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial

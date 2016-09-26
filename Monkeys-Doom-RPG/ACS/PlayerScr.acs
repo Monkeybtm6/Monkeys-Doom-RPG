@@ -31,7 +31,7 @@ script 90 ENTER
   int input;
   
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
-  if (CheckInventory("HasLoaded") == 0)
+  if (CheckInventory("HasLoaded") == 0 && getcvar("MRPG_UseDB")==true)
 	{
 	 SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
      Hudmessage(s:"Welcome! Press use to load character, Reload to create new.";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,0,1);
@@ -54,7 +54,6 @@ script 90 ENTER
 	  SetPlayerProperty(0, false, PROP_TOTALLYFROZEN);
 	  GiveInventory("HasLoaded",1);
 	  Hudmessage(s:"";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,1,1);
-	  Playerloaded =+ 1;
 	}
  if(CheckInventory("Playerlevel") <= 0)
   {
@@ -68,6 +67,7 @@ script 90 ENTER
     GiveInventory("Wepslot1",1);
   }
   delay(1);
+  Playerloaded =+ 1;
   ACS_NamedExecuteAlways("Manaregen",0);
   ACS_NamedExecuteAlways("UpdateStats",0);
 }
