@@ -90,7 +90,7 @@ ACTOR WSShotgunGuy : ShotgunGuy Replaces ShotgunGuy
   Obituary "$OB_SHOTGUY"
   DropItem "Shell"
   DropItem "Shell"
-  DropItem "ShotGunSpawner", 20
+  DropItem "ShotGunPickup", 80
   Var Int user_level;
   Var Int user_ATK;
   Var Int user_VIT;

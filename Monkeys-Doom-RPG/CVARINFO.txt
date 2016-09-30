@@ -3,4 +3,5 @@ user String MRPG_MyId = 0;
 Server Int MRPG_EXPMult = 100;
 Server Int MRPG_STATMult = 25;
 Server bool MRPG_UseDB = true;
+Server bool MRPG_SaveWeapons = true;
 Server Int MRPG_PlayerScale = 2;

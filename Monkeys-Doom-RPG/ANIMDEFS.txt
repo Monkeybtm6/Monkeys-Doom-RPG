@@ -1,0 +1,95 @@
+
+//water
+flat FWATER1
+  pic ANWTR1 Rand 8 8
+  pic ANWTR1 Rand 8 8
+  
+flat FWATER2
+  pic ANWTR1 Rand 8 8
+  pic ANWTR1 Rand 8 8
+  
+flat FWATER3
+  pic ANWTR1 Rand 8 8
+  pic ANWTR1 Rand 8 8
+  
+flat FWATER4
+  pic ANWTR1 Rand 8 8
+  pic ANWTR1 Rand 8 8
+
+Warp2 flat ANWTR1
+
+//Nukage
+flat NUKAGE1
+  pic ANNKG1 Rand 8 8
+  pic ANNKG1 Rand 8 8
+  
+flat NUKAGE2
+  pic ANNKG1 Rand 8 8
+  pic ANNKG1 Rand 8 8
+  
+flat NUKAGE3
+  pic ANNKG1 Rand 8 8
+  pic ANNKG1 Rand 8 8
+  
+Warp2 flat ANNKG1
+Warp2 flat ANNKG2
+
+//Blood
+flat BLOOD1
+  pic ANBLO1 Rand 8 8
+  pic ANBLO1 Rand 8 8
+  
+flat BLOOD2
+  pic ANBLO1 Rand 8 8
+  pic ANBLO1 Rand 8 8
+  
+flat BLOOD3
+  pic ANBLO1 Rand 8 8
+  pic ANBLO1 Rand 8 8
+  
+flat BLOOD4
+  pic ANBLO1 Rand 8 8
+  pic ANBLO1 Rand 8 8
+  
+Warp2 flat ANBLO1
+  
+//Slime
+flat SLIME01
+  pic ANSLM1 Rand 8 8
+  pic ANSLM1 Rand 8 8
+  
+flat SLIME02
+  pic ANSLM1 Rand 8 8
+  pic ANSLM1 Rand 8 8
+  
+flat SLIME03
+  pic ANSLM1 Rand 8 8
+  pic ANSLM1 Rand 8 8
+  
+flat SLIME04
+  pic ANSLM1 Rand 8 8
+  pic ANSLM1 Rand 8 8
+  
+flat SLIME05
+  pic ANSLM2 Rand 8 8
+  pic ANSLM2 Rand 8 8
+  
+flat SLIME06
+  pic ANSLM2 Rand 8 8
+  pic ANSLM2 Rand 8 8
+  
+flat SLIME07
+  pic ANSLM2 Rand 8 8
+  pic ANSLM2 Rand 8 8
+  
+flat SLIME08
+  pic ANSLM2 Rand 8 8
+  pic ANSLM2 Rand 8 8
+  
+Warp2 flat ANSLM1
+Warp2 flat ANSLM2
+
+warp2 flat LAVA1
+warp2 flat LAVA2
+warp2 flat LAVA3
+warp2 flat LAVA4

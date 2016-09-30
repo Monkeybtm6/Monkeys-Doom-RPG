@@ -1,26 +1,41 @@
 #library "DatabaseScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define SaveItems 35
+#define SaveItems 15
+#define SaveWeapons 20
 str MyInventory[SaveItems] =
 {
-    "Expereince",           "PlayerLevel",
-	"StatVIT",              "StatATK",
-	"StatSTR",              "StatINT",
-	"StatAGI",              "StatProgressVIT",
-	"StatProgressATK",      "StatProgressINT",
-	"StatProgressSTR",      "StatProgressAGI",
-	"Wepslot1",             "Wepslot2",             
-	"Wepslot3",             "PistolWS",
-	"MachinePistolWS",      "WandWS",
-	"AssaultRifleWS",       "AssaultRifleMK2WS",    
-	"ShotgunWS",            "SPBlur",
-	"TechShotgunWS",        "PlasmaRifleWS",
-	"AdvPlasmaRifleWS",     "RocketLauncherWS",
-	"BFG9000WS",            "AutoShotgunWS",
-	"MinigunWS",            "SuperShotgunWS",
-	"SPClipSynth",          "SPFireBall",
-	"CrossbowWS",           "TechPistolWS",
+    "Expereince","PlayerLevel",
+	"StatVIT","StatATK",
+	"StatSTR","StatINT",
+	"StatAGI","StatProgressVIT",
+	"StatProgressATK","StatProgressINT",
+	"StatProgressSTR","StatProgressAGI",
+    "SPBlur",
+	"SPClipSynth","SPFireBall"
+	
+};
+str MyArsenal[SaveWeapons] =
+{
+    "Wepslot1",
+	"Wepslot2",
+	"Wepslot3",
+	"PistolWS",
+	"MachinePistolWS",
+	"WandWS",
+	"AssaultRifleWS",
+	"AssaultRifleMK2WS",
+	"ShotgunWS",     
+	"TechShotgunWS",
+	"PlasmaRifleWS",
+	"AdvPlasmaRifleWS",
+	"RocketLauncherWS",
+	"BFG9000WS",
+	"AutoShotgunWS",
+	"MinigunWS",
+	"SuperShotgunWS",
+	"CrossbowWS",
+	"TechPistolWS",
 	"UnmakerWS"
 	
 };
@@ -32,15 +47,24 @@ Script "LoadCharScr" (void)
 		}
 	
 	int MyTid = PLAYER_TID_START + PlayerNumber();
+	int i = 0;
 	str MySavedName = (GetUserCVarString(PlayerNumber(),"Name"));
 	str MySavedID = (GetUserCVarString(PlayerNumber(),"MRPG_MyID"));
 	str namespace = strparam(s:MySavedName, s:MySavedID, s:"_inventory");
+	str namespaceA = strparam(s:MySavedName, s:MySavedID, s:"_Arsenal");
 
 	print(s:"Restoring your inventory...", s:namespace);
-    for (int i = 0; i < SaveItems; i++) {
+    for (i = 0; i < SaveItems; i++) {
         TakeActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
 		GiveActorInventory(MyTid, MyInventory[i], GetDBEntry(namespace, MyInventory[i]));
     }
+    if(getcvar("MRPG_Saveweapons")==True)
+	{
+	for (i = 0; i < SaveWeapons; i++) {
+        TakeActorInventory(MyTid, MyArsenal[i], GetDBEntry(namespaceA, MyArsenal[i]));
+		GiveActorInventory(MyTid, MyArsenal[i], GetDBEntry(namespaceA, MyArsenal[i]));
+    }
+	}
 	//ACS_NamedExecuteAlways("UpdateStats",0);
 	print(s:"Character Restored.");
 }
@@ -74,15 +98,25 @@ Script "SaveAllCharScr" UNLOADING
         for(int i = 0; i < PlayerCount(); i++)   
         {
 
-        	int MyTid = PLAYER_TID_START + i;
-
+        int MyTid = PLAYER_TID_START + i;
+        int E = 0;
 	str MySavedName = (GetUserCVarString(i,"Name"));
 	str MySavedID = (GetUserCVarString(i,"MRPG_MyID"));
 	str namespace = strparam(s:MySavedName, s:MySavedID, s:"_inventory");
+	str namespaceA = strparam(s:MySavedName, s:MySavedID, s:"_Arsenal");
+
 	
-    for (int E = 0; E < SaveItems; E++) {
+    for (E = 0; E < SaveItems; E++) 
+	{
         SetDBEntry(namespace, MyInventory[E], CheckActorInventory(MyTid, MyInventory[E]));
     }
+    if(getcvar("MRPG_Saveweapons")==true)
+	{
+	for (E = 0; E < SaveWeapons; E++) 
+	{
+        SetDBEntry(namespaceA, MyArsenal[E], CheckActorInventory(MyTid, MyArsenal[E]));
+    }
+	}
 		}
     EndDBTransaction();
 	Log(s:"Character Data Saved");

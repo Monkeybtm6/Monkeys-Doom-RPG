@@ -1,0 +1,17 @@
+Glow
+{
+	Flats
+	{
+		NUKAGE1
+		NUKAGE2
+		NUKAGE3
+		LAVA1
+		LAVA2
+		LAVA3
+		LAVA4
+		SLIME09
+		SLIME10
+		SLIME11
+		SLIME12
+	}
+}

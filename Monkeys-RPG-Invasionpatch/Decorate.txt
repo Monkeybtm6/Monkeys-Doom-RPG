@@ -206,3 +206,6 @@ Actor AdvPlasmaRiflePickup2 : AdvPlasmaRiflePickup Replaces Railgun
 
 Actor RocketLauncherPickup2 : RocketLauncherPickup Replaces GrenadeLauncher
 {}
+
+Actor wsCyberdemon2 : WSCyberdemon Replaces Cyberdemon
+{}

@@ -70,3 +70,8 @@ Lowered health enemies gain through leveling.
 Lowered player damage increase through leveling.
 Changed the weapon slot full messages.
 Added character load menu.
+Added Cvar, "MRPG_SAVEWEAPONS", if set to false stats are saved to the database but weapons are not.
+
+0.31
+Added some effects to some textures.
+Tweaked rate shotgunguy drops shotguns.

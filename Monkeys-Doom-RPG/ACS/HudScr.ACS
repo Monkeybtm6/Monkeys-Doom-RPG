@@ -1,0 +1,13 @@
+#library "HudScr"
+#include "zcommon.acs"
+#define PLAYER_TID_START 1000
+
+
+Script "HudScript" (void) CLIENTSIDE
+{
+SetHudSize (640, 400, TRUE);
+SetFont("DBIGFONT");
+SetFont("BIGFONT");
+HudMessage (i: GetActorProperty(0,APROP_HEALTH);
+            HUDMSG_PLAIN,999,CR_UNTRANSLATED,90.1,175.1,0.0);
+}
