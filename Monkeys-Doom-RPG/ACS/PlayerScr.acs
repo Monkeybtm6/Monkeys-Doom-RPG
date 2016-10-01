@@ -33,6 +33,7 @@ script 90 ENTER
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
   if (CheckInventory("HasLoaded") < 1 && getcvar("MRPG_UseDB")==true)
 	{
+	 ACS_NamedExecuteAlways("LoadCharScr",0);
 	 SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
      Hudmessage(s:"Welcome! Press use to load character, Reload to create new.";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,0,1);
 	 While(inmenu) 
@@ -41,12 +42,13 @@ script 90 ENTER
 	  
 	  if(input & BT_USE)
 	    {
-	    ACS_NamedExecuteAlways("LoadCharScr",0);
+		print(s:"Character Restored.");
 		inmenu = false;
 		}
 		
 	  else if(input & BT_RELOAD)
 	    {
+		ACS_NamedExecuteAlways("WipeCharScr",0);
 		inmenu = false;
 		}
 	   Delay(1);

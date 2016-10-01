@@ -75,3 +75,5 @@ Added Cvar, "MRPG_SAVEWEAPONS", if set to false stats are saved to the database 
 0.31
 Added some effects to some textures.
 Tweaked rate shotgunguy drops shotguns.
+Added recoil effects.
+Changed the character loading menu script a bit to fix some issues.

@@ -76,9 +76,9 @@ ACTOR ShotgunWS : Shotgun
 	goto ready
   
   Flash:
-	SHTF A 4 Bright A_Light1
+	SHTF A 2 Bright A_Light1
     TNT1 A 0 A_SetPitch(-0.8 + pitch)
-	SHTF B 3 Bright A_Light2
+	SHTF B 2 Bright A_Light2
 	TNT1 A 0 A_SetPitch(+0.8 + pitch)
     Goto LightDone
 
