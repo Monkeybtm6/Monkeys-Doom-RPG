@@ -70,7 +70,9 @@ ACTOR PistolWS : Weapon
 	stop
   
   Flash:
-    PISF A 4 Bright A_Light1
+    TNT1 A 0 A_SetPitch(-0.4 + pitch)
+	PISF A 4 Bright A_Light1
+	TNT1 A 0 A_SetPitch(+0.4 + pitch)
     Goto LightDone
 
   Spawn:

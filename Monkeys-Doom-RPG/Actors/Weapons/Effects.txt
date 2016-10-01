@@ -23,6 +23,15 @@ Actor Tracer : FastProjectile
 	}
 }
 
+ACTOR WaterSplash : BlueParticleFountain
+{
+  states
+  {
+  TNT1 A 5
+  stop
+  }
+}
+
 DamageType WSPierce
 {
    Factor 1.0

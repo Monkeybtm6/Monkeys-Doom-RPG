@@ -50,7 +50,9 @@ ACTOR MinigunWS : Weapon
 		goto Ready 
 	Flash: 
 		MNGF A 2 BRIGHT A_Light1 
+		TNT1 A 0 A_SetPitch(-0.5 + pitch)
 		MNGF B 2 BRIGHT A_Light0
+		TNT1 A 0 A_SetPitch(+0.5 + pitch)
 		Stop 
 		
     Zoom:

@@ -31,9 +31,9 @@ ACTOR PlasmaRifleWS : PlasmaRifle
 	TNT1 A 0 A_AlertMonsters
 	PLSF B 1 A_FireCustomMissile("PlasmaBallplus",0,1,0,0,0)
 	PLSF B 0 A_Playsound("weapons/PRFire", CHAN_WEAPON)
+	TNT1 A 0 A_GunFlash
 	PLSF B 2
 	TNT1 A 0 Radius_Quake(1,2,0,1,0)
-	TNT1 A 0 A_GunFlash
     TNT1 A 0 A_JumpIfInventory("Plasmag",1,1)
     Goto Recoil
 	TNT1 A 3 A_ReFire
@@ -68,8 +68,10 @@ Reload:
 	goto ready
   
   Flash:
+	TNT1 A 0 A_SetPitch(-0.5 + pitch)
 	TNT1 A 2 Bright A_Light1
 	PLSF A 2 Bright A_Light2
+	TNT1 A 0 A_SetPitch(+0.5 + pitch)
 	Goto LightDone
   
   Zoom:

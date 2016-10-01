@@ -1,3 +1,10 @@
+splash 	watersplsh
+{
+ //Baseclass WaterSplash
+ sound		splashsnd
+ NoAlert
+}
+
 terrain	water
 {
  splash 	WaterSplsh
@@ -13,18 +20,21 @@ terrain	Lava
 
 terrain	Blood
 {
+ splash 	WaterSplsh
  footclip	 6
  liquid
 }
 
 terrain	Nukage
 {
+ splash 	WaterSplsh
  footclip	 6
  liquid
 }
 
 terrain	Slime
 {
+ splash 	WaterSplsh
  footclip	 6
  liquid
 }
