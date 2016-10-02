@@ -3,7 +3,7 @@
 #define PLAYER_TID_START 1000
 
 #define atkbase 0.02
-#define AGIbase 0.20
+#define AGIbase 0.15
 #define DAMAGE_COUNTPERCENT 0.006
 #define MaxLevel 60
 int LevelNext[MaxLevel];
@@ -140,11 +140,7 @@ Script "UpdateStats" (void)
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
   ManaAdd = (MyInt * 1),
-  mySTR = CheckInventory("StatSTR") * CheckInventory("PlayerLevel"),
-  ClipAdd = (mySTR * 4),
-  ShellAdd = (mySTR * 2),
-  RocketAdd = (mySTR * 2),
-  CellAdd = (mySTR * 6);
+  mySTR = CheckInventory("StatSTR");
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
   if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
@@ -154,19 +150,19 @@ Script "UpdateStats" (void)
 	
   if( CheckInventory("Backpack") == 1)
     {
-	   SetAmmoCapacity("Clip", 600 + ClipAdd);
-       SetAmmoCapacity("RifleAmmo", 400 + ShellAdd);
-	   SetAmmoCapacity("Shell", 100 + ShellAdd);
-       SetAmmoCapacity("RocketAmmo", 100 + RocketAdd);
-       SetAmmoCapacity("Cell", 600 + CellAdd);
+       SetAmmoCapacity("Clip", 150 * mySTR);
+       SetAmmoCapacity("RifleAmmo", 100 * mySTR);
+	   SetAmmoCapacity("Shell", 25 * mySTR);
+       SetAmmoCapacity("RocketAmmo", 25 * mySTR);
+       SetAmmoCapacity("Cell", 150 * mySTR);
     }
   else
     {
-       SetAmmoCapacity("Clip", 300 + ClipAdd);
-       SetAmmoCapacity("RifleAmmo", 200 + ShellAdd);
-	   SetAmmoCapacity("Shell", 50 + ShellAdd);
-       SetAmmoCapacity("RocketAmmo", 50 + RocketAdd);
-       SetAmmoCapacity("Cell", 300 + CellAdd);
+       SetAmmoCapacity("Clip", 75 * mySTR);
+       SetAmmoCapacity("RifleAmmo", 50 * mySTR);
+	   SetAmmoCapacity("Shell", 12 * mySTR);
+       SetAmmoCapacity("RocketAmmo", 12 * mySTR);
+       SetAmmoCapacity("Cell", 75 * mySTR);
 	}
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
@@ -237,7 +233,6 @@ for (int i = 0; i < playercount(); i++)
     {
      GiveActorInventory(PLAYER_TID_START + i,"StatProgressSTR",StrengthGrowth * 3);
 	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressINT",EXPSecretBonus * 5);
-	 GiveActorInventory(PLAYER_TID_START + i,"StatProgressAGI",EXPSecretBonus * 5);
 	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPKillBonus);
 	 GiveActorInventory(PLAYER_TID_START + i,"Expereince",EXPSecretBonus * 10);
 	}

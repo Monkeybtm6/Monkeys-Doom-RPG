@@ -77,3 +77,5 @@ Added some effects to some textures.
 Tweaked rate shotgunguy drops shotguns.
 Added recoil effects.
 Changed the character loading menu script a bit to fix some issues.
+Changed how streingth stat works.
+Changed how you increase agility.
