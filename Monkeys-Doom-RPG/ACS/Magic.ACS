@@ -1,12 +1,14 @@
 #library "Spells"
 #include "zcommon.acs"
-#Define SpellsList 4
+#Define SpellsList 6
 str Magicspells[SpellsList] = 
 {
   "SPHeal",
   "SPClipSynth",
   "SPBlur",
-  "SPFireBall"
+  "SPFireBall",
+  "SPHaste",
+  "SPFireBall2"
 };
 
 

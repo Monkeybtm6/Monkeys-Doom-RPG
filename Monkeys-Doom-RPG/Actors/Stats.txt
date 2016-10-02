@@ -62,7 +62,7 @@ Actor StatAgi : Inventory
 {          
   Inventory.PickupMessage "Speed Increased"
   Inventory.Amount 1
-  Inventory.MaxAmount 16
+  Inventory.MaxAmount 10
   +INVENTORY.ALWAYSPICKUP
   +NOGRAVITY
   States

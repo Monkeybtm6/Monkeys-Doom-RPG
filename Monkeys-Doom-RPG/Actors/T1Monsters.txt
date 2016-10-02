@@ -293,6 +293,7 @@ ACTOR WSDemon : Demon Replaces Demon
   DeathSound "demon/death"
   ActiveSound "demon/active"
   Obituary "$OB_DEMONHIT" // "%o was bit by a demon."
+  DropItem "SPHaste", 2
   Var Int user_level;
   Var Int user_ATK;
   Var Int user_VIT;
@@ -426,6 +427,7 @@ ACTOR WSBaronOfHell : BaronOfHell replaces BaronOfHell
   ActiveSound "baron/active"
   Obituary "$OB_BARON"
   HitObituary "$OB_BARONHIT"
+  Dropitem "SPFireBall2", 5
   Var Int user_level;
   Var Int user_ATK;
   Var Int user_VIT;
@@ -679,6 +681,7 @@ ACTOR WShellknight : Hellknight replaces Hellknight
   DeathSound "knight/death"
   HitObituary "$OB_KNIGHTHIT"
   Obituary "$OB_KNIGHT"
+  Dropitem "SPFireBall2", 2
   Var Int user_level;
   Var Int user_ATK;
   Var Int user_VIT;

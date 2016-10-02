@@ -111,7 +111,7 @@ CheckInventory("StatAGI"),
    
 for(int sid = 0; sid <= 5; sid++)
   {
-   if(CheckInventory(StatProgArray[sid]) >= (STATEXPMULT * StatMult) && StatMult <= 60)
+   if(CheckInventory(StatProgArray[sid]) >= (STATEXPMULT * StatMult) && StatMult <= 56)
    {
       GiveInventory(StatArray[sid], 1);
       TakeInventory(StatProgArray[sid],(STATEXPMULT * StatMult));

@@ -79,3 +79,5 @@ Added recoil effects.
 Changed the character loading menu script a bit to fix some issues.
 Changed how streingth stat works.
 Changed how you increase agility.
+Added new spell, Haste.
+Added new spell, Baron Fire.

@@ -1,7 +1,7 @@
 #library "DatabaseScr"
 #include "zcommon.acs"
 #define PLAYER_TID_START 1000
-#define SaveItems 15
+#define SaveItems 17
 #define SaveWeapons 20
 str MyInventory[SaveItems] =
 {
@@ -11,8 +11,9 @@ str MyInventory[SaveItems] =
 	"StatAGI","StatProgressVIT",
 	"StatProgressATK","StatProgressINT",
 	"StatProgressSTR","StatProgressAGI",
-    "SPBlur",
-	"SPClipSynth","SPFireBall"
+    "SPBlur",     "SPHaste",
+	"SPClipSynth","SPFireBall",
+	"SPFireBall2"
 	
 };
 str MyArsenal[SaveWeapons] =
