@@ -41,6 +41,7 @@ OptionMenu "MRPGOpt"
 	Slider "My Custom ID", "MRPG_MyID", 000, 999, 1.0, 0
 	StaticText " "
 	Option "Use Database (Zandronum)", "MRPG_UseDB", "OnOff"
+	Option "Save Weapons (Zandronum)", "MRPG_SAVEWEAPONS", "OnOff"
 	Option "Player Based Level Scaling", "MRPG_PlayerScale", "OnOffMix"
 	StaticText " "
 	StaticText "Player Growth Settings."

@@ -18,8 +18,8 @@
 #include "Actors/Weapons/Crossbow.txt"
 #include "Actors/Weapons/Unmaker.txt"
 #include "Actors/Weapons/Spells.txt"
-#include "Actors/Weapons/Effects.txt"
 
+#include "Actors/Effects.txt"
 #include "Actors/T1Monsters.txt"
 #include "Actors/T2Monsters.txt"
 #include "Actors/Spawners.txt"

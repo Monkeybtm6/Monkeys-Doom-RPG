@@ -42,7 +42,12 @@ ACTOR TechShotgunWS : Shotgun
     TSGF AAAAA 0 A_FireCustomMissile("Tracer",fRandom(3,-3),0,0,fRandom(3,-3))
     TSGF A 0 A_GunFlash
 	TSGF AB 4 Bright A_Light1
-    TSGN BBCCCDDDDCCCB 2
+    TSGN BB 2 Offset(0,40)
+	TSGN CCC 2 Offset(0,46)
+	TSGN DD 2 Offset(0,50)
+	TSGN DD 2 Offset(0,46)
+	TSGN CCC 2 Offset(0,40)
+	TSGN BB 2 Offset(0,32)
 	TSGN A 3
 	TSGN A 7 A_ReFire
     Goto Ready

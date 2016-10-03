@@ -81,3 +81,4 @@ Changed how streingth stat works.
 Changed how you increase agility.
 Added new spell, Haste.
 Added new spell, Baron Fire.
+Added option for "MRPG_SAVEWEAPONS".

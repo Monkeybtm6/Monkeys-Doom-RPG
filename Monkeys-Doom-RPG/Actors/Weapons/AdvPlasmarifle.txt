@@ -65,9 +65,11 @@ Reload:
   
   Flash:
 	TNT1 A 0 A_SetPitch(-0.5 + pitch)
+	TNT1 A 0 Offset(0,38)
 	TNT1 A 1 Bright A_Light1
 	TNT1 A 1 Bright A_Light2
 	TNT1 A 0 A_SetPitch(+0.5 + pitch)
+	TNT1 A 0 Offset(0,32)
 	Goto LightDone
   
   Zoom:

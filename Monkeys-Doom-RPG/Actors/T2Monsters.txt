@@ -444,7 +444,6 @@ ACTOR HectShotWS : FatShot
 
 ACTOR WSBelphegor : HellKnight
 {
-  SpawnID 215
   Health 1500
   PainChance 25
   SeeSound "baron/sight"
@@ -498,7 +497,6 @@ ACTOR WSBelphegor : HellKnight
 
 ACTOR BelphegorBallWS : BaronBall
 {
-	SpawnID 222
 	Speed 20
 }
 

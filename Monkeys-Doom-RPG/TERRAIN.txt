@@ -1,8 +1,49 @@
-splash 	watersplsh
+splash Watersplsh
 {
- //Baseclass WaterSplash
- sound		splashsnd
- NoAlert
+	smallclass		WaterSplashBase1
+	smallclip		12
+	smallsound		world/drip
+
+	baseclass		WaterSplashBase1
+	chunkclass		WaterSplash1
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			splashsnd
+	NoAlert
+}
+
+splash Nukesplsh
+{
+	smallclass		NukeSplashBase1
+	smallclip		12
+	smallsound		world/drip
+
+	baseclass		NukeSplashBase1
+	chunkclass		NukeSplash1
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			splashsnd
+	NoAlert
+}
+
+splash Bloodsplsh
+{
+	smallclass		BloodSplashBase1
+	smallclip		12
+	smallsound		world/drip
+
+	baseclass		BloodSplashBase1
+	chunkclass		BloodSplash1
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			splashsnd
+	NoAlert
 }
 
 terrain	water
@@ -20,14 +61,14 @@ terrain	Lava
 
 terrain	Blood
 {
- splash 	WaterSplsh
+ splash 	Bloodsplsh
  footclip	 6
  liquid
 }
 
 terrain	Nukage
 {
- splash 	WaterSplsh
+ splash 	Nukesplsh
  footclip	 6
  liquid
 }
