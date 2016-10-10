@@ -1,0 +1,119 @@
+Actor WSBloodfiend : WSDemon
+{
+  Health 250
+  PainChance 140
+  Speed 12
+  Radius 30
+  Height 56
+  Mass 450
+  Monster
+  +FloorClip
+  +LongMeleeRange
+  +DontHurtSpecies
+  Obituary "%o died from the toxic blood of a bloodfiend."
+  HitObituary "%o was eaten by a bloodfiend."
+  SeeSound "Monster/sg2sit"
+  AttackSound "Monster/sg2atk"
+  PainSound "demon/Pain"
+  DeathSound "demon/Death"
+  ActiveSound "demon/sg2act"
+  States
+  {
+  Spawn:
+    TNT1 A 0 A_SetUserVar("user_ATK",4)
+	TNT1 A 0 A_SetUserVar("user_VIT",5)
+	TNT1 A 1 ACS_NamedExecuteAlways("MonsterStatsint")
+  Spawn2:
+    SAR2 AB 10 A_Look
+    Loop
+  See:
+    SAR2 AABBCCDD 2 A_Chase
+    Loop
+  Melee:
+    SAR2 EF 8 A_FaceTarget
+    SAR2 G 8 A_CustomMeleeAttack(ACS_NamedExecuteWithResult("MonDAMAGESCR",4,0,0) * random(1,10))
+    Goto See
+  Missile:
+    SAR2 GF 8 A_FaceTarget
+    SAR2 E 0 A_PlaySound("Weapons/bloodf")
+    SAR2 E 0 A_CustomMissile("BloodshotWS",22,0,-1,0,0)
+    SAR2 E 8 A_CustomMissile("BloodshotWS",22,0,1,0,0)
+    Goto See
+  Pain:
+    SAR2 H 2
+    SAR2 H 2 A_Pain
+    Goto See
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,25)
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	SAR2 I 8
+    SAR2 J 8 A_Scream
+    SAR2 K 4
+    SAR2 L 4 A_NoBlocking
+    SAR2 M 4
+    SAR2 N -1
+    Stop
+  XDeath:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,25)
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	SAR2 O 5
+    SAR2 P 5 A_XScream
+    SAR2 Q 5 A_NoBlocking
+    SAR2 RSTUV 5
+    SAR2 W -1
+    Stop
+  Raise:
+    SAR2 NMLKJI 5
+    Goto See
+  }
+}
+
+Actor Bloodshotws
+{
+  Radius 3
+  Height 3
+  Speed 20
+  Damage (ACS_NamedExecuteWithResult("MonDAMAGEProjSCR",2,0,0,0) * random(1,8))
+  Projectile
+  RenderStyle Translucent
+  Alpha 0.80
+  +ThruGhost
+  DeathSound "weapons/bloodx"
+  States
+  {
+  Spawn:
+    FBLD A 2 Bright A_CStaffMissileSlither
+    FBLD A 0 A_SpawnItemEx("Bloodtrail",0,0,0,0,0,0,128)
+    FBLD B 2 Bright A_CStaffMissileSlither
+    FBLD B 0 A_SpawnItemEx("Bloodtrail",0,0,0,0,0,0,128)
+    Loop
+  Death:
+    FBLD CDE 3 Bright
+    Stop
+  }
+}
+
+Actor WSNightmareSpectre : WSDemon 11885
+{
+  Health 300
+  RenderStyle Subtract
+  BloodColor "Black"
+  Obituary "%o was devoured by a nightmare spectre."
+  States
+  {
+    Melee:
+    SARG EF 8 Fast A_FaceTarget
+    SARG G 8 Fast A_CustomMeleeAttack(ACS_NamedExecuteWithResult("MonDAMAGESCR",5,0,0) * random(1,8))
+    Goto See
+  Death:
+    TNT1 A 0 ACS_NamedExecuteAlways("levelupcheck",0,10)
+	TNT1 A 0 A_GiveToTarget("StatProgressATK",Random(1,5))
+	SARG I 8
+    SARG J 8 A_Scream
+    SARG K 4
+    SARG L 4 A_NoBlocking
+    SARG M 4
+    SARG N -1
+    Stop
+    }
+}

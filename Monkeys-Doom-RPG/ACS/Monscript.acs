@@ -3,7 +3,7 @@
 #import "Playerscr.acs"
 #define PLAYER_TID_START 1000
 #define MONSTER_TID 2000
-#define MonDAMAGE_COUNTPERCENT 0.006
+#define MonDAMAGE_COUNTPERCENT 0.008
 //int Impspawn[2] {"Doomimp","Darkimp"}
 
 Function int ThisLevel (void)

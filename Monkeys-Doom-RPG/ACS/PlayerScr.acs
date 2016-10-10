@@ -4,7 +4,7 @@
 
 #define atkbase 0.02
 #define AGIbase 0.15
-#define DAMAGE_COUNTPERCENT 0.006
+#define DAMAGE_COUNTPERCENT 0.008
 #define MaxLevel 60
 int LevelNext[MaxLevel];
 int Playerloaded;
@@ -33,9 +33,10 @@ script 90 ENTER
   Thing_ChangeTID(0,PLAYER_TID_START+PlayerNumber());
   if (CheckInventory("HasLoaded") < 1 && getcvar("MRPG_UseDB")==true)
 	{
+	 SetHudSize (640, 400, TRUE);
 	 ACS_NamedExecuteAlways("LoadCharScr",0);
 	 SetPlayerProperty(0, true, PROP_TOTALLYFROZEN);
-     Hudmessage(s:"Welcome! Press use to load character, Reload to create new.";HUDMSG_PLAIN,2,CR_Red, 1.5, 0.8,0,1);
+     Hudmessage(s:"Welcome! Press use to load character, Reload to create new.";HUDMSG_PLAIN,2,CR_Red, 340.0, 200.0,0,1);
 	 While(inmenu) 
 	  { 
 	  input = GetPlayerInput(-1, INPUT_BUTTONS);

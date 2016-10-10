@@ -37,7 +37,7 @@ ACTOR WSDoomMarine : DoomPlayer
 	PLAY A -1
     Loop
   See:
-    PLAY ABCDABC 4
+    PLAY ABCDABCDABCDABC 4
 	PLAY D 4 A_GiveInventory("StatProgressAGI",1) 
     Loop
   Missile:

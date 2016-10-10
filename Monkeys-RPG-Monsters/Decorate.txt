@@ -1,5 +1,6 @@
 #include "Actors/Zombies.txt"
 #include "Actors/Imps.txt"
+#include "Actors/Demons.txt"
 #include "Actors/Barons.txt"
 #include "Actors/CyberDemons.txt"
 #include "Actors/SpiderDemons.txt"

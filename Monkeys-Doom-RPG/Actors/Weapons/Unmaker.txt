@@ -73,7 +73,13 @@ ACTOR UnmakerWS : Weapon
             goto ready
   
         Zoom:
-	        TNT1 A 0 A_SpawnItemEx("UnmakerPickup",45,0,30,5)
+        DropLoop:
+	        TNT1 A 0 A_TakeInventory("UMmag", 1)
+            TNT1 A 0 A_GiveInventory("cell", 1)
+            TNT1 A 0 A_JumpIfInventory("UMmag", 1, "DropLoop")
+	        goto Dropdone
+        DropDone:
+			TNT1 A 0 A_SpawnItemEx("UnmakerPickup",45,0,30,5)
 	        TNT1 A 0 A_Takeinventory("Wepslot2",1)
 	        TNT1 A 1 A_Takeinventory("UnmakerWS",1)
 	        stop

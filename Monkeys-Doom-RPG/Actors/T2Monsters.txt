@@ -253,7 +253,7 @@ actor DarkImpBallWS : DoomImpBall // [RT] Inherits from DoomImpBall for convenie
 
 ACTOR WSBloodDemon : Demon
 {
-	Health 300
+	Health 200
 	Obituary "$OB_BLOODDEMON_MELEE"
     Var Int user_level;
     Var Int user_ATK;

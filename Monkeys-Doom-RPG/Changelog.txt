@@ -82,3 +82,7 @@ Changed how you increase agility.
 Added new spell, Haste.
 Added new spell, Baron Fire.
 Added option for "MRPG_SAVEWEAPONS".
+When dropping weapons ammo in their magazines is given back.
+Added tech pistol reload animation.
+Lowered chances of autoshotguns spawning.
+Added Shell casing effects.

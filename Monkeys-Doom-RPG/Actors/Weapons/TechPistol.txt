@@ -33,8 +33,9 @@ ACTOR TechPistolWS : Weapon
   Fire:
     TNT1 A 0 A_JumpIfNoAmmo("Reload")
     TNT1 A 0 
-	TNT1 A 0 A_FireBullets (3.4, 1.0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",10,0,0) * Random( 1, 2)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
-    TNT1 A 0 A_FireCustomMissile("Tracer",fRandom(3,-3),0,0,fRandom(3,-3))
+	TNT1 A 0 A_FireBullets (3.2, 1.0, 1, (ACS_NamedExecuteWithResult("DAMAGESCR",10,0,0) * Random( 1, 2)), "PistPuff", FBF_USEAMMO|FBF_NORANDOM)
+    TNT1 A 0 A_FireCustomMissile("Tracer",fRandom(2,-2),0,0,fRandom(2,-2))
+	TNT1 A 0 A_FireCustomMissile("WSPistCasingSpawner",5,0,8,-9)
 	TNT1 A 0 A_PlaySound("weapons/TPISF", CHAN_WEAPON)
     DPIF A 3 Offset(0,36) A_GunFlash
     DPIF B 1 Offset(0,40)
@@ -44,20 +45,14 @@ ACTOR TechPistolWS : Weapon
     Goto Ready
 
    Reload:
-    PKPI A 0 A_JumpIfInventory ("Techpistmag", 10, 1)
+    PKPI A 0 A_JumpIfInventory ("Techpistmag", 10, 2)
     PKPI A 0 A_JumpIfInventory("Clip", 1, "ReloadStep")
     PKPI A 0
     goto ready
    Reloadstep:
-    DPIG A 2 Offset(4,40)
-	DPIG A 2 Offset(8,48)
-	DPIG A 2 Offset(12,60)
-	DPIG A 2 Offset(16,70)
-	DPIG A 2 Offset(20,80)
-	DPIG A 2 Offset(20,90)
-	DPIG A 2 Offset(20,104)
 	DPIG A 1 A_playSound("weapons/pistolClipout", CHAN_WEAPON)
-	DPIG A 16
+    DPIR ABCD 2 
+	DPIR D 6 
    ReloadLoop:
     TNT1 A 0 A_TakeInventory("Clip", 1)
     TNT1 A 0 A_GiveInventory("techpistmag", 1)
@@ -65,18 +60,18 @@ ACTOR TechPistolWS : Weapon
     TNT1 A 0 A_JumpIfInventory("Clip", 1, "ReloadLoop")
     Goto ReloadDone
    ReloadDone:
-	DPIG A 1 A_playSound("weapons/pistolClipin")
-    DPIG A 6 Offset(20,104)
-	DPIG A 2 Offset(20,88)
-	DPIG A 2 Offset(20,78)
-	DPIG A 2 Offset(16,68)
-	DPIG A 2 Offset(12,58)
-	DPIG A 2 Offset(8,48)
-    DPIG A 2 Offset(4,40)
-    DPIG A 2 Offset(0,32)
+	DPIR E 4
+	DPIR F 2 A_playSound("weapons/pistolClipin")
+	DPIR GHIJ 2 
     goto ready
   
   Zoom:
+  DropLoop:
+	TNT1 A 0 A_TakeInventory("techpistmag", 1)
+    TNT1 A 0 A_GiveInventory("Clip", 1)
+    TNT1 A 0 A_JumpIfInventory("techpistmag", 1, "DropLoop")
+	goto Dropdone
+  DropDone:
 	TNT1 A 0 A_SpawnItemEx("TechPistolPickup",45,0,30,5)
 	TNT1 A 0 A_Takeinventory("Wepslot1",1)
 	TNT1 A 1 A_Takeinventory("TechPistolWS",1)

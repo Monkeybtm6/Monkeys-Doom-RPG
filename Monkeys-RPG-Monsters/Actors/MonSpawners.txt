@@ -72,7 +72,23 @@ States
 	  TNT1 A -1
 	  Stop
    MidLevelSpawn:
-      TNT1 A 0 A_SpawnItemEx("WSBloodDemon",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+      TNT1 A 0 A_SpawnItemEx("MLDemonRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+	  }
+}
+
+Actor WSSpectrepawner : DynSpawner Replaces Spectre
+{
++NOTDMATCH
+States
+  {
+   EarlyLevelSpawn:
+	  TNT1 A 0 A_SpawnItemEx("WSSpectre",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
+	  TNT1 A -1
+	  Stop
+   LowLevelSpawn:
+      TNT1 A 0 A_SpawnItemEx("LLSpectRandSpawn",0,0,0,0,0,0,0,SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288)
 	  TNT1 A -1
 	  Stop
 	  }
@@ -193,6 +209,19 @@ Actor LLDemonRandSpawn : Randomspawner
 {
   Dropitem "WSDemon"
   Dropitem "WSBloodDemon"
+}
+
+Actor MLDemonRandSpawn : Randomspawner
+{
+  Dropitem "WSDemon"
+  Dropitem "WSBloodDemon"
+  Dropitem "WSBloodFiend"
+}
+
+Actor LLSpectRandSpawn : Randomspawner
+{
+  Dropitem "WSSpectre"
+  Dropitem "WSNightmareSpectre"
 }
 
 Actor LLBaronRandSpawn : Randomspawner

@@ -73,6 +73,12 @@ Reload:
 	Goto LightDone
   
   Zoom:
+  DropLoop:
+	TNT1 A 0 A_TakeInventory("advPlasmag", 1)
+    TNT1 A 0 A_GiveInventory("cell", 1)
+    TNT1 A 0 A_JumpIfInventory("advplasmag", 1, "DropLoop")
+	goto Dropdone
+  DropDone:
 	TNT1 A 0 A_SpawnItemEx("AdvPlasmaRiflePickup",45,0,30,5)
 	TNT1 A 0 A_Takeinventory("Wepslot2",1)
 	TNT1 A 1 A_Takeinventory("AdvPlasmaRifleWS",1)
