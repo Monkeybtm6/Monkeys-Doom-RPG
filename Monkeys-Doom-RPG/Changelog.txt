@@ -86,3 +86,6 @@ When dropping weapons ammo in their magazines is given back.
 Added tech pistol reload animation.
 Lowered chances of autoshotguns spawning.
 Added Shell casing effects.
+
+0.32
+All Spells changed to Reusable Inventory items.

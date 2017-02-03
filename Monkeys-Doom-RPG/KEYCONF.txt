@@ -6,10 +6,10 @@ ADDPLAYERCLASS WSDoomMarine
 
 addkeysection "Monkey's RPG" MonkeysRPG
 
-addmenukey "Select Spell" RPG_Selectspell
-alias RPG_Selectspell "Pukename Selectedspell"
-Defaultbind F RPG_Selectspell
+//addmenukey "Select Spell" RPG_Selectspell
+//alias RPG_Selectspell "Pukename Selectedspell"
+//Defaultbind F RPG_Selectspell
 
-addmenukey "Cycle Spell" RPG_Cyclespell
-alias RPG_Cyclespell "pukename SpellSelector"
-Defaultbind G RPG_Cyclespell
+//addmenukey "Cycle Spell" RPG_Cyclespell
+//alias RPG_Cyclespell "pukename SpellSelector"
+//Defaultbind G RPG_Cyclespell

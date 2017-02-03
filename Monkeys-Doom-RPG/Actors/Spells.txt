@@ -1,4 +1,31 @@
-ACTOR SPBaseSpell : Weapon
+ACTOR SPBaseSpell : CustomInventory
+{
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon STIM_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    STIM A -1
+    Stop
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	fail
+  ConfirmUse:
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_GiveInventory("StatProgressINT")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	TNT1 A 10
+	fail
+  }
+}
+
+/*ACTOR SPBaseSpell : Weapon
 {
   tag "How?"
   +WEAPON.NOALERT
@@ -24,10 +51,10 @@ ACTOR SPBaseSpell : Weapon
     Loop
   Fire:
     SPNN ABCBA 3
-    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmUse")
     TNT1 A 0 A_Print("Needs 20 mana")
 	Goto Ready
-  ConfirmFire:
+  ConfirmUse:
     SPNN ABC 3
 	TNT1 A 0 A_GiveInventory("SPHealEffect")
 	TNT1 A 0 A_GiveInventory("StatProgressINT")
@@ -40,50 +67,32 @@ ACTOR SPBaseSpell : Weapon
     Loop
 	
   }
-}
+}*/
 
-ACTOR SPHeal : SPBaseSpell
+ACTOR SPHeal: SPBaseSpell
 {
-  tag "Heal"
-  +INVENTORY.UNDROPPABLE
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon SOUL_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
   States
   {
-  Ready:
-    HSPI AABCCBAA 3 A_WeaponReady
-    Loop
-  Deselect:
-    HSPI A 1 A_Lower
-    Loop
-  Select:
-    HSPF CBA 1 A_Raise
-    Loop
-  Fire:
-    HSPI ABCBA 3
-    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmFire")
-    TNT1 A 0 A_Print("Needs 20 mana")
-	Goto Ready
-  ConfirmFire:
-    TNT1 A 0 A_JumpIfInventory("Statint",8,"ConfirmFire2")
-	HSPF ABC 3
-	TNT1 A 0 A_GiveInventory("SPHealEffect")
-	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(10,20))
-	TNT1 A 0 A_TakeInventory("Mana",20)
-	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
-	HSPF CBA 3
-	Goto Ready
-  ConfirmFire2:
-	HSPF ABC 3
-	TNT1 A 0 A_GiveInventory("SPHealEffect2")
-	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(10,20))
-	TNT1 A 0 A_TakeInventory("Mana",20)
-	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
-	HSPF CBA 3
-	Goto Ready
-  
   Spawn:
     SOUL ABCDCB 6 Bright
     Loop
-	
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",20,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 20 mana")
+	fail
+  ConfirmUse:
+	TNT1 A 0 A_GiveInventory("SPHealEffect")
+	TNT1 A 0 A_GiveInventory("StatProgressINT")
+	TNT1 A 0 A_TakeInventory("Mana",20)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	TNT1 A 10
+	fail
   }
 }
 
@@ -109,7 +118,36 @@ ACTOR SPHealEffect2 : Health
   }
 }
 
-ACTOR SPClipSynth : SPBaseSpell
+ACTOR SPClipSynth : CustomInventory
+{
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon SPAS_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    SPAS D -1 Bright
+    Stop
+  Use:
+    SPAS ABCBA 3
+    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 10 mana")
+	fail
+  ConfirmUse:
+    SPAA ABC 3
+	TNT1 A 0 A_SpawnItemEx("NewClip",45,0,30,5)
+	TNT1 A 0 A_TakeInventory("Mana",10)
+	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(5,10))
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	SPAA CBA 3
+	fail
+  }
+}
+
+/*ACTOR SPClipSynth : SPBaseSpell
 {
   tag "Bullet Synth"
   States
@@ -125,10 +163,10 @@ ACTOR SPClipSynth : SPBaseSpell
     Loop
   Fire:
     SPAS ABCBA 3
-    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmFire")
+    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmUse")
     TNT1 A 0 A_Print("Needs 10 mana")
 	Goto Ready
-  ConfirmFire:
+  ConfirmUse:
     SPAA ABC 3
 	TNT1 A 0 A_SpawnItemEx("NewClip",45,0,30,5)
 	TNT1 A 0 A_TakeInventory("Mana",10)
@@ -141,49 +179,35 @@ ACTOR SPClipSynth : SPBaseSpell
     Stop
 	
   }
-}
+}*/
 
 ACTOR SPBlur : SPBaseSpell
 {
-  tag "Invisibility"
-  +WEAPON.NOALERT
-  +WEAPON.NO_AUTO_SWITCH
-  +WEAPON.CHEATNOTWEAPON
-  Weapon.SelectionOrder 9999
-  Weapon.BobSpeed 2.0
-  Weapon.BobRangeX 0.90
-  Weapon.BobRangeX 0.75
-  Weapon.BobStyle Smooth
-  Inventory.PickupSound "misc/p_pkup"
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon PINS_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
   States
   {
-  Ready:
-    SPIV AABCCBAA 3 A_WeaponReady
-    Loop
-  Deselect:
-    SPIV A 1 A_Lower
-    Loop
-  Select:
-    SPIV FED 1 A_Raise
-    Loop
-  Fire:
-    TNT1 A 0 A_JumpIfInventory("Mana",30,"ConfirmFire")
-    TNT1 A 0 A_Print("Needs 30 mana")
-	Goto Ready
-  ConfirmFire:
-    SPIV DEF 3
-	TNT1 A 0 A_GiveInventory("SPBlurEffect")
-	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(15,30))
-	TNT1 A 0 A_TakeInventory("Mana",30)
-	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
-	SPIV FED 3
-	Goto Ready
   Spawn:
     PINS ABCDCB 6 Bright
     Loop
-	
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",30,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 30 mana")
+	fail
+  ConfirmUse:
+	TNT1 A 0 A_GiveInventory("SPBlurEffect")
+	TNT1 A 0 A_GiveInventory("StatProgressINT")
+	TNT1 A 0 A_TakeInventory("Mana",30)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	TNT1 A 10
+	fail
   }
 }
+
 
 ACTOR SPBlurEffect : PowerupGiver
 {
@@ -199,6 +223,34 @@ ACTOR SPBlurEffect : PowerupGiver
 }
 
 ACTOR SPFireBall : SPBaseSpell
+{
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon FBPU_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    FBPU AB 6 Bright
+    Loop
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",5,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 5 mana")
+	fail
+  ConfirmUse:
+    TNT1 A 4
+	TNT1 A 0 A_TakeInventory("Mana",5)
+	TNT1 A 0 A_FireCustomMissile ("SPImpFireEffect",0,0,0,0,0)
+	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(2,5))
+	TNT1 A 0 A_Playsound("imp/attack", CHAN_WEAPON)
+	TNT1 A 10
+	fail
+  }
+}
+
+/*ACTOR SPFireBall : SPBaseSpell
 {
   tag "Imp Fire"
   +WEAPON.NOALERT
@@ -225,10 +277,10 @@ ACTOR SPFireBall : SPBaseSpell
     SPFB ABABAB 1 A_Raise
     Loop
   Fire:
-    TNT1 A 0 A_JumpIfInventory("Mana",5,"ConfirmFire")
+    TNT1 A 0 A_JumpIfInventory("Mana",5,"ConfirmUse")
     TNT1 A 0 A_Print("Needs 5 mana")
 	Goto Ready
-  ConfirmFire:
+  ConfirmUse:
     HTSE AB 4
 	TNT1 A 0 A_FireCustomMissile ("SPImpFireEffect",0,1,0,0,0)
 	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(2,5))
@@ -240,7 +292,7 @@ ACTOR SPFireBall : SPBaseSpell
     Loop
 	
   }
-}
+}*/
 
 ACTOR SPImpFireEffect
 {
@@ -265,7 +317,35 @@ ACTOR SPImpFireEffect
   }
 }
 
-ACTOR SPHaste : SPBaseSpell
+ACTOR SPHaste : CustomInventory
+{
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon SPHS_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    SPHS DEF 6 Bright
+    Loop
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",30,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 30 mana")
+	fail
+  ConfirmUse:
+    SPHS ABC 3
+	TNT1 A 0 A_GiveInventory("SPHasteEffect")
+	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(15,30))
+	TNT1 A 0 A_TakeInventory("Mana",30)
+	TNT1 A 0 A_Playsound("misc/p_pkup", CHAN_WEAPON)
+	SPHS CBA 3
+	fail
+  }
+}
+
+/*ACTOR SPHaste : SPBaseSpell
 {
   tag "Haste"
   +WEAPON.NOALERT
@@ -289,10 +369,10 @@ ACTOR SPHaste : SPBaseSpell
     SPHS CBA 1 A_Raise
     Loop
   Fire:
-    TNT1 A 0 A_JumpIfInventory("Mana",30,"ConfirmFire")
+    TNT1 A 0 A_JumpIfInventory("Mana",30,"ConfirmUse")
     TNT1 A 0 A_Print("Needs 30 mana")
 	Goto Ready
-  ConfirmFire:
+  ConfirmUse:
     SPHS ABC 3
 	TNT1 A 0 A_GiveInventory("SPHasteEffect")
 	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(15,30))
@@ -305,7 +385,7 @@ ACTOR SPHaste : SPBaseSpell
     Loop
 	
   }
-}
+}*/
 
 ACTOR SPHasteEffect : PowerupGiver
 {
@@ -319,6 +399,33 @@ ACTOR SPHasteEffect : PowerupGiver
 }
 
 ACTOR SPFireBall2 : SPBaseSpell
+{
+  +INVENTORY.KEEPDEPLETED
+  +INVENTORY.INVBAR
+  inventory.maxamount 2
+  Inventory.InterHubAmount 2
+  inventory.icon SPF2_I
+  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  States
+  {
+  Spawn:
+    SPF2 CD 6 Bright
+    Loop
+  Use:
+    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmUse")
+    TNT1 A 0 A_Print("Needs 10 mana")
+	fail
+  ConfirmUse:
+    HTSE AB 6
+	TNT1 A 0 A_FireCustomMissile ("SPBaronFireEffect",0,0,0,0,0)
+	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(4,10))
+	TNT1 A 0 A_Playsound("imp/attack", CHAN_WEAPON)
+	HTSE CD 6
+	fail
+  }
+}
+
+/*ACTOR SPFireBall2 : SPBaseSpell
 {
   tag "Baron Fire"
   +WEAPON.NOALERT
@@ -345,10 +452,10 @@ ACTOR SPFireBall2 : SPBaseSpell
     SPF2 ABABAB 1 A_Raise
     Loop
   Fire:
-    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmFire")
+    TNT1 A 0 A_JumpIfInventory("Mana",10,"ConfirmUse")
     TNT1 A 0 A_Print("Needs 10 mana")
 	Goto Ready
-  ConfirmFire:
+  ConfirmUse:
     HTSE AB 6
 	TNT1 A 0 A_FireCustomMissile ("SPBaronFireEffect",0,1,0,0,0)
 	TNT1 A 0 A_GiveInventory("StatProgressINT",Random(4,10))
@@ -360,7 +467,7 @@ ACTOR SPFireBall2 : SPBaseSpell
     Loop
 	
   }
-}
+}*/
 
 ACTOR SPBaronFireEffect
 {

@@ -2,4 +2,4 @@
 PlayerScr
 database
 Monscript
-magic
+//magic Depreciated

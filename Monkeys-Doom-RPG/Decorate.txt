@@ -17,8 +17,8 @@
 #include "Actors/Weapons/TechPistol.txt"
 #include "Actors/Weapons/Crossbow.txt"
 #include "Actors/Weapons/Unmaker.txt"
-#include "Actors/Weapons/Spells.txt"
 
+#include "Actors/Spells.txt"
 #include "Actors/Effects.txt"
 #include "Actors/T1Monsters.txt"
 #include "Actors/T2Monsters.txt"
