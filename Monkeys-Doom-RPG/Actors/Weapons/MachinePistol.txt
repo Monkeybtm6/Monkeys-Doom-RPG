@@ -38,9 +38,10 @@ ACTOR MachinePistolWS : Weapon
     MPIS A 0 A_PlaySound("weapons/PSfire", CHAN_WEAPON)
     TNT1 A 0 A_FireCustomMissile("Tracer",fRandom(4,-4),0,0,fRandom(4,-4))
 	TNT1 A 0 A_FireCustomMissile("WSPistCasingSpawner",5,0,8,-9)
-	MPIS A 1 A_GunFlash
-    MPIS CD 1
-    MPIS A 0 A_ReFire
+	MPIS A 1 BRIGHT Offset( 0, 36) A_GunFlash
+    MPIS C 1 Offset( 0, 34)
+    MPIS D 1 Offset( 0, 33)
+	MPIS A 0 A_ReFire
 	MPIS EA 1
     Goto Ready
 

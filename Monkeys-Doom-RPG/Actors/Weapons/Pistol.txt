@@ -79,7 +79,7 @@ ACTOR PistolWS : Weapon
   
   Flash:
     TNT1 A 0 A_SetPitch(-0.4 + pitch)
-	PISF A 2 Bright A_Light1
+	PISF AB 1 Bright A_Light1
 	TNT1 A 0 A_SetPitch(+0.4 + pitch)
     Goto LightDone
 

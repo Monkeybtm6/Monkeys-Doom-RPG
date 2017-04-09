@@ -89,3 +89,5 @@ Added Shell casing effects.
 
 0.32
 All Spells changed to Reusable Inventory items.
+Added more weapon recoil effects.
+Backpacks no longer call the state updater script.

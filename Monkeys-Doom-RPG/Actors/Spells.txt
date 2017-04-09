@@ -5,7 +5,7 @@ ACTOR SPBaseSpell : CustomInventory
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon STIM_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "How?" 
   States
   {
   Spawn:
@@ -76,7 +76,7 @@ ACTOR SPHeal: SPBaseSpell
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon SOUL_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up Healing Artifact" 
   States
   {
   Spawn:
@@ -125,7 +125,7 @@ ACTOR SPClipSynth : CustomInventory
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon SPAS_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up minor Ammo Synth" 
   States
   {
   Spawn:
@@ -188,7 +188,7 @@ ACTOR SPBlur : SPBaseSpell
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon PINS_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up Blurry Artifact" 
   States
   {
   Spawn:
@@ -229,7 +229,7 @@ ACTOR SPFireBall : SPBaseSpell
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon FBPU_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up Imp Fire" 
   States
   {
   Spawn:
@@ -324,7 +324,7 @@ ACTOR SPHaste : CustomInventory
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon SPHS_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up Haste Artifact" 
   States
   {
   Spawn:
@@ -405,7 +405,7 @@ ACTOR SPFireBall2 : SPBaseSpell
   inventory.maxamount 2
   Inventory.InterHubAmount 2
   inventory.icon SPF2_I
-  Inventory.PickupMessage "How?" // "Picked up a stimpack."
+  Inventory.PickupMessage "Picked up Barons Fire" 
   States
   {
   Spawn:

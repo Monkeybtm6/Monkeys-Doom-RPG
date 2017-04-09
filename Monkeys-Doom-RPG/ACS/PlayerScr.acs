@@ -140,8 +140,7 @@ Script "UpdateStats" (void)
   Player_Max_Health_Out = (((PLAYER_MAX_HEALTH_in * 0.6) >> 16) + StartHealth),
   MyInt = CheckInventory("StatINT") * CheckInventory("PlayerLevel"),
   ManaStart = CheckInventory("StatINT") * 10,
-  ManaAdd = (MyInt * 1),
-  mySTR = CheckInventory("StatSTR");
+  ManaAdd = (MyInt * 1);
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_SPAWNHEALTH, Player_Max_Health_Out);
   if (getactorproperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH) <= Player_Max_Health_Out)
@@ -149,28 +148,33 @@ Script "UpdateStats" (void)
 	 SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_HEALTH, Player_Max_Health_out);
      }
 	
-  if( CheckInventory("Backpack") == 1)
-    {
-       SetAmmoCapacity("Clip", 150 * mySTR);
-       SetAmmoCapacity("RifleAmmo", 100 * mySTR);
-	   SetAmmoCapacity("Shell", 25 * mySTR);
-       SetAmmoCapacity("RocketAmmo", 25 * mySTR);
-       SetAmmoCapacity("Cell", 150 * mySTR);
-    }
-  else
-    {
-       SetAmmoCapacity("Clip", 75 * mySTR);
-       SetAmmoCapacity("RifleAmmo", 50 * mySTR);
-	   SetAmmoCapacity("Shell", 12 * mySTR);
-       SetAmmoCapacity("RocketAmmo", 12 * mySTR);
-       SetAmmoCapacity("Cell", 75 * mySTR);
-	}
+ACS_NamedExecuteAlways("SetAmmoCap",0);
   
   SetActorProperty(PLAYER_TID_START+PlayerNumber(), APROP_Speed, (AGIBase * CheckInventory("StatAGI")) );
   SetAmmoCapacity("Mana", ManaStart + ManaAdd);
   
   Log(s:"Stats Refreshed for Player ",f:PlayerNumber());
 
+}
+
+Script "SetAmmoCap" (void)
+{
+  if( CheckInventory("Backpack") == 1)
+    {
+       SetAmmoCapacity("Clip", 150 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("RifleAmmo", 100 * CheckInventory("StatSTR"));
+	   SetAmmoCapacity("Shell", 25 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("RocketAmmo", 25 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("Cell", 150 * CheckInventory("StatSTR"));
+    }
+  else
+    {
+       SetAmmoCapacity("Clip", 75 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("RifleAmmo", 50 * CheckInventory("StatSTR"));
+	   SetAmmoCapacity("Shell", 12 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("RocketAmmo", 12 * CheckInventory("StatSTR"));
+       SetAmmoCapacity("Cell", 75 * CheckInventory("StatSTR"));
+	}
 }
 
 Script "ManaRegen" (void)
